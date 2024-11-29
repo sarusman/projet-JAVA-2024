@@ -15,27 +15,27 @@ public class main {
             System.out.println("3. Supprimer un programmeur\n");
             System.out.println("4. Ajouter un programmeur\n");
             System.out.println("5. Modifier le salaire\n");
-            System.out.println("Quitter le programme\n");
+            System.out.println("6. Quitter le programme\n");
             System.out.println("Quel est votre choix ? :\n");
             Scanner sc = new Scanner(System.in);
             String choix = sc.nextLine();
+            //vérification de la saisie
 
             switch(choix){
                 case "1":
                     //affiche tous les programmeurs
-                    System.out.println("Voici tous les programmeurs : \n");
+                    afficherProgrammeur();
                     break;
                 case "2":
                     // affiche programmeur
-                    System.out.println("Entrez l'id du programmeur que vous voulez afficher : \n");
                     String idProgrammeur = sc.nextLine();
-                    System.out.println("Voici le programmeur n° :" + idProgrammeur + "\n");
+                    afficherProgrammeur(idProgrammeur);
                     break;
                 case "3":
                     // supprime programmeur
                     System.out.println("Entrez l'id du programmeur que vous voulez supprimer : \n");
                     String idSupp = sc.nextLine();
-                    System.out.println("Le programmeur n° :" + idSupp + " a bien été supprimé.\n");
+                    supprimerProgrammeur(idSupp);
                     break;
                 case "4":
                     // ajoute programmeur
@@ -43,13 +43,31 @@ public class main {
                     break;
                 case "5":
                     // modifier le salaire
+                    System.out.println("Entrez l'id du programmeur :");
+                    modifierSalaire();
                     break;
-                case "0":
+                case "6":
                     //quitter programme
                     afficher = false;
+                    System.out.println("Bonne journée !");
                     break;
             }
         }
+    }
+
+    public static void afficherProgrammeur(){
+        // vérification id existante
+        System.out.println("Voici tous les programmeurs : \n");
+    }
+
+    public static void afficherProgrammeur(String id){
+        // vérification id existante
+        System.out.println("Entrez l'id du programmeur que vous voulez afficher : \n");
+        System.out.println("Voici le programmeur n° :" + id + "\n");
+    }
+
+    public static void supprimerProgrammeur(String id){
+        System.out.println("Le programmeur n° :" + id + " a bien été supprimé.\n");
     }
 
     public static void ajouterProgrammeur(){
@@ -75,5 +93,16 @@ public class main {
         System.out.println("\nNom du programmeur : ");
 
         System.out.println(" \n" + nom + " " + prenom + " a bien été ajouté !");
+    }
+
+    public static void modifierSalaire(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nNouveau salaire de ce programmeur : ");
+        System.out.println("\nModifications réussie ! ");
+    }
+
+    public static boolean programmeurExite(String id){
+        //Vérifie si l'id existe oou pas dans la bdd
+        return true;
     }
 }
