@@ -15,7 +15,7 @@ public class main {
             System.out.println("3. Supprimer un programmeur\n");
             System.out.println("4. Ajouter un programmeur\n");
             System.out.println("5. Modifier le salaire\n");
-            System.out.println("6. Quitter le programme\n");
+            System.out.println("Quitter le programme\n");
             System.out.println("Quel est votre choix ? :\n");
             Scanner sc = new Scanner(System.in);
             String choix = sc.nextLine();
@@ -44,12 +44,10 @@ public class main {
                 case "5":
                     // modifier le salaire
                     System.out.println("Entrez l'id du programmeur :");
-                    modifierSalaire();
                     break;
-                case "6":
+                case "0":
                     //quitter programme
                     afficher = false;
-                    System.out.println("Bonne journée !");
                     break;
             }
         }
@@ -63,6 +61,7 @@ public class main {
     public static void afficherProgrammeur(String id){
         // vérification id existante
         System.out.println("Entrez l'id du programmeur que vous voulez afficher : \n");
+
         System.out.println("Voici le programmeur n° :" + id + "\n");
     }
 
@@ -93,16 +92,5 @@ public class main {
         System.out.println("\nNom du programmeur : ");
 
         System.out.println(" \n" + nom + " " + prenom + " a bien été ajouté !");
-    }
-
-    public static void modifierSalaire(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("\nNouveau salaire de ce programmeur : ");
-        System.out.println("\nModifications réussie ! ");
-    }
-
-    public static boolean programmeurExite(String id){
-        //Vérifie si l'id existe oou pas dans la bdd
-        return true;
     }
 }
