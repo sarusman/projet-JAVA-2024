@@ -54,26 +54,26 @@ public class main {
 
     public static void ajouterProgrammeur(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nom du programmeur : \n");
+        System.out.println("\nNom du programmeur : ");
         String nom = sc.nextLine();
-        System.out.println("Prénom du programmeur : \n");
+        System.out.println("\nPrénom du programmeur : ");
         String prenom = sc.nextLine();
-        System.out.println("Adresse du programmeur : \n");
+        System.out.println("\nAdresse du programmeur : ");
         String adresse = sc.nextLine();
-        System.out.println("Pseudo du programmeur : \n");
+        System.out.println("\nPseudo du programmeur : ");
         String pseudo = sc.nextLine();
-        System.out.println("Responsable du programmeur : \n");
+        System.out.println("\nResponsable du programmeur : ");
         String responsable = sc.nextLine();
-        System.out.println("Hobby du programmeur : \n");
+        System.out.println("\nHobby du programmeur : ");
         String hobby = sc.nextLine();
-        System.out.println("Année de naissance du programmeur : \n");
+        System.out.println("\nAnnée de naissance du programmeur : ");
         String annee = sc.nextLine();
-        System.out.println("Salaire du programmeur : \n");
+        System.out.println("\nSalaire du programmeur : ");
         String salaire = sc.nextLine();
-        System.out.println("Prime du programmeur : \n");
+        System.out.println("\nPrime du programmeur : ");
         String prime = sc.nextLine();
-        System.out.println("Nom du programmeur : \n");
+        System.out.println("\nNom du programmeur : ");
 
-        System.out.println(nom + " " + prenom + " a bien été ajouté !\n");
+        System.out.println(" \n" + nom + " " + prenom + " a bien été ajouté !");
     }
 }
