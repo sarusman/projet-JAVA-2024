@@ -1,4 +1,10 @@
+/**
+ * La classe Programmeur représente un programmeur avec ses informations personnelles et professionnelles.
+ */
+
 public class Programmeur {
+
+    /** ATTRIBUTS */
     private int id;
     private String nom;
     private String prenom;
@@ -10,6 +16,21 @@ public class Programmeur {
     private double salaire;
     private double prime;
 
+    /** CONSTRUCTEURS */
+    /**
+     * Constructeur de la classe Programmeur avec tous les attributs y compris l'identifiant.
+     *
+     * @param id            identifiant unique du programmeur
+     * @param nom           nom du programmeur
+     * @param prenom        prénom du programmeur
+     * @param adresse       adresse du programmeur
+     * @param pseudo        pseudonyme du programmeur
+     * @param responsable   responsable hiérarchique du programmeur
+     * @param hobby         hobby ou loisir préféré du programmeur
+     * @param anneeNaissance année de naissance du programmeur
+     * @param salaire       salaire annuel du programmeur
+     * @param prime         prime annuelle du programmeur
+     */
     public Programmeur(int id, String nom, String prenom, String adresse, String pseudo, String responsable, String hobby, int anneeNaissance, double salaire, double prime) {
         this.id = id;
         this.nom = nom;
@@ -23,6 +44,19 @@ public class Programmeur {
         this.prime = prime;
     }
 
+    /**
+     * Constructeur de la classe Programmeur sans identifiant
+     *
+     * @param nom           nom du programmeur
+     * @param prenom        prénom du programmeur
+     * @param adresse       adresse du programmeur
+     * @param pseudo        pseudonyme du programmeur
+     * @param responsable   responsable hiérarchique du programmeur
+     * @param hobby         hobby ou loisir préféré du programmeur
+     * @param anneeNaissance année de naissance du programmeur
+     * @param salaire       salaire annuel du programmeur
+     * @param prime         prime annuelle du programmeur
+     */
     public Programmeur( String nom, String prenom, String adresse, String pseudo, String responsable, String hobby, int anneeNaissance, double salaire, double prime) {
         this.nom = nom;
         this.prenom = prenom;
@@ -35,10 +69,20 @@ public class Programmeur {
         this.prime = prime;
     }
 
+    /** GETTERS & SETTERS */
+
+    /**
+     * Retourne l'identifiant unique du programmeur.
+     * @return l'identifiant du programmeur
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Modifie l'identifiant du programmeur.
+     * @param id le nouvel identifiant du programmeur
+     */
     public void setId(int id) {
         this.id = id;
     }
@@ -115,6 +159,11 @@ public class Programmeur {
         this.prime = prime;
     }
 
+
+    /**
+     * Méthode retournant une représentation plus lisible de l'objet Programmeur.
+     * @return une chaîne de caractères contenant les informations du programmeur
+     */
     @Override
     public String toString() {
         return

@@ -3,7 +3,7 @@ import java.sql.*;
 public class ActionsBDDImpl implements ActionBDD {
 
     private static final String URL = "jdbc:postgresql://aws-0-eu-west-3.pooler.supabase.com:6543/postgres?user=postgres.fcckpwkbrkquitlmuxon&password=Prysasha2024!";
-
+    private static ActionsBDDImpl actionsBD = new ActionsBDDImpl();
 
     public Connection ouvrirConnexion() throws SQLException {
         return DriverManager.getConnection(URL);
@@ -11,7 +11,7 @@ public class ActionsBDDImpl implements ActionBDD {
 
     @Override
     public void afficherProgrammeurs() {
-        ActionsBDDImpl actionsBD = new ActionsBDDImpl();
+
         String query = "SELECT * FROM Programmeurs";
 
         try (Connection co = actionsBD.ouvrirConnexion();
@@ -33,11 +33,18 @@ public class ActionsBDDImpl implements ActionBDD {
                 float salaire = rs.getFloat("salaire");
                 float prime = rs.getFloat("prime");
 
-                System.out.printf("ID: %d | Nom: %s | Prénom: %s | Adresse: %s | Pseudo: %s | Responsable: %s | Hobby: %s | Année: %d | Salaire: %.2f | Prime: %.2f%n",
-                        id, nom, prenom, adresse, pseudo, responsable, hobby, annee, salaire, prime);
+                System.out.printf("Id           : %d%n", id);
+                System.out.printf("Nom          : %s%n", nom);
+                System.out.printf("Prénom       : %s%n", prenom);
+                System.out.printf("Adresse      : %s%n", adresse);
+                System.out.printf("Pseudo       : %s%n", pseudo);
+                System.out.printf("Responsable  : %s%n", responsable);
+                System.out.printf("Hobby        : %s%n", hobby);
+                System.out.printf("Naissance    : %d%n", annee);
+                System.out.printf("Salaire      : %.1f%n", salaire);
+                System.out.printf("Prime        : %.1f%n", prime);
+                System.out.println("-------------------------------------------------");
             }
-
-            System.out.println("-------------------------------------------------");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -63,5 +70,35 @@ public class ActionsBDDImpl implements ActionBDD {
     @Override
     public void modifierSalaire(int id, float salaire) {
         //TODO
+    }
+
+    //remplacer par ajouterProgrammeur
+    public static void insertionProgrammeur(String nom, String prenom, String adresse, String pseudo, String responsable, String hobby, int annee, float salaire, float prime){
+        String query = "INSERT INTO Programmeurs (nom, prenom, adresse, pseudo, responsable, hobby, annee, salaire, prime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection co = actionsBD.ouvrirConnexion()) {
+            System.out.println(co + " connecté.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try (Connection co = actionsBD.ouvrirConnexion();
+             PreparedStatement stmt = co.prepareStatement(query)) {
+
+            stmt.setString(1, nom);
+            stmt.setString(2, prenom);
+            stmt.setString(3, adresse);
+            stmt.setString(4, pseudo);
+            stmt.setString(5, responsable);
+            stmt.setString(6, hobby);
+            stmt.setInt(7, annee);
+            stmt.setFloat(8, salaire);
+            stmt.setFloat(9, prime);
+
+            int rows = stmt.executeUpdate();
+            System.out.println(rows + " programmeur(s) inséré(s)");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
