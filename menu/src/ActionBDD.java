@@ -1,7 +1,9 @@
+import java.sql.SQLException;
+
 public interface ActionBDD {
-    public void afficherProgrammeurs();
-    public boolean afficherProgrammeur(int id);
-    public void supprimerProgrammeur();
-    public void ajouterProgrammeur(Programmeur programmeur);
-    public void modifierSalaire(int id, float salaire);
+    void afficherProgrammeurs() throws SQLException;
+    boolean afficherProgrammeur(int id);
+    boolean supprimerProgrammeur(int id);
+    void ajouterProgrammeur(Programmeur programmeur);
+    boolean modifierSalaire(int id, float salaire);
 }

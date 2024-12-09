@@ -43,7 +43,7 @@ public class Menu {
                     afficher = false;
                     break;
                 default:
-                    System.out.println("Veuillez choisir un chiffre entre 1 et 6.");
+                    System.out.println("ERREUR ! Veuillez saisir un chiffre entre 1 et 6.");
                     break;
             }
         }
@@ -58,7 +58,7 @@ public class Menu {
 
     //afficher un programmeur avec son id
     public static void afficherProgrammeur(Scanner sc) {
-        System.out.println("Id du programmeur à afficher : ");
+        System.out.println("Id du programmeur à afficher :");
         int id = 0;
         try {
             id = parseInt(sc.nextLine());
@@ -80,11 +80,25 @@ public class Menu {
 
     //supprimer un programmeur
     public static void supprimerProgrammeur(Scanner sc) {
-        System.out.print("\nEntrez l'ID du programmeur que vous voulez supprimer : ");
-        String id = sc.nextLine();
-        System.out.println("Le programmeur n° " + id + " a été supprimé.");
-        //requête bdd
-        actionsBDD.supprimerProgrammeur();
+        System.out.println("Id du programmeur à supprimer : ");
+        int id = 0;
+        try {
+            id = parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
+        }
+        boolean programmeurTrouver = actionsBDD.supprimerProgrammeur(id);
+        //requête depuis la bdd
+        while (!programmeurTrouver){
+            System.out.print("Recherche KO. Saisissez à nouveau l'id : ");
+            try {
+                id = parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
+            }
+            programmeurTrouver = actionsBDD.supprimerProgrammeur(id);
+        }
+        System.out.println("SUPPRESSION REUSSIE !");
     }
 
     //ajouter un programmeur
@@ -102,16 +116,36 @@ public class Menu {
         String responsable = sc.nextLine();
         System.out.print("Hobby : ");
         String hobby = sc.nextLine();
-        System.out.print("Année de naissance : ");
-        String annee = sc.nextLine();
-        System.out.print("Salaire : ");
-        String salaire = sc.nextLine();
-        System.out.print("Prime : ");
-        String prime = sc.nextLine();
+        int annee = -1;
+        while (annee < 0){
+            try {
+                System.out.print("Année de naissance : ");
+                annee = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : L'année de naissance doit être un nombre entier positif\u001B[0m");
+            }
+        }
 
-        Programmeur programmeur = new Programmeur(nom, prenom, adresse, pseudo, responsable, hobby, parseInt(annee), parseFloat(salaire), parseFloat(prime));
+        double salaire = -1;
+        while (salaire < 0 ){
+            try {
+                System.out.print("Salaire : ");
+                salaire = Double.parseDouble(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : Le salaire doit être un nombre à virgule positif\u001B[0m");
+            }
+        }
+        double prime = -1;
+        while (prime < 0 ){
+            try {
+                System.out.print("Prime : ");
+                prime = Double.parseDouble(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : La prime doit être un nombre positif\u001B[0m");
+            }
+        }
 
-        System.out.println("\nLe programmeur " + nom + " " + prenom + " a bien été ajouté !");
+        Programmeur programmeur = new Programmeur(nom, prenom, adresse, pseudo, responsable, hobby, annee, salaire, prime);
         //requête bdd
         actionsBDD.ajouterProgrammeur(programmeur);
     }
