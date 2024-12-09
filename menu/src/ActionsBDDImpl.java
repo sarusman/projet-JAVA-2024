@@ -14,9 +14,7 @@ public class ActionsBDDImpl implements ActionBDD {
 
         String query = "SELECT * FROM Programmeurs";
 
-        try (Connection co = actionsBD.ouvrirConnexion();
-             Statement stmt = co.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
+        try (Connection co = actionsBD.ouvrirConnexion(); Statement stmt = co.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
 
             System.out.println("\nListe des programmeurs :");
             System.out.println("-------------------------------------------------");
@@ -53,8 +51,37 @@ public class ActionsBDDImpl implements ActionBDD {
     }
 
     @Override
-    public void afficherProgrammeur(int id) {
-
+    public boolean afficherProgrammeur(int id) {
+        String query = "SELECT * FROM Programmeurs WHERE id = " + id;
+        try (Connection co = actionsBD.ouvrirConnexion(); Statement stmt = co.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+            if (rs.next()) {
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String adresse = rs.getString("adresse");
+                String pseudo = rs.getString("pseudo");
+                String responsable = rs.getString("responsable");
+                String hobby = rs.getString("hobby");
+                int annee = rs.getInt("annee");
+                float salaire = rs.getFloat("salaire");
+                float prime = rs.getFloat("prime");
+                System.out.printf("Id           : %d%n", id);
+                System.out.printf("Nom          : %s%n", nom);
+                System.out.printf("Prénom       : %s%n", prenom);
+                System.out.printf("Adresse      : %s%n", adresse);
+                System.out.printf("Pseudo       : %s%n", pseudo);
+                System.out.printf("Responsable  : %s%n", responsable);
+                System.out.printf("Hobby        : %s%n", hobby);
+                System.out.printf("Naissance    : %d%n", annee);
+                System.out.printf("Salaire      : %.1f%n", salaire);
+                System.out.printf("Prime        : %.1f%n", prime);
+                System.out.println("-------------------------------------------------");
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de la récupération des programmeurs.");
+        }
+        return false;
     }
 
     @Override

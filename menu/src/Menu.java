@@ -58,11 +58,24 @@ public class Menu {
 
     //afficher un programmeur avec son id
     public static void afficherProgrammeur(Scanner sc) {
-        System.out.print("\nEntrez l'ID du programmeur que vous voulez afficher : ");
-        String id = sc.nextLine();
-        System.out.println("Voici les informations pour le programmeur n° " + id);
+        System.out.println("Id du programmeur à afficher : ");
+        int id = 0;
+        try {
+            id = parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
+        }
+        boolean programmeurTrouver = actionsBDD.afficherProgrammeur(id);
         //requête depuis la bdd
-        actionsBDD.afficherProgrammeur(parseInt(id));
+        while (!programmeurTrouver){
+            System.out.print("Recherche KO. Saisissez à nouveau l'id : ");
+            try {
+                id = parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
+            }
+            programmeurTrouver = actionsBDD.afficherProgrammeur(id);
+        }
     }
 
     //supprimer un programmeur
