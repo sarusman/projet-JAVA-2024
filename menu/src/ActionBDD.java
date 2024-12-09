@@ -5,5 +5,5 @@ public interface ActionBDD {
     boolean afficherProgrammeur(int id);
     boolean supprimerProgrammeur(int id);
     void ajouterProgrammeur(Programmeur programmeur);
-    boolean modifierSalaire(int id, float salaire);
+    void modifierSalaire(int id, double salaire);
 }

@@ -24,19 +24,35 @@ public class Menu {
 
             switch (choix) {
                 case "1":
-                    afficherProgrammeurs();
+                    if(actionsBDD.getProgrammeurs()){
+                        afficherProgrammeurs();
+                    }else{
+                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
+                    }
                     break;
                 case "2":
-                    afficherProgrammeur(sc);
+                    if(actionsBDD.getProgrammeurs()){
+                        afficherProgrammeur(sc);
+                    }else{
+                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
+                    }
                     break;
                 case "3":
-                    supprimerProgrammeur(sc);
+                    if(actionsBDD.getProgrammeurs()){
+                        supprimerProgrammeur(sc);
+                    }else{
+                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
+                    }
                     break;
                 case "4":
                     ajouterProgrammeur(sc);
                     break;
                 case "5":
-                    modifierSalaire(sc);
+                    if(actionsBDD.getProgrammeurs()){
+                        modifierSalaire(sc);
+                    }else{
+                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
+                    }
                     break;
                 case "6":
                     System.out.println("Bonne journée !");
@@ -98,7 +114,6 @@ public class Menu {
             }
             programmeurTrouver = actionsBDD.supprimerProgrammeur(id);
         }
-        System.out.println("SUPPRESSION REUSSIE !");
     }
 
     //ajouter un programmeur
@@ -125,7 +140,6 @@ public class Menu {
                 System.out.println("\u001B[31mErreur : L'année de naissance doit être un nombre entier positif\u001B[0m");
             }
         }
-
         double salaire = -1;
         while (salaire < 0 ){
             try {
@@ -144,7 +158,6 @@ public class Menu {
                 System.out.println("\u001B[31mErreur : La prime doit être un nombre positif\u001B[0m");
             }
         }
-
         Programmeur programmeur = new Programmeur(nom, prenom, adresse, pseudo, responsable, hobby, annee, salaire, prime);
         //requête bdd
         actionsBDD.ajouterProgrammeur(programmeur);
@@ -152,12 +165,35 @@ public class Menu {
 
     //modifier le salaire d'un programmeur
     public static void modifierSalaire(Scanner sc) {
-        System.out.print("\nEntrez l'ID du programmeur pour modifier le salaire : ");
-        String id = sc.nextLine();
-        System.out.print("Entrez le nouveau salaire : ");
-        String salaire = sc.nextLine();
-        System.out.println("Le salaire du programmeur n° " + id + " a été modifié à " + salaire + " €.");
-        //requête bdd
-        actionsBDD.modifierSalaire(parseInt(id), parseFloat(salaire));
+        System.out.println("Id du programmeur : ");
+        int id = 0;
+        try {
+            id = parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
+        }
+        // verification de l'existence du programmeur
+        boolean programmeurTrouver = actionsBDD.getProgrammeur(id);
+        //requête depuis la bdd
+        while (!programmeurTrouver){
+            System.out.print("Recherche KO. Saisissez à nouveau l'id : ");
+            try {
+                id = parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
+            }
+            programmeurTrouver = actionsBDD.getProgrammeur(id);
+        }
+        //update programmeur
+        double salaire = -1;
+        while (salaire < 0 ){
+            try {
+                System.out.println("Nouveau salaire de ce programmeur : ");
+                salaire = Double.parseDouble(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : Le salaire doit être un nombre entier ou à virgule positif\u001B[0m");
+            }
+        }
+        actionsBDD.modifierSalaire(id, salaire);
     }
 }

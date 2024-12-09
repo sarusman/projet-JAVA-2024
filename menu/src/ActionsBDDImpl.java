@@ -1,3 +1,4 @@
+import javax.management.Query;
 import java.sql.*;
 
 public class ActionsBDDImpl implements ActionBDD {
@@ -64,7 +65,11 @@ public class ActionsBDDImpl implements ActionBDD {
         String query = "DELETE FROM Programmeurs WHERE id = " + id;
         try (Connection co = actionsBD.ouvrirConnexion(); Statement stmt = co.createStatement(); ) {
             int rs = stmt.executeUpdate(query);
-            return (rs > 0);
+            if(rs > 0){
+                System.out.println("SUPRESSION REUSSI !");
+                return true;
+            }
+            return false;
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Erreur lors de la récupération des programmeurs.");
@@ -98,9 +103,45 @@ public class ActionsBDDImpl implements ActionBDD {
     }
 
     @Override
-    public boolean modifierSalaire(int id, float salaire) {
-        //TODO
+    public void modifierSalaire(int id, double salaire) {
+        String queryUpdate = "UPDATE Programmeurs SET salaire = ? WHERE id = " + id;
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(queryUpdate); ) {
+            stmt.setDouble(1, salaire);
+            int rows = stmt.executeUpdate();
+            if(rows > 0) {
+                System.out.println("MODIFICATION REUSSIE !");
+            }else{
+                System.out.println("ERREUR lors de la modification du programmeur");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de la récupération des programmeurs.");
+        }
+    }
+
+
+    public boolean getProgrammeur(int id) {
+        String querySelect = "SELECT * FROM Programmeurs WHERE id = " + id;
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(querySelect); ) {
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de la récupération des programmeurs.");
+        }
         return false;
     }
-    
+
+    public boolean getProgrammeurs() {
+        String querySelect = "SELECT * FROM Programmeurs";
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(querySelect); ) {
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de la récupération des programmeurs.");
+        }
+        return false;
+    }
+
 }
