@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Programmeurs</title>
 </head>
 <body>
-
+    <h2 class="h2">Liste des programmeurs</h2>
+    <a th:href="@{/ajouter}" class="btn btn-primary" style="margin-bottom: 15px;">Ajouter un programmeur</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Pseudo</th>
+            <th>Responsable</th>
+            <th>Hobby</th>
+            <th>Année de naissance<th>
+            <th>Salaire</th>
+            <th>Prime</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${programmeurs.isEmpty()}">
+            <td colspan="2">Aucun programmeur trouvé.</td>
+        </tr>
+        <tr th:each="programmeur : ${programmeurs}" th:if="${!programmeurs.isEmpty()}">
+            <td><span th:text="${programmeur.id}"></span></td>
+            <td><span th:text="${programmeur.prenom}"></span></td>
+            <td><span th:text="${programmeur.nom}"></span></td>
+            <td><span th:text="${programmeur.adresse}"></span></td>
+            <td><span th:text="${programmeur.pseudo}"></span></td>
+            <td><span th:text="${programmeur.responsable}"></span></td>
+            <td><span th:text="${programmeur.hobby}"></span></td>
+            <td><span th:text="${programmeur.annee}"></span></td>
+            <td><span th:text="${programmeur.salaire}"></span></td>
+            <td><span th:text="${programmeur.prime}"></span></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -1,43 +1,23 @@
 package com.javaprojet.webapp.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "Programmeurs")
+@Data
 public class Programmeur {
     @Id
-    @Getter
-    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Getter
-    @Setter
-    private String nom;
-    @Getter
-    @Setter
-    private String prenom;
-    @Getter
-    @Setter
-    private String adresse;
-    @Getter
-    @Setter
-    private String pseudo;
-    @Getter
-    @Setter
-    private String responsable;
-    @Getter
-    @Setter
-    private String hobby;
-    @Getter
-    @Setter
+    public int id;
+    public String nom;
+    public String prenom;
+    public String adresse;
+    public String pseudo;
+    public String responsable;
+    public String hobby;
     @Column(nullable = false, columnDefinition = "integer default 1930")
-    private int annee_naissance;
-    @Getter
-    @Setter
-    private double salaire;
-    @Getter
-    @Setter
-    private double prime;
+    public int annee;
+    public double salaire;
+    public double prime;
 }
