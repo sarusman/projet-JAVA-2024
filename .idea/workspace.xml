@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="635eef33-25af-438c-b449-1a5d3701eccb" name="Changes" comment="Base de données">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaprojet/webapp/WebappApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaprojet/webapp/model/Programmeur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaprojet/webapp/repository/ProgrammeurRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaprojet/webapp/service/ProgrammeurService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/javaprojet/webapp/WebappApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="635eef33-25af-438c-b449-1a5d3701eccb" name="Changes" comment="Base de données" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "springBoot",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/xxp90/Documents/EFREI - Ing1/Java/projet/projet-JAVA-2024",
+    "last_opened_file_path": "C:/Users/xxp90/Documents/EFREI - Ing1/Java/projet/projet-JAVA-2024/webapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,6 +95,7 @@
       <workItem from="1733512886999" duration="257000" />
       <workItem from="1733833659625" duration="344000" />
       <workItem from="1733834010947" duration="7000" />
+      <workItem from="1733834075626" duration="55000" />
     </task>
     <task id="LOCAL-00001" summary="Base de données">
       <option name="closed" value="true" />
