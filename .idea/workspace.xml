@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="635eef33-25af-438c-b449-1a5d3701eccb" name="Changes" comment="Base de données" />
+    <list default="true" id="40e253c9-1e74-476c-9733-75cf417ec189" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,61 +17,48 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Sharu2501&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/sarusman/projet-JAVA-2024.git&quot;,
-    &quot;accountId&quot;: &quot;952fa36e-0cb2-4a98-90a3-81f69c0fcbcf&quot;
-  }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
-}</component>
-  <component name="ProjectId" id="2pWg0M0UTQSbfr5p7z0jynXOr9H" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2q1WYwdz8nCCA07RT9ZI2FcxMQK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.ActionsBD.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Start.executor": "Run",
-    "Application.main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "Spring Boot.WebappApplication.executor": "Run",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/xxp90/Documents/EFREI - Ing1/Java/projet/projet-JAVA-2024/menu",
+    "last_opened_file_path": "C:/Users/xxp90/Documents/EFREI - Ing1/Java/projet/projet-JAVA-2024",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/shaka/IdeaProjects/projet-JAVA-2024/untitled/src/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\shaka\IdeaProjects\projet-JAVA-2024\untitled\src" />
-    </key>
+  <component name="RunManager">
+    <configuration name="WebappApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="webapp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.javaprojet.webapp.WebappApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -84,44 +71,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="635eef33-25af-438c-b449-1a5d3701eccb" name="Changes" comment="" />
-      <created>1732887021776</created>
+      <changelist id="40e253c9-1e74-476c-9733-75cf417ec189" name="Changes" comment="" />
+      <created>1733830612966</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732887021776</updated>
-      <workItem from="1732887022909" duration="1575000" />
-      <workItem from="1732890640451" duration="1857000" />
-      <workItem from="1732962361954" duration="4232000" />
-      <workItem from="1733512886999" duration="257000" />
+      <updated>1733830612966</updated>
+      <workItem from="1733830614001" duration="2214000" />
     </task>
-    <task id="LOCAL-00001" summary="Base de données">
-      <option name="closed" value="true" />
-      <created>1732895351083</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1732895351083</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Création des méthodes" />
-    <MESSAGE value="Base de données" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base de données" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/src/Main.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
