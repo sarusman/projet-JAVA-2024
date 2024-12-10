@@ -20,4 +20,8 @@ public class ProgrammeurService {
     public List<Programmeur> afficherProgrammeurs() {
         return programmeurRepository.findAll();
     }
+
+    public void ajouterProgrammeur(Programmeur programmeur) {
+        programmeurRepository.save(programmeur);
+    }
 }
