@@ -17,10 +17,16 @@ public class ProgrammeurController {
         this.programmeurService = programmeurService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home(Model model) {
         Iterable<Programmeur> listProgrammeur = programmeurService.afficherProgrammeurs();
         model.addAttribute("programmeurs", listProgrammeur);
         return "home";
+    }
+
+    @GetMapping("/addProgrammeur")
+    public String afficherFormAjoutProgrammeur(Model model) {
+        model.addAttribute("programmeur", new Programmeur());
+        return "addProgrammeurForm";
     }
 }

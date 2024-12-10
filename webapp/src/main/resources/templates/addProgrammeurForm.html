@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un programmeur</title>
+</head>
+<body>
+<h2>Ajouter un programmeur</h2>
+<form th:action="@{/ajouter}" method="post">
+    <label>Prénom : <input type="text" required></label><br>
+    <label>Nom : <input type="text" required></label><br>
+    <label>Adresse : <input type="text" ></label><br>
+    <label>Pseudo : <input type="text"></label><br>
+    <label>Responsable : <input type="text" ></label><br>
+    <label>Hobby : <input type="text" ></label><br>
+    <label>Année de naissance : <input type="number" ></label><br>
+    <label>Salaire : <input type="number"  step="0.01"></label><br>
+    <label>Prime : <input type="number" step="0.01"></label><br>
+    <button type="submit">Ajouter</button>
+</form>
+</body>
+</html>
