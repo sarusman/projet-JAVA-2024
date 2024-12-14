@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+<h2>Supprimer un programmeur</h2>
+<form action="/supprimer" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
+  <input type="hidden" name="id" th:value="${programmeur.id}">
+  <label>Id : <label th:text="${programmeur.id}"></label></label><br>
+  <label>Prénom : <label th:text="${programmeur.prenom}"></label></label><br>
+  <label>Nom : <label th:text="${programmeur.nom}"></label></label><br>
+  <label>Adresse : <label th:text="${programmeur.adresse}"></label></label><br>
+  <label>Pseudo : <label th:text="${programmeur.pseudo}"></label></label><br>
+  <label>Responsable : <label th:text="${programmeur.responsable}"></label></label><br>
+  <label>Hobby : <label th:text="${programmeur.hobby}"></label></label><br>
+  <label>Année de naissance : <label th:text="${programmeur.annee}"></label></label><br>
+  <label>Salaire : <label th:text="${programmeur.salaire}"></label> €</label><br>
+  <label>Prime : <label th:text="${programmeur.prime}"></label> €</label><br>
+  <button type="submit">Supprimer</button>
+</form>
+<a href="/"><button>Annuler</button></a>
+
+</body>
+</html>

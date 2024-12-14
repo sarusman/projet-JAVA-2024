@@ -16,20 +16,24 @@ public class ProgrammeurService {
         this.programmeurRepository = programmeurRepository;
     }
 
-
+    //get all programmeurs
     public List<Programmeur> afficherProgrammeurs() {
         return programmeurRepository.findAll();
     }
 
-    public void ajouterProgrammeur(Programmeur programmeur) {
+    //save programmeur
+    public void saveProgrammeur(Programmeur programmeur) {
         programmeurRepository.save(programmeur);
     }
 
+    //find programmeur by id
     public Programmeur findProgrammeurById(int id) {
         return programmeurRepository.findById(id).get();
     }
 
-    public void mettreAJourProgrammeur(Programmeur programmeur) {
-        programmeurRepository.save(programmeur);
+
+    //delete programmeur by id
+    public void deleteProgrammeurById(int id) {
+        programmeurRepository.deleteById(id);
     }
 }

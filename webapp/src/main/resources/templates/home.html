@@ -6,7 +6,7 @@
 </head>
 <body>
     <h2 class="h2">Liste des programmeurs</h2>
-    <a th:href="@{/addProgrammeur}" class="btn btn-primary" style="margin-bottom: 15px;">Ajouter un programmeur</a>
+    <a th:href="@{/addProgrammeur}" >Ajouter un programmeur</a>
     <table>
         <thead>
         <tr>
@@ -39,7 +39,8 @@
             <td><span th:text="${programmeur.annee}"></span></td>
             <td><span th:text="${programmeur.salaire}"></span></td>
             <td><span th:text="${programmeur.prime}"></span></td>
-            <td><a th:href="@{/updateProgrammeur(id=${programmeur.id})}" class="btn btn-primary" style="margin-bottom: 15px;">Modifier un programmeur</a></span></td>
+            <td><a th:href="@{/updateProgrammeur(id=${programmeur.id})}" >Modifier</a></span></td>
+            <td><a th:href="@{/deleteProgrammeur(id=${programmeur.id})}" >Supprimer</a></span></td>
         </tr>
         </tbody>
     </table>

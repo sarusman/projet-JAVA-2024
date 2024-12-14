@@ -1,9 +1,6 @@
 package com.javaprojet.webapp.controller;
 
-import com.javaprojet.webapp.repository.ProgrammeurRepository;
 import com.javaprojet.webapp.service.ProgrammeurService;
-import org.hibernate.sql.Update;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import com.javaprojet.webapp.model.Programmeur;
 import org.springframework.stereotype.Controller;
@@ -27,7 +24,7 @@ public class ProgrammeurController {
     }
 
     @GetMapping("/addProgrammeur")
-    public String afficherFormAjoutProgrammeur(Model model) {
+    public String afficherFormAjoutProgrammeur() {
         return "addProgrammeurForm";
     }
 
@@ -36,6 +33,13 @@ public class ProgrammeurController {
         Programmeur programmeur = programmeurService.findProgrammeurById(id);
         model.addAttribute("programmeur", programmeur);
         return "updateProgrammeurForm";
+    }
+
+    @GetMapping("/deleteProgrammeur")
+    public String deleteFormProgrammeur(Model model, @RequestParam("id") int id) {
+        Programmeur programmeur = programmeurService.findProgrammeurById(id);
+        model.addAttribute("programmeur", programmeur);
+        return "deleteProgrammeurPage";
     }
 
     // POST
@@ -51,7 +55,6 @@ public class ProgrammeurController {
             @RequestParam Double salaire,
             @RequestParam Double prime
     ) {
-        // Créer un nouvel objet Programmeur
         Programmeur programmeur = new Programmeur();
         programmeur.setPrenom(prenom);
         programmeur.setNom(nom);
@@ -62,11 +65,7 @@ public class ProgrammeurController {
         programmeur.setAnnee(annee);
         programmeur.setSalaire(salaire);
         programmeur.setPrime(prime);
-
-        // Enregistrer le programmeur dans la base
-        programmeurService.ajouterProgrammeur(programmeur);
-
-        // Redirection après soumission
+        programmeurService.saveProgrammeur(programmeur);
         return "redirect:/";
     }
 
@@ -92,7 +91,14 @@ public class ProgrammeurController {
         p.setAnnee(annee);
         p.setSalaire(salaire);
         p.setPrime(prime);
-        programmeurService.mettreAJourProgrammeur(p);
+        programmeurService.saveProgrammeur(p);
         return "redirect:/";
     }
+
+    @PostMapping("/supprimer")
+    public String supprimerProgrammeur(@RequestParam String id) {
+        programmeurService.deleteProgrammeurById(Integer.parseInt(id));
+        return "redirect:/";
+    }
+
 }
