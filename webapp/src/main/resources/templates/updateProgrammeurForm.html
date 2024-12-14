@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un programmeur</title>
+</head>
+<body>
+<h2>Modifier un programmeur</h2>
+<form action="/modifier" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
+    <input type="hidden" name="id" th:value="${programmeur.id}">
+    <label>Prénom : <input type="text" name="prenom"  th:value="${programmeur.prenom}" required></label><br>
+    <label>Nom : <input type="text" name="nom" th:value="${programmeur.nom}" required></label><br>
+    <label>Adresse : <input type="text" name="adresse" th:value="${programmeur.adresse}" required></label><br>
+    <label>Pseudo : <input type="text" name="pseudo" th:value="${programmeur.pseudo}" required></label><br>
+    <label>Responsable : <input type="text" name="responsable" th:value="${programmeur.responsable}" required></label><br>
+    <label>Hobby : <input type="text" name="hobby" th:value="${programmeur.hobby}" required></label><br>
+    <label>Année de naissance : <input type="number" name="annee" th:value="${programmeur.annee}"></label><br>
+    <label>Salaire : <input type="number" name="salaire" step="0.5" th:value="${programmeur.salaire}"></label><br>
+    <label>Prime : <input type="number" name="prime" step="0.5" th:value="${programmeur.prime}"></label><br>
+    <button type="submit">Modifier</button>
+</form>
+</body>
+</html>

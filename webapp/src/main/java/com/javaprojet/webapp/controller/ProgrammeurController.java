@@ -2,14 +2,12 @@ package com.javaprojet.webapp.controller;
 
 import com.javaprojet.webapp.repository.ProgrammeurRepository;
 import com.javaprojet.webapp.service.ProgrammeurService;
+import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import com.javaprojet.webapp.model.Programmeur;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -20,6 +18,7 @@ public class ProgrammeurController {
         this.programmeurService = programmeurService;
     }
 
+    // GET
     @GetMapping("/")
     public String home(Model model) {
         Iterable<Programmeur> listProgrammeur = programmeurService.afficherProgrammeurs();
@@ -32,7 +31,14 @@ public class ProgrammeurController {
         return "addProgrammeurForm";
     }
 
-    // Traiter le formulaire
+    @GetMapping("/updateProgrammeur")
+    public String afficherFormModifierProgrammeur(Model model, @RequestParam("id") int id) {
+        Programmeur programmeur = programmeurService.findProgrammeurById(id);
+        model.addAttribute("programmeur", programmeur);
+        return "updateProgrammeurForm";
+    }
+
+    // POST
     @PostMapping("/ajouter")
     public String ajouterProgrammeur(
             @RequestParam String prenom,
@@ -61,6 +67,32 @@ public class ProgrammeurController {
         programmeurService.ajouterProgrammeur(programmeur);
 
         // Redirection après soumission
+        return "redirect:/";
+    }
+
+    @PostMapping("/modifier")
+    public String modifierProgrammeur(
+          @RequestParam String id,
+          @RequestParam String prenom,
+          @RequestParam String nom,
+          @RequestParam String adresse,
+          @RequestParam String pseudo,
+          @RequestParam String responsable,
+          @RequestParam String hobby,
+          @RequestParam Integer annee,
+          @RequestParam Double salaire,
+          @RequestParam Double prime) {
+        Programmeur p = programmeurService.findProgrammeurById(Integer.parseInt(id));
+        p.setPrenom(prenom);
+        p.setNom(nom);
+        p.setAdresse(adresse);
+        p.setPseudo(pseudo);
+        p.setResponsable(responsable);
+        p.setHobby(hobby);
+        p.setAnnee(annee);
+        p.setSalaire(salaire);
+        p.setPrime(prime);
+        programmeurService.mettreAJourProgrammeur(p);
         return "redirect:/";
     }
 }

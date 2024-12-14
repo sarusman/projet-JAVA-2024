@@ -24,4 +24,12 @@ public class ProgrammeurService {
     public void ajouterProgrammeur(Programmeur programmeur) {
         programmeurRepository.save(programmeur);
     }
+
+    public Programmeur findProgrammeurById(int id) {
+        return programmeurRepository.findById(id).get();
+    }
+
+    public void mettreAJourProgrammeur(Programmeur programmeur) {
+        programmeurRepository.save(programmeur);
+    }
 }

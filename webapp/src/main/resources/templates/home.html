@@ -20,6 +20,8 @@
             <th>Année de naissance<th>
             <th>Salaire</th>
             <th>Prime</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
         </tr>
         </thead>
         <tbody>
@@ -37,6 +39,7 @@
             <td><span th:text="${programmeur.annee}"></span></td>
             <td><span th:text="${programmeur.salaire}"></span></td>
             <td><span th:text="${programmeur.prime}"></span></td>
+            <td><a th:href="@{/updateProgrammeur(id=${programmeur.id})}" class="btn btn-primary" style="margin-bottom: 15px;">Modifier un programmeur</a></span></td>
         </tr>
         </tbody>
     </table>
