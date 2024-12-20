@@ -6,4 +6,5 @@ public interface ActionBDD {
     boolean supprimerProgrammeur(int id);
     void ajouterProgrammeur(Programmeur programmeur);
     void modifierSalaire(int id, double salaire);
+    boolean checkDoublonProgrammeur(String prenom, String nom, String pseudo);
 }

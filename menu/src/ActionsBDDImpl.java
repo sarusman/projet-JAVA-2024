@@ -13,7 +13,7 @@ public class ActionsBDDImpl implements ActionBDD {
     @Override
     public void afficherProgrammeurs() {
         String query = "SELECT * FROM Programmeurs";
-        try ( Connection co = actionsBD.ouvrirConnexion(); Statement stmt = co.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+        try (Connection co = actionsBD.ouvrirConnexion(); Statement stmt = co.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             System.out.println("\nListe des programmeurs :");
             System.out.println("-------------------------------------------------");
             while (rs.next()) {
@@ -63,9 +63,9 @@ public class ActionsBDDImpl implements ActionBDD {
     @Override
     public boolean supprimerProgrammeur(int id) {
         String query = "DELETE FROM Programmeurs WHERE id = " + id;
-        try (Connection co = actionsBD.ouvrirConnexion(); Statement stmt = co.createStatement(); ) {
+        try (Connection co = actionsBD.ouvrirConnexion(); Statement stmt = co.createStatement();) {
             int rs = stmt.executeUpdate(query);
-            if(rs > 0){
+            if (rs > 0) {
                 System.out.println("SUPRESSION REUSSI !");
                 return true;
             }
@@ -80,22 +80,22 @@ public class ActionsBDDImpl implements ActionBDD {
     @Override
     public void ajouterProgrammeur(Programmeur programmeur) {
         String query = "INSERT INTO Programmeurs (nom, prenom, adresse, pseudo, responsable, hobby, annee, salaire, prime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(query); ) {
-                stmt.setString(1, programmeur.getNom());
-                stmt.setString(2, programmeur.getPrenom());
-                stmt.setString(3, programmeur.getAdresse());
-                stmt.setString(4, programmeur.getPseudo());
-                stmt.setString(5, programmeur.getResponsable());
-                stmt.setString(6, programmeur.getHobby());
-                stmt.setInt(7, programmeur.getAnneeNaissance());
-                stmt.setDouble(8, programmeur.getSalaire());
-                stmt.setDouble(9, programmeur.getPrime());
-                int rows = stmt.executeUpdate();
-                if(rows > 0) {
-                    System.out.println("AJOUT REUSSI !");
-                }else{
-                    System.out.println("ERREUR lors de l'ajout de programmeur");
-                }
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(query)) {
+            stmt.setString(1, programmeur.getNom());
+            stmt.setString(2, programmeur.getPrenom());
+            stmt.setString(3, programmeur.getAdresse());
+            stmt.setString(4, programmeur.getPseudo());
+            stmt.setString(5, programmeur.getResponsable());
+            stmt.setString(6, programmeur.getHobby());
+            stmt.setInt(7, programmeur.getAnneeNaissance());
+            stmt.setDouble(8, programmeur.getSalaire());
+            stmt.setDouble(9, programmeur.getPrime());
+            int rows = stmt.executeUpdate();
+            if (rows > 0) {
+                System.out.println("AJOUT REUSSI !");
+            } else {
+                System.out.println("ERREUR lors de l'ajout de programmeur");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Erreur lors de la récupération des programmeurs.");
@@ -105,12 +105,12 @@ public class ActionsBDDImpl implements ActionBDD {
     @Override
     public void modifierSalaire(int id, double salaire) {
         String queryUpdate = "UPDATE Programmeurs SET salaire = ? WHERE id = " + id;
-        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(queryUpdate); ) {
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(queryUpdate)) {
             stmt.setDouble(1, salaire);
             int rows = stmt.executeUpdate();
-            if(rows > 0) {
+            if (rows > 0) {
                 System.out.println("MODIFICATION REUSSIE !");
-            }else{
+            } else {
                 System.out.println("ERREUR lors de la modification du programmeur");
             }
         } catch (SQLException e) {
@@ -122,7 +122,7 @@ public class ActionsBDDImpl implements ActionBDD {
 
     public boolean getProgrammeur(int id) {
         String querySelect = "SELECT * FROM Programmeurs WHERE id = " + id;
-        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(querySelect); ) {
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(querySelect)) {
             ResultSet rs = stmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
@@ -134,7 +134,7 @@ public class ActionsBDDImpl implements ActionBDD {
 
     public boolean getProgrammeurs() {
         String querySelect = "SELECT * FROM Programmeurs";
-        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(querySelect); ) {
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(querySelect)) {
             ResultSet rs = stmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
@@ -143,5 +143,20 @@ public class ActionsBDDImpl implements ActionBDD {
         }
         return false;
     }
+
+    public boolean checkDoublonProgrammeur(String prenom, String nom, String pseudo) {
+        String querySelect = "SELECT * FROM Programmeurs WHERE (prenom = ? AND nom = ?) OR pseudo = ?";
+        try (Connection co = actionsBD.ouvrirConnexion(); PreparedStatement stmt = co.prepareStatement(querySelect)) {
+            stmt.setString(1, prenom);
+            stmt.setString(2, nom);
+            stmt.setString(3, pseudo);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }

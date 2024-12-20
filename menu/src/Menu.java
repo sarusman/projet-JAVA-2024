@@ -1,14 +1,13 @@
 import java.util.Scanner;
-
-import static java.lang.Float.parseFloat;
-import static java.lang.Integer.parseInt;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Menu {
     private static ActionsBDDImpl actionsBDD = new ActionsBDDImpl();
+    private static Scanner sc = new Scanner(System.in);
 
     public static void afficherMenu() {
         boolean afficher = true;
-        Scanner sc = new Scanner(System.in);
 
         while (afficher) {
             System.out.println("\n<<<<<<<<<<<<<<<<<< MENU >>>>>>>>>>>>>>>>");
@@ -24,176 +23,216 @@ public class Menu {
 
             switch (choix) {
                 case "1":
-                    if(actionsBDD.getProgrammeurs()){
-                        afficherProgrammeurs();
-                    }else{
-                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
-                    }
+                    afficherProgrammeurs();
                     break;
                 case "2":
-                    if(actionsBDD.getProgrammeurs()){
-                        afficherProgrammeur(sc);
-                    }else{
-                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
-                    }
+                    afficherProgrammeur();
                     break;
                 case "3":
-                    if(actionsBDD.getProgrammeurs()){
-                        supprimerProgrammeur(sc);
-                    }else{
-                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
-                    }
+                    supprimerProgrammeur();
                     break;
                 case "4":
-                    ajouterProgrammeur(sc);
+                    ajouterProgrammeur();
                     break;
                 case "5":
-                    if(actionsBDD.getProgrammeurs()){
-                        modifierSalaire(sc);
-                    }else{
-                        System.out.println("\u001B[31mAUCUN PROGRAMMEURS DANS LA BASE DE DONNÉES\u001B[0m");
-                    }
+                    modifierSalaire();
                     break;
                 case "6":
                     System.out.println("Bonne journée !");
                     afficher = false;
                     break;
                 default:
-                    System.out.println("ERREUR ! Veuillez saisir un chiffre entre 1 et 6.");
+                    System.out.println("Veuillez saisir un chiffre entre 1 et 6.");
                     break;
             }
         }
         sc.close();
     }
 
-    //afficher tous les programmeurs
-    public static void afficherProgrammeurs() {
-        //requête bdd
-        actionsBDD.afficherProgrammeurs();
-    }
-
-    //afficher un programmeur avec son id
-    public static void afficherProgrammeur(Scanner sc) {
-        System.out.println("Id du programmeur à afficher :");
-        int id = 0;
-        try {
-            id = parseInt(sc.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
-        }
-        boolean programmeurTrouver = actionsBDD.afficherProgrammeur(id);
-        //requête depuis la bdd
-        while (!programmeurTrouver){
-            System.out.print("Recherche KO. Saisissez à nouveau l'id : ");
-            try {
-                id = parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
-            }
-            programmeurTrouver = actionsBDD.afficherProgrammeur(id);
+    private static void afficherProgrammeurs() {
+        if (actionsBDD.getProgrammeurs()) {
+            actionsBDD.afficherProgrammeurs();
+        } else {
+            System.out.println("\u001B[31mAUCUN PROGRAMMEUR DANS LA BASE DE DONNÉES\u001B[0m");
         }
     }
 
-    //supprimer un programmeur
-    public static void supprimerProgrammeur(Scanner sc) {
-        System.out.println("Id du programmeur à supprimer : ");
-        int id = 0;
-        try {
-            id = parseInt(sc.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
+    private static void afficherProgrammeur() {
+        int id = getIdFromUser("Id du programmeur à afficher : ");
+        if (actionsBDD.afficherProgrammeur(id)) {
+            return;
         }
-        boolean programmeurTrouver = actionsBDD.supprimerProgrammeur(id);
-        //requête depuis la bdd
-        while (!programmeurTrouver){
-            System.out.print("Recherche KO. Saisissez à nouveau l'id : ");
-            try {
-                id = parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
-            }
-            programmeurTrouver = actionsBDD.supprimerProgrammeur(id);
+        System.out.println("\u001B[31mProgrammeur non trouvé.\u001B[0m");
+    }
+
+    private static void supprimerProgrammeur() {
+        int id = getIdFromUser("Id du programmeur à supprimer : ");
+        if (actionsBDD.supprimerProgrammeur(id)) {
+            System.out.println("SUPPRESSION REUSSIE !");
+        } else {
+            System.out.println("\u001B[31mProgrammeur non trouvé.\u001B[0m");
         }
     }
 
-    //ajouter un programmeur
-    public static void ajouterProgrammeur(Scanner sc) {
+    private static void ajouterProgrammeur() {
         System.out.println("\nAjout d'un nouveau programmeur :");
-        System.out.print("Nom : ");
-        String nom = sc.nextLine();
-        System.out.print("Prénom : ");
-        String prenom = sc.nextLine();
-        System.out.print("Adresse : ");
-        String adresse = sc.nextLine();
-        System.out.print("Pseudo : ");
-        String pseudo = sc.nextLine();
-        System.out.print("Responsable : ");
-        String responsable = sc.nextLine();
-        System.out.print("Hobby : ");
-        String hobby = sc.nextLine();
-        int annee = -1;
-        while (annee < 0){
-            try {
-                System.out.print("Année de naissance : ");
-                annee = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("\u001B[31mErreur : L'année de naissance doit être un nombre entier positif\u001B[0m");
-            }
+
+        String nom = getValidNom("Nom : ");
+
+        String prenom = getValidPrenom("Prénom : ");
+        if (actionsBDD.checkDoublonProgrammeur(prenom, nom, null)) {
+            System.out.println("\u001B[31mUn programmeur avec ce nom/prénom existe déjà.\u001B[0m");
+            return;
         }
-        double salaire = -1;
-        while (salaire < 0 ){
-            try {
-                System.out.print("Salaire : ");
-                salaire = Double.parseDouble(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("\u001B[31mErreur : Le salaire doit être un nombre à virgule positif\u001B[0m");
-            }
+
+        String adresse = getValidAdresse("Adresse : ");
+
+        String pseudo = getValidPseudo("Pseudo : ");
+        if (actionsBDD.checkDoublonProgrammeur(null, null, pseudo)) {
+            System.out.println("\u001B[31mUn programmeur avec ce pseudo existe déjà.\u001B[0m");
+            return;
         }
-        double prime = -1;
-        while (prime < 0 ){
-            try {
-                System.out.print("Prime : ");
-                prime = Double.parseDouble(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("\u001B[31mErreur : La prime doit être un nombre positif\u001B[0m");
-            }
-        }
+
+        String responsable = getValidResponsable("Responsable : ");
+        String hobby = getValidHobby("Hobby : ");
+
+        int annee = getIntInput("Année de naissance : ", 1900, 2024);
+
+        double salaire = getDoubleInput("Salaire : ", 400, Double.MAX_VALUE);
+        double prime = getDoubleInput("Prime : ", 20, Double.MAX_VALUE);
+
         Programmeur programmeur = new Programmeur(nom, prenom, adresse, pseudo, responsable, hobby, annee, salaire, prime);
-        //requête bdd
         actionsBDD.ajouterProgrammeur(programmeur);
     }
 
-    //modifier le salaire d'un programmeur
-    public static void modifierSalaire(Scanner sc) {
-        System.out.println("Id du programmeur : ");
-        int id = 0;
-        try {
-            id = parseInt(sc.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
-        }
-        // verification de l'existence du programmeur
-        boolean programmeurTrouver = actionsBDD.getProgrammeur(id);
-        //requête depuis la bdd
-        while (!programmeurTrouver){
-            System.out.print("Recherche KO. Saisissez à nouveau l'id : ");
-            try {
-                id = parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier\u001B[0m");
-            }
-            programmeurTrouver = actionsBDD.getProgrammeur(id);
-        }
-        //update programmeur
-        double salaire = -1;
-        while (salaire < 0 ){
-            try {
-                System.out.println("Nouveau salaire de ce programmeur : ");
-                salaire = Double.parseDouble(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("\u001B[31mErreur : Le salaire doit être un nombre entier ou à virgule positif\u001B[0m");
-            }
-        }
+
+    private static void modifierSalaire() {
+        int id = getIdFromUser("Id du programmeur à modifier le salaire : ");
+        double salaire = getDoubleInput("Nouveau salaire : ", 0, Double.MAX_VALUE);
         actionsBDD.modifierSalaire(id, salaire);
+    }
+
+    private static int getIdFromUser(String prompt) {
+        int id;
+        while (true) {
+            System.out.print(prompt);
+            try {
+                id = Integer.parseInt(sc.nextLine());
+                return id;
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : L'ID doit être un nombre entier.\u001B[0m");
+            }
+        }
+    }
+
+    private static String getValidNom(String prompt) {
+        String nom;
+        while (true) {
+            nom = getStringInput(prompt);
+            if (nom.matches("^[A-Za-zÀ-ÿ]+([\\s-][A-Za-zÀ-ÿ]+)*$")) {
+                return nom;
+            } else {
+                System.out.println("\u001B[31mErreur : Le nom doit être composé de lettres, avec des espaces ou des tirets autorisés.\u001B[0m");
+            }
+        }
+    }
+
+    private static String getValidPrenom(String prompt) {
+        String prenom;
+        while (true) {
+            prenom = getStringInput(prompt);
+            if (prenom.matches("^[A-Za-zÀ-ÿ]+([\\s-][A-Za-zÀ-ÿ]+)*$")) {
+                return prenom;
+            } else {
+                System.out.println("\u001B[31mErreur : Le prénom doit être composé de lettres, avec des espaces ou des tirets autorisés.\u001B[0m");
+            }
+        }
+    }
+
+    private static String getValidAdresse(String prompt) {
+        String adresse;
+        while (true) {
+            adresse = getStringInput(prompt);
+            if (adresse.matches("^[0-9]+(?:[A-Za-zÀ-ÿ\\s-]+)*$")) {
+                return adresse;
+            } else {
+                System.out.println("\u001B[31mErreur : L'adresse doit commencer par un numéro, suivi de la rue (sans chiffres au début de la rue).\u001B[0m");
+            }
+        }
+    }
+
+    private static String getValidPseudo(String prompt) {
+        String pseudo;
+        while (true) {
+            pseudo = getStringInput(prompt);
+            if (pseudo.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9_-]*$") && !pseudo.matches("^[0-9]+$")) {
+                return pseudo;
+            } else {
+                System.out.println("\u001B[31mErreur : Le pseudo doit commencer par une lettre .\u001B[0m");
+            }
+        }
+    }
+
+    private static String getValidResponsable(String prompt) {
+        String responsable;
+        while (true) {
+            responsable = getStringInput(prompt);
+            if (responsable.length() > 0 && responsable.length() <= 50) {
+                return responsable;
+            } else {
+                System.out.println("\u001B[31mErreur : Le responsable doit être une chaîne de caractères raisonnablement courte.\u001B[0m");
+            }
+        }
+    }
+
+    private static String getValidHobby(String prompt) {
+        String hobby;
+        while (true) {
+            hobby = getStringInput(prompt);
+            if (hobby.length() > 0 && hobby.length() <= 50) {
+                return hobby;
+            } else {
+                System.out.println("\u001B[31mErreur : L'hobby doit être une chaîne de caractères raisonnablement courte.\u001B[0m");
+            }
+        }
+    }
+
+    private static String getStringInput(String prompt) {
+        System.out.print(prompt);
+        return sc.nextLine();
+    }
+
+    private static int getIntInput(String prompt, int min, int max) {
+        int value;
+        while (true) {
+            System.out.print(prompt);
+            try {
+                value = Integer.parseInt(sc.nextLine());
+                if (value >= min && value <= max) {
+                    return value;
+                } else {
+                    System.out.println("\u001B[31mErreur : La valeur doit être entre " + min + " et " + max + ".\u001B[0m");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : Veuillez saisir un nombre entier.\u001B[0m");
+            }
+        }
+    }
+
+    private static double getDoubleInput(String prompt, double min, double max) {
+        double value;
+        while (true) {
+            System.out.print(prompt);
+            try {
+                value = Double.parseDouble(sc.nextLine());
+                if (value >= min && value <= max) {
+                    return value;
+                } else {
+                    System.out.println("\u001B[31mErreur : La valeur doit être entre " + min + " et " + max + ".\u001B[0m");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\u001B[31mErreur : Veuillez saisir un nombre valide.\u001B[0m");
+            }
+        }
     }
 }
