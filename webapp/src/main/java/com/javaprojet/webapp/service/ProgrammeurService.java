@@ -16,23 +16,23 @@ public class ProgrammeurService {
         this.programmeurRepository = programmeurRepository;
     }
 
-    //get all programmeurs
+    // récupérer tous les programmeurs
     public List<Programmeur> afficherProgrammeurs() {
         return programmeurRepository.findAll();
     }
 
-    //save programmeur
+    // sauvegarder les programmeurs
     public void saveProgrammeur(Programmeur programmeur) {
         programmeurRepository.save(programmeur);
     }
 
-    //find programmeur by id
+    // trouver le programmeur à partir de l'id
     public Programmeur findProgrammeurById(int id) {
         return programmeurRepository.findById(id).get();
     }
 
 
-    //delete programmeur by id
+    // supprimer le programmeur par son id
     public void deleteProgrammeurById(int id) {
         programmeurRepository.deleteById(id);
     }
