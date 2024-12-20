@@ -2,25 +2,52 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer un Programmeur</title>
+    <link rel="stylesheet" href="/css/delete.css">
+    <script>
+        // Fonction pour afficher une confirmation de suppression
+        function confirmDeletion(event) {
+            event.preventDefault();
+            const confirmation = confirm("Êtes-vous sûr de vouloir supprimer ce programmeur ?");
+            if (confirmation) {
+                event.target.closest('form').submit();
+            }
+        }
+    </script>
 </head>
-<body >
-<h2>Supprimer un programmeur</h2>
-<form action="/supprimer" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
-  <input type="hidden" name="id" th:value="${programmeur.id}">
-  <label>Id : <label th:text="${programmeur.id}"></label></label><br>
-  <label>Prénom : <label th:text="${programmeur.prenom}"></label></label><br>
-  <label>Nom : <label th:text="${programmeur.nom}"></label></label><br>
-  <label>Adresse : <label th:text="${programmeur.adresse}"></label></label><br>
-  <label>Pseudo : <label th:text="${programmeur.pseudo}"></label></label><br>
-  <label>Responsable : <label th:text="${programmeur.responsable}"></label></label><br>
-  <label>Hobby : <label th:text="${programmeur.hobby}"></label></label><br>
-  <label>Année de naissance : <label th:text="${programmeur.annee}"></label></label><br>
-  <label>Salaire : <label th:text="${programmeur.salaire}"></label> €</label><br>
-  <label>Prime : <label th:text="${programmeur.prime}"></label> €</label><br>
-  <button type="submit">Supprimer</button>
-</form>
-<a href="/"><button>Annuler</button></a>
+<body>
+
+<!-- En-tête de la page -->
+<header class="header">
+    <h1>Suppression d'un Programmeur</h1>
+</header>
+
+<!-- Formulaire de confirmation de suppression -->
+<section class="delete-section">
+    <h2>Êtes-vous sûr de vouloir supprimer ce programmeur ?</h2>
+    <form action="/supprimer" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
+        <input type="hidden" name="id" th:value="${programmeur.id}">
+
+        <div class="details-box">
+            <p><strong>ID :</strong> <span th:text="${programmeur.id}"></span></p>
+            <p><strong>Prénom :</strong> <span th:text="${programmeur.prenom}"></span></p>
+            <p><strong>Nom :</strong> <span th:text="${programmeur.nom}"></span></p>
+            <p><strong>Adresse :</strong> <span th:text="${programmeur.adresse}"></span></p>
+            <p><strong>Pseudo :</strong> <span th:text="${programmeur.pseudo}"></span></p>
+            <p><strong>Responsable :</strong> <span th:text="${programmeur.responsable}"></span></p>
+            <p><strong>Hobby :</strong> <span th:text="${programmeur.hobby}"></span></p>
+            <p><strong>Année de naissance :</strong> <span th:text="${programmeur.annee}"></span></p>
+            <p><strong>Salaire :</strong> <span th:text="${programmeur.salaire}"></span> €</p>
+            <p><strong>Prime :</strong> <span th:text="${programmeur.prime}"></span> €</p>
+        </div>
+
+        <div class="confirmation-buttons">
+            <button type="submit" class="button delete" onclick="confirmDeletion(event)">Supprimer</button>
+            <a href="/" class="button cancel">Annuler</a>
+        </div>
+    </form>
+</section>
 
 </body>
 </html>

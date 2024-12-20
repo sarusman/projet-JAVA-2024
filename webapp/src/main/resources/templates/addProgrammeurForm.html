@@ -2,22 +2,155 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un programmeur</title>
+    <link rel="stylesheet" href="/css/add.css">
 </head>
 <body>
-<h2>Ajouter un programmeur</h2>
-<form action="/ajouter" method="post">
-    <label>Prénom : <input type="text" name="prenom" required></label><br>
-    <label>Nom : <input type="text" name="nom" required></label><br>
-    <label>Adresse : <input type="text" name="adresse" required></label><br>
-    <label>Pseudo : <input type="text" name="pseudo" required></label><br>
-    <label>Responsable : <input type="text" name="responsable" required></label><br>
-    <label>Hobby : <input type="text" name="hobby" required></label><br>
-    <label>Année de naissance : <input type="number" name="annee" value="0"></label><br>
-    <label>Salaire : <input type="number" name="salaire" step="0.5" value="0"></label><br>
-    <label>Prime : <input type="number" name="prime" step="0.5" value="0"></label><br>
-    <button type="submit">Ajouter</button>
-</form>
-<a href="/"><button>Annuler</button></a>
+
+<div class="container">
+    <h2>Ajouter un programmeur</h2>
+
+    <!-- Formulaire d'ajout -->
+    <form action="/ajouter" method="post" id="ajouterForm" class="form-box">
+        <!-- Message d'erreur -->
+        <div id="error-message" class="error-message" style="display: none;">
+            <p>Veuillez remplir tous les champs correctement.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" name="prenom" id="prenom" required placeholder="Entrez le prénom">
+            <div class="error-message" id="prenom-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" id="nom" required placeholder="Entrez le nom">
+            <div class="error-message" id="nom-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" name="adresse" id="adresse" required placeholder="Entrez l'adresse">
+            <div class="error-message" id="adresse-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" name="pseudo" id="pseudo" required placeholder="Entrez le pseudo">
+            <div class="error-message" id="pseudo-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="responsable">Responsable :</label>
+            <input type="text" name="responsable" id="responsable" required placeholder="Entrez le responsable">
+            <div class="error-message" id="responsable-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="hobby">Hobby :</label>
+            <input type="text" name="hobby" id="hobby" required placeholder="Entrez le hobby">
+            <div class="error-message" id="hobby-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="annee">Année de naissance :</label>
+            <input type="number" name="annee" id="annee" min="1900" max="2024" value="0">
+            <div class="error-message" id="annee-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="salaire">Salaire :</label>
+            <input type="number" name="salaire" id="salaire" step="0.5" value="0">
+            <div class="error-message" id="salaire-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="prime">Prime :</label>
+            <input type="number" name="prime" id="prime" step="0.5" value="0">
+            <div class="error-message" id="prime-error"></div>
+        </div>
+
+        <div class="form-group form-buttons">
+            <button type="submit">Ajouter</button>
+            <a href="/"><button type="button" class="cancel-button">Annuler</button></a>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    // Fonction pour afficher les messages d'erreur
+    function displayError(field, message) {
+        const errorElement = document.getElementById(`${field}-error`);
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+
+    // Validation du formulaire
+    document.getElementById('ajouterForm').addEventListener('submit', function(event) {
+        let formIsValid = true;
+        document.querySelectorAll('.error-message').forEach(function(element) {
+            element.style.display = 'none'; // Réinitialiser les messages d'erreur
+        });
+        document.getElementById('error-message').style.display = 'none'; // Réinitialise le message d'erreur
+
+        // Validation des champs
+        const prenom = document.getElementById('prenom').value;
+        const nom = document.getElementById('nom').value;
+        const adresse = document.getElementById('adresse').value;
+        const pseudo = document.getElementById('pseudo').value;
+        const responsable = document.getElementById('responsable').value;
+        const hobby = document.getElementById('hobby').value;
+        const annee = document.getElementById('annee').value;
+        const salaire = document.getElementById('salaire').value;
+        const prime = document.getElementById('prime').value;
+
+        // Validation des champs
+        if (!prenom) {
+            displayError('prenom', 'Le prénom est requis.');
+            formIsValid = false;
+        }
+        if (!nom) {
+            displayError('nom', 'Le nom est requis.');
+            formIsValid = false;
+        }
+        if (!adresse) {
+            displayError('adresse', 'L\'adresse est requise.');
+            formIsValid = false;
+        }
+        if (!pseudo) {
+            displayError('pseudo', 'Le pseudo est requis.');
+            formIsValid = false;
+        }
+        if (!responsable) {
+            displayError('responsable', 'Le responsable est requis.');
+            formIsValid = false;
+        }
+        if (!hobby) {
+            displayError('hobby', 'Le hobby est requis.');
+            formIsValid = false;
+        }
+        if (annee < 1900 || annee > 2024) {
+            displayError('annee', 'L\'année de naissance doit être entre 1900 et 2024.');
+            formIsValid = false;
+        }
+        if (salaire < 0) {
+            displayError('salaire', 'Le salaire ne peut pas être négatif.');
+            formIsValid = false;
+        }
+        if (prime < 0) {
+            displayError('prime', 'La prime ne peut pas être négative.');
+            formIsValid = false;
+        }
+
+        if (!formIsValid) {
+            event.preventDefault();
+            document.getElementById('error-message').style.display = 'block';
+        }
+    });
+</script>
+
 </body>
 </html>

@@ -2,23 +2,74 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Modifier un programmeur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Programmeur</title>
+    <link rel="stylesheet" href="/css/update.css">
 </head>
 <body>
-<h2>Modifier un programmeur</h2>
-<form action="/modifier" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
-    <input type="hidden" name="id" th:value="${programmeur.id}">
-    <label>Prénom : <input type="text" name="prenom"  th:value="${programmeur.prenom}" required></label><br>
-    <label>Nom : <input type="text" name="nom" th:value="${programmeur.nom}" required></label><br>
-    <label>Adresse : <input type="text" name="adresse" th:value="${programmeur.adresse}" required></label><br>
-    <label>Pseudo : <input type="text" name="pseudo" th:value="${programmeur.pseudo}" required></label><br>
-    <label>Responsable : <input type="text" name="responsable" th:value="${programmeur.responsable}" required></label><br>
-    <label>Hobby : <input type="text" name="hobby" th:value="${programmeur.hobby}" required></label><br>
-    <label>Année de naissance : <input type="number" name="annee" th:value="${programmeur.annee}"></label><br>
-    <label>Salaire : <input type="number" name="salaire" step="0.5" th:value="${programmeur.salaire}"></label><br>
-    <label>Prime : <input type="number" name="prime" step="0.5" th:value="${programmeur.prime}"></label><br>
-    <button type="submit">Modifier</button>
-</form>
-<a href="/"><button>Annuler</button></a>
+
+<!-- En-tête de la page -->
+<header class="header">
+    <h1>Modification d'un Programmeur</h1>
+</header>
+
+<!-- Formulaire de modification -->
+<section class="edit-section">
+    <h2>Modifier les informations du programmeur</h2>
+    <form action="/modifier" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
+        <input type="hidden" name="id" th:value="${programmeur.id}">
+
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" th:value="${programmeur.prenom}" required placeholder="Entrez le prénom">
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" th:value="${programmeur.nom}" required placeholder="Entrez le nom">
+        </div>
+
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" th:value="${programmeur.adresse}" required placeholder="Entrez l'adresse">
+        </div>
+
+        <div class="form-group">
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" id="pseudo" name="pseudo" th:value="${programmeur.pseudo}" required placeholder="Entrez le pseudo">
+        </div>
+
+        <div class="form-group">
+            <label for="responsable">Responsable :</label>
+            <input type="text" id="responsable" name="responsable" th:value="${programmeur.responsable}" required placeholder="Entrez le responsable">
+        </div>
+
+        <div class="form-group">
+            <label for="hobby">Hobby :</label>
+            <input type="text" id="hobby" name="hobby" th:value="${programmeur.hobby}" required placeholder="Entrez le hobby">
+        </div>
+
+        <div class="form-group">
+            <label for="annee">Année de naissance :</label>
+            <input type="number" id="annee" name="annee" th:value="${programmeur.annee}" placeholder="Entrez l'année de naissance">
+        </div>
+
+        <div class="form-group">
+            <label for="salaire">Salaire (€) :</label>
+            <input type="number" id="salaire" name="salaire" step="0.5" th:value="${programmeur.salaire}" placeholder="Entrez le salaire">
+        </div>
+
+        <div class="form-group">
+            <label for="prime">Prime (€) :</label>
+            <input type="number" id="prime" name="prime" step="0.5" th:value="${programmeur.prime}" placeholder="Entrez la prime">
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="button submit">Modifier</button>
+            <a href="/" class="button cancel">Annuler</a>
+        </div>
+    </form>
+</section>
+
 </body>
 </html>

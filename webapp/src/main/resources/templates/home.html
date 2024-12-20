@@ -2,47 +2,51 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Programmeurs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Programmeurs</title>
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-    <h2 class="h2">Liste des programmeurs</h2>
-    <a th:href="@{/addProgrammeur}" >Ajouter un programmeur</a>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Adresse</th>
-            <th>Pseudo</th>
-            <th>Responsable</th>
-            <th>Hobby</th>
-            <th>Année de naissance<th>
-            <th>Salaire</th>
-            <th>Prime</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${programmeurs.isEmpty()}">
-            <td colspan="2">Aucun programmeur trouvé.</td>
-        </tr>
-        <tr th:each="programmeur : ${programmeurs}" th:if="${!programmeurs.isEmpty()}">
-            <td><span th:text="${programmeur.id}"></span></td>
-            <td><span th:text="${programmeur.prenom}"></span></td>
-            <td><span th:text="${programmeur.nom}"></span></td>
-            <td><span th:text="${programmeur.adresse}"></span></td>
-            <td><span th:text="${programmeur.pseudo}"></span></td>
-            <td><span th:text="${programmeur.responsable}"></span></td>
-            <td><span th:text="${programmeur.hobby}"></span></td>
-            <td><span th:text="${programmeur.annee}"></span></td>
-            <td><span th:text="${programmeur.salaire}"></span></td>
-            <td><span th:text="${programmeur.prime}"></span></td>
-            <td><a th:href="@{/updateProgrammeur(id=${programmeur.id})}" >Modifier</a></span></td>
-            <td><a th:href="@{/deleteProgrammeur(id=${programmeur.id})}" >Supprimer</a></span></td>
-        </tr>
-        </tbody>
-    </table>
+
+<!-- En-tête de la page -->
+<header class="header">
+    <h1>Gestion des Programmeurs</h1>
+    <nav>
+        <a th:href="@{/addProgrammeur}" class="button">Ajouter un programmeur</a>
+    </nav>
+</header>
+
+<!-- Section des programmeurs -->
+<section class="programmeurs-section">
+    <h2>Liste des Programmeurs</h2>
+
+    <!-- Affichage d'un message si la liste est vide -->
+    <div th:if="${programmeurs.isEmpty()}" class="empty-message">
+        Il n'y a aucun programmeur dans votre base de données !
+    </div>
+
+    <!-- Affichage des programmeurs -->
+    <div class="programmeurs-container">
+        <div th:each="programmeur : ${programmeurs}" th:if="${!programmeurs.isEmpty()}" class="programmeur-card">
+            <div class="programmeur-details">
+                <h3 th:text="${programmeur.prenom} + ' ' + ${programmeur.nom}"></h3>
+                <p><strong>ID :</strong> <span th:text="${programmeur.id}"></span></p>
+                <p><strong>Adresse :</strong> <span th:text="${programmeur.adresse}"></span></p>
+                <p><strong>Pseudo :</strong> <span th:text="${programmeur.pseudo}"></span></p>
+                <p><strong>Responsable :</strong> <span th:text="${programmeur.responsable}"></span></p>
+                <p><strong>Hobby :</strong> <span th:text="${programmeur.hobby}"></span></p>
+                <p><strong>Année de naissance :</strong> <span th:text="${programmeur.annee}"></span></p>
+                <p><strong>Salaire :</strong> <span th:text="${programmeur.salaire}"></span> €</p>
+                <p><strong>Prime :</strong> <span th:text="${programmeur.prime}"></span> €</p>
+            </div>
+            <div class="programmeur-actions">
+                <a th:href="@{/updateProgrammeur(id=${programmeur.id})}" class="button">Modifier</a>
+                <a th:href="@{/deleteProgrammeur(id=${programmeur.id})}" class="button delete">Supprimer</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
