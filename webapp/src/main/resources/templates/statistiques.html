@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques des Programmeurs</title>
+    <link rel="stylesheet" href="/css/statistiques.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Statistiques des Programmeurs</h1>
+    <nav>
+        <a th:href="@{/}" class="button">Retour à la liste</a>
+    </nav>
+</header>
+
+<section class="statistiques-section">
+    <h2>Résumé des Statistiques</h2>
+
+    <div class="statistiques-summary">
+        <div class="stat-box">
+            <p><strong>Salaire moyen :</strong></p>
+            <p class="stat-value">
+                <span th:text="${statistiques.salaireMoyen}"></span> €
+            </p>
+        </div>
+        <div class="stat-box">
+            <p><strong>Salaire minimum :</strong></p>
+            <p class="stat-value">
+                <span th:text="${statistiques.salaireMin}"></span> €
+            </p>
+        </div>
+        <div class="stat-box">
+            <p><strong>Salaire maximum :</strong></p>
+            <p class="stat-value">
+                <span th:text="${statistiques.salaireMax}"></span> €
+            </p>
+        </div>
+    </div>
+
+    <h3>Répartition des programmeurs par année de naissance</h3>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th>Année</th>
+                <th>Nombre de programmeurs</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="entry : ${statistiques.repartitionAnnee}">
+                <td th:text="${entry.key}"></td>
+                <td th:text="${entry.value}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+</body>
+</html>

@@ -27,11 +27,11 @@ body {
 
 .header h1 {
     font-size: 24px;
-    color: #4CAF50;
+    color: #5DADE2;
 }
 
 .header nav a.button {
-    background-color: #4CAF50;
+    background-color: #ADD8E6;
     color: white;
     padding: 12px 20px;
     border-radius: 8px;
@@ -41,7 +41,7 @@ body {
 }
 
 .header nav a.button:hover {
-    background-color: #45a049;
+    background-color: #87CEEB;
 }
 
 /* Section des programmeurs */
@@ -56,7 +56,7 @@ body {
 
 .programmeurs-section h2 {
     font-size: 22px;
-    color: #4CAF50;
+    color: #5DADE2;
     margin-bottom: 20px;
 }
 
@@ -96,7 +96,7 @@ body {
 
 .programmeur-details strong {
     font-weight: bold;
-    color: #2196F3;
+    color: #5DADE2;
 }
 
 /* modifier, supprimer */
@@ -108,7 +108,7 @@ body {
 
 .programmeur-actions a.button {
     padding: 8px 16px;
-    background-color: #007bff;
+    background-color: #ADD8E6;
     color: white;
     border-radius: 4px;
     text-decoration: none;
@@ -117,15 +117,15 @@ body {
 }
 
 .programmeur-actions a.button:hover {
-    background-color: #0056b3;
+    background-color: #87CEEB;
 }
 
 .programmeur-actions a.delete {
-    background-color: #f44336;
+    background-color: #FF7F7F;
 }
 
 .programmeur-actions a.delete:hover {
-    background-color: #e53935;
+    background-color: #FF4C4C;
 }
 
 /* Message si liste vide */

@@ -25,7 +25,7 @@ body {
 
 .header h1 {
     font-size: 24px;
-    color: #2196F3;
+    color: #87CEEB;
 }
 
 /* Section de modification */
@@ -40,7 +40,7 @@ body {
 
 .edit-section h2 {
     font-size: 20px;
-    color: #2196F3;
+    color: #87CEEB;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -69,7 +69,7 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #2196F3;
+    border-color: #87CEEB;
     background-color: #ffffff;
 }
 
@@ -92,21 +92,21 @@ body {
 }
 
 .button.submit {
-    background-color: #2196F3;
+    background-color: #87CEEB;
     color: white;
 }
 
 .button.submit:hover {
-    background-color: #1976D2;
+    background-color: #4682B4;
 }
 
 .button.cancel {
-    background-color: #f44336;
+    background-color: #FF7F7F;
     color: white;
 }
 
 .button.cancel:hover {
-    background-color: #e53935;
+    background-color: #FF4C4C;
 }
 
 @media (max-width: 768px) {

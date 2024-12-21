@@ -24,7 +24,7 @@ body {
 
 .header h1 {
     font-size: 24px;
-    color: #f44336;
+    color: #FF7F7F;
 }
 
 /* Section de suppression */
@@ -39,7 +39,7 @@ body {
 
 .delete-section h2 {
     font-size: 20px;
-    color: #f44336;
+    color: #FF7F7F;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -77,21 +77,21 @@ body {
 }
 
 .button.delete {
-    background-color: #f44336;
+    background-color: #FF7F7F;
     color: white;
 }
 
 .button.delete:hover {
-    background-color: #e53935;
+    background-color: #FF4C4C;
 }
 
 .button.cancel {
-    background-color: #4CAF50;
+    background-color: #ADD8E6;
     color: white;
 }
 
 .button.cancel:hover {
-    background-color: #45a049;
+    background-color: #87CEEB;
 }
 
 @media (max-width: 768px) {

@@ -101,4 +101,12 @@ public class ProgrammeurController {
         return "redirect:/";
     }
 
+    // GET pour les statistiques
+    @GetMapping("/statistiques")
+    public String afficherStatistiques(Model model) {
+        var statistiques = programmeurService.getStatistiques();
+        model.addAttribute("statistiques", statistiques);
+        return "statistiques";
+    }
+
 }

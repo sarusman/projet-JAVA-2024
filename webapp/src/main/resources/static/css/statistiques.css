@@ -1,0 +1,111 @@
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.header {
+    background-color: #87CEEB; /* Bleu pâle */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.header h1 {
+    margin: 0;
+    margin-bottom: 1rem; /* Plus d'espace sous le titre */
+}
+
+.header nav {
+    margin-top: 1rem;
+}
+
+.header nav .button {
+    background-color: white;
+    color: #87CEEB;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header nav .button:hover {
+    background-color: #357ABD;
+    color: white;
+}
+
+/* Section des statistiques */
+.statistiques-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Boîtes de statistiques */
+.statistiques-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.stat-box {
+    flex: 1 1 calc(48% - 1rem); /* Deux colonnes avec espace */
+    background-color: #E8F4FB; /* Bleu pâle */
+    border: 1px solid #4A90E2;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box p {
+    margin: 0.5rem 0;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #87CEEB;
+}
+
+/* Tableau stylé */
+.table-container {
+    margin-top: 2rem;
+    overflow-x: auto;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 1rem;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table th, .styled-table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+}
+
+.styled-table thead tr {
+    background-color: #87CEEB; /* Bleu pâle */
+    color: white;
+    text-align: left;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #E8F4FB;
+}
