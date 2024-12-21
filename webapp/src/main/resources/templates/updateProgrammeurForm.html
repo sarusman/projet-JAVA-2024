@@ -3,73 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un Programmeur</title>
+    <title>Modifier un·e programmeur·se</title>
     <link rel="stylesheet" href="/css/update.css">
 </head>
 <body>
 
 <!-- En-tête de la page -->
 <header class="header">
-    <h1>Modification d'un Programmeur</h1>
+    <h1>Modification d'un·e programmeur·se</h1>
 </header>
 
 <!-- Formulaire de modification -->
 <section class="edit-section">
-    <h2>Modifier les informations du programmeur</h2>
-    <form action="/modifier" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
+    <h2>Modifier les informations</h2>
+    <form action="/modifier" method="post" id="modifierForm" class="form-box">
         <input type="hidden" name="id" th:value="${programmeur.id}">
 
         <div class="form-group">
             <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" th:value="${programmeur.prenom}" required placeholder="Entrez le prénom">
+            <input type="text" name="prenom" id="prenom" th:value="${programmeur.prenom}" required placeholder="Entrez le prénom">
+            <div class="error-message" id="prenom-error"></div>
         </div>
 
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" th:value="${programmeur.nom}" required placeholder="Entrez le nom">
+            <input type="text" name="nom" id="nom" th:value="${programmeur.nom}" required placeholder="Entrez le nom">
+            <div class="error-message" id="nom-error"></div>
         </div>
 
         <div class="form-group">
             <label for="adresse">Adresse :</label>
-            <input type="text" id="adresse" name="adresse" th:value="${programmeur.adresse}" required placeholder="Entrez l'adresse">
+            <input type="text" name="adresse" id="adresse" th:value="${programmeur.adresse}" required placeholder="Entrez l'adresse">
+            <div class="error-message" id="adresse-error"></div>
         </div>
 
         <div class="form-group">
             <label for="pseudo">Pseudo :</label>
-            <input type="text" id="pseudo" name="pseudo" th:value="${programmeur.pseudo}" required placeholder="Entrez le pseudo">
+            <input type="text" name="pseudo" id="pseudo" th:value="${programmeur.pseudo}" required placeholder="Entrez le pseudo">
+            <div class="error-message" id="pseudo-error"></div>
         </div>
 
         <div class="form-group">
             <label for="responsable">Responsable :</label>
-            <input type="text" id="responsable" name="responsable" th:value="${programmeur.responsable}" required placeholder="Entrez le responsable">
+            <input type="text" name="responsable" id="responsable" th:value="${programmeur.responsable}" required placeholder="Entrez le responsable">
+            <div class="error-message" id="responsable-error"></div>
         </div>
 
         <div class="form-group">
             <label for="hobby">Hobby :</label>
-            <input type="text" id="hobby" name="hobby" th:value="${programmeur.hobby}" required placeholder="Entrez le hobby">
+            <input type="text" name="hobby" id="hobby" th:value="${programmeur.hobby}" required placeholder="Entrez le hobby">
+            <div class="error-message" id="hobby-error"></div>
         </div>
 
         <div class="form-group">
             <label for="annee">Année de naissance :</label>
-            <input type="number" id="annee" name="annee" th:value="${programmeur.annee}" placeholder="Entrez l'année de naissance">
+            <input type="number" name="annee" id="annee" th:value="${programmeur.annee}" min="1900" max="2024" placeholder="Entrez l'année de naissance">
+            <div class="error-message" id="annee-error"></div>
         </div>
 
         <div class="form-group">
             <label for="salaire">Salaire (€) :</label>
-            <input type="number" id="salaire" name="salaire" step="0.5" th:value="${programmeur.salaire}" placeholder="Entrez le salaire">
+            <input type="number" name="salaire" id="salaire" th:value="${programmeur.salaire}" step="0.5" placeholder="Entrez le salaire">
+            <div class="error-message" id="salaire-error"></div>
         </div>
 
         <div class="form-group">
             <label for="prime">Prime (€) :</label>
-            <input type="number" id="prime" name="prime" step="0.5" th:value="${programmeur.prime}" placeholder="Entrez la prime">
+            <input type="number" name="prime" id="prime" th:value="${programmeur.prime}" step="0.5" placeholder="Entrez la prime">
+            <div class="error-message" id="prime-error"></div>
         </div>
 
-        <div class="form-buttons">
+        <div class="form-group form-buttons">
             <button type="submit" class="button submit">Modifier</button>
             <a href="/" class="button cancel">Annuler</a>
         </div>
     </form>
 </section>
+
+<script>
+    function displayError(field, message) {
+        const errorElement = document.getElementById(`${field}-error`);
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+
+    function validateInput() {
+        let formIsValid = true;
+        document.querySelectorAll('.error-message').forEach(function(element) {
+            element.style.display = 'none';
+        });
+
+        const prenom = document.getElementById('prenom').value;
+        const nom = document.getElementById('nom').value;
+        const adresse = document.getElementById('adresse').value;
+        const pseudo = document.getElementById('pseudo').value;
+        const responsable = document.getElementById('responsable').value;
+        const hobby = document.getElementById('hobby').value;
+        const annee = document.getElementById('annee').value;
+        const salaire = document.getElementById('salaire').value;
+        const prime = document.getElementById('prime').value;
+
+        const nameRegex = /^[A-Za-zÀ-ÿ]+(-[A-Za-zÀ-ÿ]+)*$/;
+        if (!prenom || !nameRegex.test(prenom)) {
+            displayError('prenom', 'Le prénom doit contenir uniquement des lettres, des espaces ou des tirets.');
+            formIsValid = false;
+        }
+
+        if (!nom || !nameRegex.test(nom)) {
+            displayError('nom', 'Le nom doit contenir uniquement des lettres, des espaces ou des tirets.');
+            formIsValid = false;
+        }
+
+        if (!responsable || !nameRegex.test(responsable)) {
+            displayError('responsable', 'Le responsable doit contenir uniquement des lettres.');
+            formIsValid = false;
+        }
+
+        if (!hobby || !nameRegex.test(hobby)) {
+            displayError('hobby', 'Le hobby doit contenir uniquement des lettres.');
+            formIsValid = false;
+        }
+
+        const pseudoRegex = /^[A-Za-z][A-Za-z0-9]*$/;
+        if (!pseudo || !pseudoRegex.test(pseudo)) {
+            displayError('pseudo', 'Le pseudo doit commencer par une lettre et peut avoir un chiffre à la fin.');
+            formIsValid = false;
+        }
+
+        const adresseRegex = /^[0-9]+[A-Za-zÀ-ÿ\s]*$/;
+        if (!adresse || !adresseRegex.test(adresse)) {
+            displayError('adresse', 'L\'adresse doit commencer par un numéro de rue suivi de lettres.');
+            formIsValid = false;
+        }
+
+        if (annee < 1900 || annee > 2024) {
+            displayError('annee', 'L\'année de naissance doit être entre 1900 et 2024.');
+            formIsValid = false;
+        }
+
+        if (salaire < 0) {
+            displayError('salaire', 'Le salaire ne peut pas être négatif.');
+            formIsValid = false;
+        }
+
+        if (prime < 0) {
+            displayError('prime', 'La prime ne peut pas être négative.');
+            formIsValid = false;
+        }
+
+        return formIsValid;
+    }
+
+    document.getElementById('modifierForm').addEventListener('submit', function(event) {
+        if (!validateInput()) {
+            event.preventDefault();
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un programmeur</title>
+    <title>Ajouter un·e programmeur·se</title>
     <link rel="stylesheet" href="/css/add.css">
 </head>
 <body>
 
 <div class="container">
-    <h2>Ajouter un programmeur</h2>
+    <h2>Ajouter un·e programmeur·se</h2>
 
     <!-- Formulaire d'ajout -->
     <form action="/ajouter" method="post" id="ajouterForm" class="form-box">
@@ -17,6 +17,9 @@
         <div id="error-message" class="error-message" style="display: none;">
             <p>Veuillez remplir tous les champs correctement.</p>
         </div>
+
+        <div id="duplicate-error" class="error-message" th:if="${error != null}" th:text="${error}"></div>
+
 
         <div class="form-group">
             <label for="prenom">Prénom :</label>
@@ -88,13 +91,13 @@
         errorElement.style.display = 'block';
     }
 
-    // Validation du formulaire
-    document.getElementById('ajouterForm').addEventListener('submit', function(event) {
+    // Fonction de validation des champs
+    function validateInput() {
         let formIsValid = true;
         document.querySelectorAll('.error-message').forEach(function(element) {
-            element.style.display = 'none'; // Réinitialiser les messages d'erreur
+            element.style.display = 'none';
         });
-        document.getElementById('error-message').style.display = 'none'; // Réinitialise le message d'erreur
+        document.getElementById('error-message').style.display = 'none';
 
         // Validation des champs
         const prenom = document.getElementById('prenom').value;
@@ -107,49 +110,80 @@
         const salaire = document.getElementById('salaire').value;
         const prime = document.getElementById('prime').value;
 
-        // Validation des champs
-        if (!prenom) {
-            displayError('prenom', 'Le prénom est requis.');
+        // Vérif du prénom (doit être une chaîne de caractères sans chiffres)
+        const nameRegex = /^[A-Za-zÀ-ÿ]+(-[A-Za-zÀ-ÿ]+)*$/;
+        if (!prenom || !nameRegex.test(prenom)) {
+            displayError('prenom', 'Le prénom doit contenir uniquement des lettres, des espaces ou des tirets.');
             formIsValid = false;
         }
-        if (!nom) {
-            displayError('nom', 'Le nom est requis.');
+
+        // Vérif du nom (doit être une chaîne de caractères sans chiffres)
+        if (!nom || !nameRegex.test(nom)) {
+            displayError('nom', 'Le nom doit contenir uniquement des lettres, des espaces ou des tirets.');
             formIsValid = false;
         }
-        if (!adresse) {
-            displayError('adresse', 'L\'adresse est requise.');
+
+        // Vérid du résponsable (doit être une chaîne de caractères sans chiffres)
+        if (!responsable || !nameRegex.test(responsable)) {
+            displayError('responsable', 'Le responsable doit contenir uniquement des lettres.');
             formIsValid = false;
         }
-        if (!pseudo) {
-            displayError('pseudo', 'Le pseudo est requis.');
+
+        // Vérif de l'hobby (doit être une chaîne de caractères sans chiffres)
+        if (!hobby || !nameRegex.test(hobby)) {
+            displayError('hobby', 'Le hobby doit contenir uniquement des lettres.');
             formIsValid = false;
         }
-        if (!responsable) {
-            displayError('responsable', 'Le responsable est requis.');
+
+        // Vérif du pseudo (doit commencer par une lettre et peut avoir un chiffre à la fin)
+        const pseudoRegex = /^[A-Za-z][A-Za-z0-9]*$/;
+        if (!pseudo || !pseudoRegex.test(pseudo)) {
+            displayError('pseudo', 'Le pseudo doit commencer par une lettre et peut avoir un chiffre à la fin.');
             formIsValid = false;
         }
-        if (!hobby) {
-            displayError('hobby', 'Le hobby est requis.');
+
+        // Vérif de l'adresse (doit commencer par des chiffres pour le numéro de rue)
+        const adresseRegex = /^[0-9]+[A-Za-zÀ-ÿ\s]*$/;
+        if (!adresse || !adresseRegex.test(adresse)) {
+            displayError('adresse', 'L\'adresse doit commencer par un numéro de rue suivi de lettres.');
             formIsValid = false;
         }
+
         if (annee < 1900 || annee > 2024) {
             displayError('annee', 'L\'année de naissance doit être entre 1900 et 2024.');
             formIsValid = false;
         }
+
         if (salaire < 0) {
             displayError('salaire', 'Le salaire ne peut pas être négatif.');
             formIsValid = false;
         }
+
         if (prime < 0) {
             displayError('prime', 'La prime ne peut pas être négative.');
             formIsValid = false;
         }
 
-        if (!formIsValid) {
+        return formIsValid;
+    }
+
+    window.onload = function() {
+        const errorMessage = document.getElementById('error-message');
+        const duplicateError = document.getElementById('duplicate-error');
+
+        // Vérifie si une erreur est présente dans le modèle
+        if ("${error}" !== "") {
+            duplicateError.style.display = 'block';
+        }
+    };
+
+    document.getElementById('ajouterForm').addEventListener('submit', function(event) {
+        if (!validateInput()) {
             event.preventDefault();
             document.getElementById('error-message').style.display = 'block';
         }
     });
+
 </script>
 
 </body>

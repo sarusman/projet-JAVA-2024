@@ -6,6 +6,8 @@ import com.javaprojet.webapp.model.Programmeur;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @Controller
 public class ProgrammeurController {
@@ -53,8 +55,16 @@ public class ProgrammeurController {
             @RequestParam String hobby,
             @RequestParam Integer annee,
             @RequestParam Double salaire,
-            @RequestParam Double prime
+            @RequestParam Double prime,
+            Model model
     ) {
+        // Vérification des doublons
+        Programmeur existingProgrammeur = programmeurService.findByPrenomAndNom(prenom, nom);
+        if (existingProgrammeur != null) {
+            model.addAttribute("error", "Un programmeur avec ce prénom et nom existe déjà.");
+            return "addProgrammeurForm";
+        }
+
         Programmeur programmeur = new Programmeur();
         programmeur.setPrenom(prenom);
         programmeur.setNom(nom);
@@ -107,6 +117,17 @@ public class ProgrammeurController {
         var statistiques = programmeurService.getStatistiques();
         model.addAttribute("statistiques", statistiques);
         return "statistiques";
+    }
+
+    @GetMapping("/searchProgrammeurs")
+    public String searchProgrammeurs(@RequestParam(required = false) String nom,
+                                     @RequestParam(required = false) String prenom,
+                                     @RequestParam(required = false) Double salaireMin,
+                                     @RequestParam(required = false) String responsable,
+                                     @RequestParam(required = false) String adresse, Model model) {
+        List<Programmeur> filteredProgrammeurs = programmeurService.searchProgrammeurs(nom, prenom, salaireMin, responsable, adresse);
+        model.addAttribute("programmeurs", filteredProgrammeurs);
+        return "home";
     }
 
 }

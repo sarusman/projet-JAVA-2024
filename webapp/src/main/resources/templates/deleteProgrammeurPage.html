@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supprimer un Programmeur</title>
+    <title>Supprimer un·e programmeur·se</title>
     <link rel="stylesheet" href="/css/delete.css">
     <script>
         // Fonction pour afficher une confirmation de suppression
         function confirmDeletion(event) {
             event.preventDefault();
-            const confirmation = confirm("Êtes-vous sûr de vouloir supprimer ce programmeur ?");
+            const confirmation = confirm("Êtes-vous sûr de vouloir supprimer ce·tte programmeur·se ?");
             if (confirmation) {
                 event.target.closest('form').submit();
             }
@@ -20,12 +20,12 @@
 
 <!-- En-tête de la page -->
 <header class="header">
-    <h1>Suppression d'un Programmeur</h1>
+    <h1>Suppression d'un·e programmeur·se</h1>
 </header>
 
 <!-- Formulaire de confirmation de suppression -->
 <section class="delete-section">
-    <h2>Êtes-vous sûr de vouloir supprimer ce programmeur ?</h2>
+    <h2>Êtes-vous sûr de vouloir supprimer ce·tte programmeur·se ?</h2>
     <form action="/supprimer" th:each="programmeur : ${programmeur}" th:if="${programmeur}" method="post">
         <input type="hidden" name="id" th:value="${programmeur.id}">
 

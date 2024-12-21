@@ -3,28 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Programmeurs</title>
-    <!-- Lien vers le fichier CSS -->
+    <title>Liste des programmeurs·ses</title>
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
 
 <!-- En-tête de la page -->
 <header class="header">
-    <h1>Gestion des Programmeurs</h1>
+    <h1>Gestion des développeurs·ses</h1>
     <nav>
-        <a th:href="@{/addProgrammeur}" class="button">Ajouter un programmeur</a>
+        <a th:href="@{/addProgrammeur}" class="button">Ajouter un·e développeur·se</a>
         <a th:href="@{/statistiques}" class="button">Voir les statistiques</a>
     </nav>
 </header>
 
+<!-- Formulaire de recherche -->
+<section class="search-section">
+    <h2>Recherche avancée</h2>
+    <form th:action="@{/searchProgrammeurs}" method="GET">
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex : Dupont">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Ex : Jean">
+        </div>
+        <div class="form-group">
+            <label for="salaireMin">Salaire minimum :</label>
+            <input type="number" id="salaireMin" name="salaireMin" step="0.01" min="0" placeholder="Ex : 1000">
+        </div>
+        <div class="form-group">
+            <label for="responsable">Formateur (Responsable) :</label>
+            <input type="text" id="responsable" name="responsable" placeholder="Ex : Martin">
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" placeholder="Ex : Paris">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="button">Rechercher</button>
+        </div>
+    </form>
+</section>
+
 <!-- Section des programmeurs -->
 <section class="programmeurs-section">
-    <h2>Liste des Programmeurs</h2>
+    <h2>Liste des développeurs·ses</h2>
 
     <!-- Affichage d'un message si la liste est vide -->
     <div th:if="${programmeurs.isEmpty()}" class="empty-message">
-        Il n'y a aucun programmeur dans votre base de données !
+        Il n'y a aucun·e programmeur·se dans votre base de données !
     </div>
 
     <!-- Affichage des programmeurs -->
