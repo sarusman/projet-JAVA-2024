@@ -27,11 +27,16 @@ body {
 
 .header h1 {
     font-size: 24px;
-    color: #5DADE2;
+    color: #185580;
+}
+
+.header nav {
+    display: flex;
+    gap: 10px;
 }
 
 .header nav a.button {
-    background-color: #ADD8E6;
+    background-color: #5992a6;
     color: white;
     padding: 12px 20px;
     border-radius: 8px;
@@ -41,7 +46,7 @@ body {
 }
 
 .header nav a.button:hover {
-    background-color: #87CEEB;
+    background-color: #185580;
 }
 
 /* Section des programmeurs */
@@ -56,7 +61,7 @@ body {
 
 .programmeurs-section h2 {
     font-size: 22px;
-    color: #5DADE2;
+    color: #185580;
     margin-bottom: 20px;
 }
 
@@ -96,7 +101,7 @@ body {
 
 .programmeur-details strong {
     font-weight: bold;
-    color: #5DADE2;
+    color: #185580;
 }
 
 /* modifier, supprimer */
@@ -108,7 +113,7 @@ body {
 
 .programmeur-actions a.button {
     padding: 8px 16px;
-    background-color: #ADD8E6;
+    background-color: #5992a6;
     color: white;
     border-radius: 4px;
     text-decoration: none;
@@ -117,7 +122,7 @@ body {
 }
 
 .programmeur-actions a.button:hover {
-    background-color: #87CEEB;
+    background-color: #185580;
 }
 
 .programmeur-actions a.delete {
@@ -207,7 +212,7 @@ body {
 
 .search-section .form-group button {
     padding: 12px 20px;
-    background-color: #ADD8E6;
+    background-color: #5992a6;
     color: white;
     border-radius: 8px;
     font-size: 16px;
@@ -217,6 +222,5 @@ body {
 }
 
 .search-section .form-group button:hover {
-    background-color: #87CEEB;
+    background-color: #185580;
 }
-

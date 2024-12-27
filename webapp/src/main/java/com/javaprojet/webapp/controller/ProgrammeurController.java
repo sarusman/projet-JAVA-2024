@@ -130,4 +130,8 @@ public class ProgrammeurController {
         return "home";
     }
 
+    @GetMapping("/contact")
+    public String afficherContact() {
+        return "contact";
+    }
 }

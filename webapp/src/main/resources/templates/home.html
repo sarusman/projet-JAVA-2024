@@ -12,34 +12,36 @@
 <header class="header">
     <h1>Gestion des développeurs·ses</h1>
     <nav>
+        <a th:href="@{/}" class="button">Accueil</a>
         <a th:href="@{/addProgrammeur}" class="button">Ajouter un·e développeur·se</a>
-        <a th:href="@{/statistiques}" class="button">Voir les statistiques</a>
+        <a th:href="@{/statistiques}" class="button">Statistiques</a>
+        <a th:href="@{/contact}" class="button">Contact</a>
     </nav>
 </header>
 
 <!-- Formulaire de recherche -->
 <section class="search-section">
-    <h2>Recherche avancée</h2>
+    <h2>Recherche</h2>
     <form th:action="@{/searchProgrammeurs}" method="GET">
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" placeholder="Ex : Dupont">
+            <input type="text" id="nom" name="nom" placeholder="Ex : CHEIKH ROUHOU">
         </div>
         <div class="form-group">
             <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" placeholder="Ex : Jean">
+            <input type="text" id="prenom" name="prenom" placeholder="Ex : Imen">
         </div>
         <div class="form-group">
             <label for="salaireMin">Salaire minimum :</label>
-            <input type="number" id="salaireMin" name="salaireMin" step="0.01" min="0" placeholder="Ex : 1000">
+            <input type="number" id="salaireMin" name="salaireMin" step="0.01" min="0" placeholder="Ex : 1500">
         </div>
         <div class="form-group">
             <label for="responsable">Formateur (Responsable) :</label>
-            <input type="text" id="responsable" name="responsable" placeholder="Ex : Martin">
+            <input type="text" id="responsable" name="responsable" placeholder="Ex : Didier Achvar">
         </div>
         <div class="form-group">
             <label for="adresse">Adresse :</label>
-            <input type="text" id="adresse" name="adresse" placeholder="Ex : Paris">
+            <input type="text" id="adresse" name="adresse" placeholder="Ex : 7 Rue des Fleurs">
         </div>
         <div class="form-group">
             <button type="submit" class="button">Rechercher</button>

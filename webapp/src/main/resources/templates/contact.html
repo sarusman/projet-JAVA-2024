@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- En-tête de la page -->
+<header class="header">
+    <h1>Contactez-nous</h1>
+    <nav>
+        <a href="/" class="button">Accueil</a>
+        <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
+        <a href="/statistiques" class="button">Statistiques</a>
+        <a href="/contact" class="button">Contact</a>
+    </nav>
+</header>
+
+<!-- Message de confirmation -->
+<div id="confirmation-message" class="confirmation-message" style="display: none;">
+    <h3>Merci pour votre message !</h3>
+    <p>Nous avons bien reçu votre message et nous vous contacterons dans les plus brefs délais. En attendant, n'hésitez pas à consulter nos autres services ou à revenir vers nous si vous avez d'autres questions.</p>
+</div>
+
+<!-- Section de contact -->
+<section class="contact-section">
+    <h2>Entrer en contact</h2>
+    <div class="contact-container">
+        <!-- Formulaire de contact -->
+        <form id="contact-form" action="/sendMessage" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="Votre email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="button">Envoyer</button>
+        </form>
+
+        <!-- Carte -->
+        <div id="map"></div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 14 Rue de l'Église, 75015 Paris
+        const lat = 48.84107;
+        const lng = 2.27863;
+
+        // affichage de la carte
+        const map = L.map('map').setView([lat, lng], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([lat, lng]).addTo(map)
+            .bindPopup('14 Rue de l\'Église, 75015 Paris')
+            .openPopup();
+    });
+
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const confirmationMessage = document.getElementById('confirmation-message');
+        confirmationMessage.style.display = 'block';
+
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
