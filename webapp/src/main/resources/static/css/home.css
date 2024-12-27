@@ -11,6 +11,10 @@ body {
     background-color: #f4f4f9;
     color: #333;
     padding: 40px;
+    background-image: url('../images/fond_ecran.png');
+    background-size: cover; /* Couvre toute la page */
+    background-position: center; /* Centrer l'image */
+    background-attachment: fixed; /* Fixe l'image pendant le défilement */
 }
 
 /* En-tête de la page */
@@ -35,6 +39,12 @@ body {
     gap: 10px;
 }
 
+.header .logo {
+    width: 40px;  /* Ajustez la taille du logo */
+    height: auto;
+    margin-right: 15px;  /* Espace entre le logo et le titre */
+}
+
 .header nav a.button {
     background-color: #5992a6;
     color: white;
@@ -53,15 +63,18 @@ body {
 .programmeurs-section {
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #fff;
+    /*background-color: #fff;*/
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*background-image: url('../images/test.jpg');*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
 }
 
 .programmeurs-section h2 {
     font-size: 22px;
-    color: #185580;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -70,6 +83,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+
 }
 
 /* Carte de programmeur */
