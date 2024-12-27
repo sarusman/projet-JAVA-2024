@@ -40,9 +40,9 @@ body {
 }
 
 .header .logo {
-    width: 40px;  /* Ajustez la taille du logo */
+    width: 70px;
     height: auto;
-    margin-right: 15px;  /* Espace entre le logo et le titre */
+    margin-right: 15px;
 }
 
 .header nav a.button {
