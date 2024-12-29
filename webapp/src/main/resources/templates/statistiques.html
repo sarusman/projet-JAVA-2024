@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistiques des programmeurs·ses</title>
     <link rel="stylesheet" href="/css/statistiques.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
 
@@ -21,7 +22,7 @@
 </header>
 
 <section class="statistiques-section">
-    <h2>Statistiques</h2>
+    <h2>Données des salaires</h2>
 
     <div class="statistiques-summary">
         <div class="stat-box">
@@ -45,21 +46,13 @@
     </div>
 
     <h3>Répartition des programmeurs·ses par année de naissance</h3>
-    <div class="table-container">
-        <table class="styled-table">
-            <thead>
-            <tr>
-                <th>Année</th>
-                <th>Nombre de programmeurs·ses</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="entry : ${statistiques.repartitionAnnee}">
-                <td th:text="${entry.key}"></td>
-                <td th:text="${entry.value}"></td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="list-container">
+        <div class="list-card" th:each="entry : ${statistiques.repartitionAnnee}">
+            <div class="list-content">
+                <h4>Année : <span th:text="${entry.key}"></span></h4>
+                <p>Nombre de programmeurs·ses : <span th:text="${entry.value}"></span></p>
+            </div>
+        </div>
     </div>
 </section>
 

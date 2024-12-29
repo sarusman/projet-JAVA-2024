@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.text.DecimalFormat;
+import java.util.LinkedHashMap;
 
 @Service
 @Transactional
@@ -61,11 +63,12 @@ public class ProgrammeurService {
         String salaireMinStr = df.format(salaireMin);
         String salaireMaxStr = df.format(salaireMax);
 
-        // répartition des programmeurs par année de naissance
-        Map<Integer, Long> repartitionAnnee = programmeurs.stream()
-                .collect(Collectors.groupingBy(Programmeur::getAnnee, Collectors.counting()));
+        Map<Integer, Long> repartitionAnnee = new TreeMap<>(
+                programmeurs.stream()
+                        .collect(Collectors.groupingBy(Programmeur::getAnnee, Collectors.counting()))
+        );
 
-        // résultat dans une Map
+        // Résultat dans une Map
         return Map.of(
                 "totalProgrammeurs", totalProgrammeurs,
                 "salaireMoyen", salaireMoyenStr,
@@ -73,6 +76,7 @@ public class ProgrammeurService {
                 "salaireMax", salaireMaxStr,
                 "repartitionAnnee", repartitionAnnee
         );
+
     }
 
     public Programmeur findByPrenomAndNom(String prenom, String nom) {

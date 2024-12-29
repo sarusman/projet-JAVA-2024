@@ -11,10 +11,10 @@ body {
     background-color: #f4f4f9;
     color: #333;
     padding: 40px;
-    background-image: url('../images/fond_ecran.png');
-    background-size: cover; /* Couvre toute la page */
-    background-position: center; /* Centrer l'image */
-    background-attachment: fixed; /* Fixe l'image pendant le défilement */
+    /*background-image: url('../images/fond_ecran.png');*/
+    /*background-size: cover; !* Couvre toute la page *!*/
+    /*background-position: center; !* Centrer l'image *!*/
+    /*background-attachment: fixed; !* Fixe l'image pendant le défilement *!*/
 }
 
 /* En-tête de la page */
@@ -63,7 +63,7 @@ body {
 .programmeurs-section {
     max-width: 1200px;
     margin: 0 auto;
-    /*background-color: #fff;*/
+    background-color: #fff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
