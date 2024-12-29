@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Liste des responsables</title>
-    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/responsable.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
 
 <header class="header">
     <h1>Admin - Liste des responsables</h1>
     <nav>
-        <a href="/" class="button">Retour à l'accueil</a>
         <a href="/logout" class="button">Se déconnecter</a>
+        <a href="/" class="button">Accueil</a>
+        <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
+        <a href="/statistiques" class="button">Statistiques</a>
+        <a href="/contact" class="button">Contact</a>
+        <a href="/login" class="button">Connexion Admin</a>
     </nav>
 </header>
 
@@ -27,6 +34,25 @@
         </div>
     </div>
 </section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Logo" class="logo">
+            <p>&copy; 2024 DevDirectory. Tous droits réservés.</p>
+        </div>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+            <a href="/politique-confidentialite">Politique de confidentialité</a>
+            <a href="/contact">Contactez-nous</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="https://x.com" target="_blank"><img src="/images/x.png" alt="X"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
