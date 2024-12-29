@@ -12,8 +12,8 @@
 <body>
 
 <header class="header">
-    <h1>Admin - Liste des responsables</h1>
     <img src="/images/logo.png" alt="Logo" class="logo">
+    <h1>Admin - Liste des responsables</h1>
     <nav>
         <a href="/logout" class="button">Se déconnecter</a>
         <a href="/" class="button">Accueil</a>
@@ -24,16 +24,47 @@
     </nav>
 </header>
 
+<section class="add-responsable-section">
+    <button class="add-responsable-button" onclick="openForm()">+</button>
+</section>
+
+<div id="error-message" style="color: red; display: none;">
+    <!-- message d'erreur -->
+</div>
+
+<!-- Modal Formulaire d'ajout -->
+<div id="addFormPopup" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeForm()">×</span>
+        <h2>Ajouter un responsable</h2>
+        <form action="/addResponsable" method="POST">
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <button type="submit" class="button">Ajouter</button>
+        </form>
+    </div>
+</div>
+
 <section class="responsables-section">
     <h2>Liste des responsables</h2>
 
     <div class="responsables-container">
         <div th:each="responsable : ${responsables}" class="responsable-card">
             <div class="responsable-details">
-                <h3 th:text="${responsable.nom} + ' ' + ${responsable.prenom}"></h3>
+                <h3 th:text="${responsable.prenom} + ' ' + ${responsable.nom}"></h3>
             </div>
+            <form action="/deleteResponsable" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce responsable ?');">
+                <input type="hidden" name="id" th:value="${responsable.id}">
+                <button type="button" class="button delete-button">Supprimer</button>
+            </form>
         </div>
     </div>
+
 </section>
 
 <footer class="footer">
@@ -54,6 +85,16 @@
         </div>
     </div>
 </footer>
+
+<script>
+    function openForm() {
+        document.getElementById("addFormPopup").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("addFormPopup").style.display = "none";
+    }
+</script>
 
 </body>
 </html>

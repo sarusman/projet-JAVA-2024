@@ -1,8 +1,6 @@
 package com.javaprojet.webapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,12 +8,20 @@ import lombok.Setter;
 @Table(name = "responsables")
 public class Responsable {
 
-    @Setter
-    @Getter
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Utilise une génération automatique de l'ID
     private Long id;
     private String prenom;
     private String nom;
+
+    public Responsable(String prenom, String nom) {
+        this.prenom = prenom;
+        this.nom = nom;
+    }
+
+    public Responsable() {
+
+    }
 
     public Long getId() {
         return id;

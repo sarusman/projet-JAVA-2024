@@ -18,4 +18,16 @@ public class ResponsableService {
     public List<Responsable> afficherResponsables() {
         return responsableRepository.findAll();
     }
+
+    public void save(Responsable responsable) {
+        responsableRepository.save(responsable);
+    }
+
+    public void deleteById(Long id) {
+        responsableRepository.deleteById(id);
+    }
+
+    public Responsable findByPrenomAndNom(String prenom, String nom) {
+        return responsableRepository.findByPrenomAndNom(prenom, nom);
+    }
 }
