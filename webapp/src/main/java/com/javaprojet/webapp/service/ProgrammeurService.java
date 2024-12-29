@@ -1,6 +1,8 @@
 package com.javaprojet.webapp.service;
 
+import com.javaprojet.webapp.model.Responsable;
 import com.javaprojet.webapp.model.Programmeur;
+import com.javaprojet.webapp.repository.ResponsableRepository;
 import com.javaprojet.webapp.repository.ProgrammeurRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,12 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.text.DecimalFormat;
-import java.util.LinkedHashMap;
 
 @Service
 @Transactional
 public class ProgrammeurService {
     private final ProgrammeurRepository programmeurRepository;
+    ResponsableRepository responsableRepository;
 
     @Autowired
     public ProgrammeurService(ProgrammeurRepository programmeurRepository) {
@@ -125,5 +127,8 @@ public class ProgrammeurService {
         return programmeurs;
     }
 
+    public List<Responsable> getFormateurs() {
+        return responsableRepository.findAll(); // Récupérer tous les formateurs
+    }
 
 }

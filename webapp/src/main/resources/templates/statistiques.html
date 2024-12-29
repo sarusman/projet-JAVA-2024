@@ -17,13 +17,10 @@
         <a th:href="@{/addProgrammeur}" class="button">Ajouter un·e développeur·se</a>
         <a th:href="@{/statistiques}" class="button">Statistiques</a>
         <a th:href="@{/contact}" class="button">Contact</a>
-        <a th:href="@{/}" class="button">Retour à la liste</a>
     </nav>
 </header>
 
 <section class="statistiques-section">
-    <h2>Données des salaires</h2>
-
     <div class="statistiques-summary">
         <div class="stat-box">
             <p><strong>Salaire moyen :</strong></p>
@@ -49,12 +46,65 @@
     <div class="list-container">
         <div class="list-card" th:each="entry : ${statistiques.repartitionAnnee}">
             <div class="list-content">
-                <h4>Année : <span th:text="${entry.key}"></span></h4>
+                <h4>
+                    Année :
+                    <span th:text="${entry.key}" onclick="fetchProgrammeursByYear(this.innerText)"></span>
+                </h4>
                 <p>Nombre de programmeurs·ses : <span th:text="${entry.value}"></span></p>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="programmeurModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalYear"></h2>
+            <div id="programmeurList" class="programmeur-list"></div>
+        </div>
+    </div>
+
 </section>
+
+<script>
+    function fetchProgrammeursByYear(year) {
+        console.log("Année cliquée: " + year);
+        fetch(`/programmeursByYear?year=${year}`)
+            .then(response => response.json())
+            .then(data => {
+                // Affiche les informations dans le modal
+                const modal = document.getElementById('programmeurModal');
+                const modalYear = document.getElementById('modalYear');
+                const programmeurList = document.getElementById('programmeurList');
+
+                modalYear.innerText = `Programmeurs de l'année ${year}`;
+                programmeurList.innerHTML = '';
+
+                data.forEach(programmeur => {
+                    const programmeurCard = document.createElement('div');
+                    programmeurCard.classList.add('programmeur-card');
+
+                    const programmeurName = document.createElement('h3');
+                    programmeurName.innerText = `${programmeur.prenom} ${programmeur.nom}`;
+
+                    const programmeurSalary = document.createElement('p');
+                    programmeurSalary.innerText = `Salaire : ${programmeur.salaire}€`;
+
+                    programmeurCard.appendChild(programmeurName);
+                    programmeurCard.appendChild(programmeurSalary);
+
+                    programmeurList.appendChild(programmeurCard);
+                });
+
+                modal.style.display = 'block';
+            })
+            .catch(error => console.error('Erreur lors de la récupération des données :', error));
+    }
+
+    function closeModal() {
+        document.getElementById('programmeurModal').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -134,4 +135,15 @@ public class ProgrammeurController {
     public String afficherContact() {
         return "contact";
     }
+
+    @GetMapping("/programmeursByYear")
+    @ResponseBody
+    public List<Programmeur> getProgrammeursByYear(@RequestParam Integer year) {
+        return programmeurService.afficherProgrammeurs()
+                .stream()
+                .filter(p -> Integer.valueOf(p.getAnnee()).equals(year))
+                .collect(Collectors.toList());
+    }
+
+
 }
