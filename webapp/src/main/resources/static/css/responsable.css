@@ -57,8 +57,6 @@
 
 .responsable-actions a.button {
     padding: 8px 16px;
-    background-color: #5992a6;
-    color: white;
     border-radius: 6px;
     text-decoration: none;
     font-size: 14px;
@@ -66,15 +64,21 @@
     display: inline-block;
 }
 
-.responsable-actions a.button:hover {
+.responsable-actions a.button.add {
     background-color: #185580;
+    color: white;
 }
 
-.responsable-actions a.delete {
+.responsable-actions a.button.add:hover {
+    background-color: #123e5a;
+}
+
+.responsable-actions a.button.delete {
     background-color: #FF7F7F;
+    color: white;
 }
 
-.responsable-actions a.delete:hover {
+.responsable-actions a.button.delete:hover {
     background-color: #FF4C4C;
 }
 
@@ -99,7 +103,6 @@
     transition: background-color 0.3s ease;
 }
 
-/* Effet de survol pour le bouton de suppression */
 .delete-button:hover {
     background-color: #830d18;
 }
@@ -111,7 +114,7 @@
 }
 
 .add-responsable-button {
-    background-color: #5992a6;
+    background-color: #185580;
     color: white;
     font-size: 40px;
     width: 60px;
@@ -124,24 +127,23 @@
 }
 
 .add-responsable-button:hover {
-    background-color: #185580;
+    background-color: #123e5a;
 }
 
 /* Style du modal */
 .modal {
-    display: none; /* Masqué par défaut */
+    display: none;
     position: fixed;
-    z-index: 1; /* Au-dessus de tout le reste */
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre */
-    overflow: auto; /* Permet le défilement si nécessaire */
-    padding-top: 60px; /* Espace du haut */
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    padding-top: 60px;
 }
 
-/* Contenu du modal */
 .modal-content {
     background-color: #fff;
     margin: 5% auto;
@@ -150,10 +152,10 @@
     width: 80%;
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
-/* Le bouton de fermeture */
-.close {
+.modal-content .close {
     color: #0f3555;
     font-size: 32px;
     font-weight: bold;
@@ -164,10 +166,8 @@
     transition: color 0.3s ease;
 }
 
-.close:hover,
-.close:focus {
+.modal-content .close:hover {
     color: black;
-    text-decoration: none;
 }
 
 input[type="text"] {
@@ -185,9 +185,10 @@ input[type="text"]:focus {
     outline: none;
 }
 
-button[type="submit"] {
+/* Bouton "Ajouter" */
+button[type="submit"].add {
     padding: 10px 20px;
-    background-color: #5992a6;
+    background-color: #185580;
     color: white;
     border: none;
     border-radius: 6px;
@@ -196,8 +197,24 @@ button[type="submit"] {
     font-size: 14px;
 }
 
-button[type="submit"]:hover {
-    background-color: #185580;
+button[type="submit"].add:hover {
+    background-color: #123e5a;
+}
+
+/* Bouton "Supprimer" */
+button[type="submit"].delete {
+    padding: 10px 20px;
+    background-color: #b62c39;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+button[type="submit"].delete:hover {
+    background-color: #830d18;
 }
 
 .modal-content {
@@ -207,10 +224,6 @@ button[type="submit"]:hover {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-.add-responsable-button:hover {
-    background-color: #185580;
 }
 
 @media (max-width: 768px) {
@@ -227,7 +240,8 @@ button[type="submit"]:hover {
         padding: 6px 12px;
     }
 
-    .popup-content {
+    .modal-content {
         width: 90%;
+        align-items: center;
     }
 }

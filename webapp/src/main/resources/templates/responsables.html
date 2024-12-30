@@ -45,7 +45,7 @@
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required>
 
-            <button type="submit" class="button">Ajouter</button>
+            <button type="submit" class="button add">Ajouter</button>
         </form>
     </div>
 </div>
@@ -60,7 +60,7 @@
             </div>
             <form action="/deleteResponsable" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce responsable ?');">
                 <input type="hidden" name="id" th:value="${responsable.id}">
-                <button type="button" class="button delete-button">Supprimer</button>
+                <button type="submit" class="button delete-button">Supprimer</button>
             </form>
         </div>
     </div>
