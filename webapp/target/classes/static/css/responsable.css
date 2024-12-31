@@ -1,0 +1,247 @@
+/* Section des responsables */
+.responsables-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.responsables-section h2 {
+    font-size: 24px;
+    color: #185580;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Conteneur des cartes de responsables */
+.responsables-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Carte de responsable */
+.responsable-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+}
+
+.responsable-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.responsable-card h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Actions sur le responsable */
+.responsable-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.responsable-actions a.button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.responsable-actions a.button.add {
+    background-color: #185580;
+    color: white;
+}
+
+.responsable-actions a.button.add:hover {
+    background-color: #123e5a;
+}
+
+.responsable-actions a.button.delete {
+    background-color: #FF7F7F;
+    color: white;
+}
+
+.responsable-actions a.button.delete:hover {
+    background-color: #FF4C4C;
+}
+
+/* Message si la liste des responsables est vide */
+.empty-message {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    padding: 20px;
+}
+
+/* Style des boutons de suppression */
+.delete-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #b62c39;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #830d18;
+}
+
+/* Formulaire d'ajout (popup) */
+.add-responsable-section {
+    margin: 40px auto;
+    text-align: center;
+}
+
+.add-responsable-button {
+    background-color: #185580;
+    color: white;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.add-responsable-button:hover {
+    background-color: #123e5a;
+}
+
+/* Style du modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-content .close {
+    color: #0f3555;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-content .close:hover {
+    color: black;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="text"]:focus {
+    border-color: #5992a6;
+    outline: none;
+}
+
+/* Bouton "Ajouter" */
+button[type="submit"].add {
+    padding: 10px 20px;
+    background-color: #185580;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+button[type="submit"].add:hover {
+    background-color: #123e5a;
+}
+
+/* Bouton "Supprimer" */
+button[type="submit"].delete {
+    padding: 10px 20px;
+    background-color: #b62c39;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+button[type="submit"].delete:hover {
+    background-color: #830d18;
+}
+
+.modal-content {
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .responsables-section {
+        padding: 20px;
+    }
+
+    .responsable-card {
+        padding: 15px;
+    }
+
+    .responsable-actions a.button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .modal-content {
+        width: 90%;
+        align-items: center;
+    }
+}
