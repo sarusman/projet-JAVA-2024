@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un·e programmeur·se</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/add.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+    <img src="/images/logo.png" alt="Logo" class="logo">
+    <h1>Ajouter un·e programmeur·se</h1>
+    <nav>
+        <a href="/" class="button">Accueil</a>
+        <a href="/addProgrammeur" class="button active">Ajouter un·e développeur·se</a>
+        <a href="/statistiques" class="button">Statistiques</a>
+        <a href="/contact" class="button">Contact</a>
+        <a href="/login" class="button">Connexion Admin</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Remplissez le formulaire d'ajout</h2>
+
+    <!-- Formulaire d'ajout -->
+    <form action="/ajouter" method="post" id="ajouterForm" class="form-box">
+        <!-- Message d'erreur -->
+        <div id="error-message" class="error-message" style="display: none;">
+            <p>Veuillez remplir tous les champs correctement.</p>
+        </div>
+
+        <div id="duplicate-error" class="error-message" th:if="${error != null}" th:text="${error}"></div>
+
+
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" name="prenom" id="prenom" required placeholder="Entrez le prénom">
+            <div class="error-message" id="prenom-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" id="nom" required placeholder="Entrez le nom">
+            <div class="error-message" id="nom-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" name="adresse" id="adresse" required placeholder="Entrez l'adresse">
+            <div class="error-message" id="adresse-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" name="pseudo" id="pseudo" required placeholder="Entrez le pseudo">
+            <div class="error-message" id="pseudo-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="responsable">Responsable :</label>
+            <input type="text" name="responsable" id="responsable" required placeholder="Entrez le responsable">
+            <div class="error-message" id="responsable-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="hobby">Hobby :</label>
+            <input type="text" name="hobby" id="hobby" required placeholder="Entrez le hobby">
+            <div class="error-message" id="hobby-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="annee">Année de naissance :</label>
+            <input type="number" name="annee" id="annee" min="1900" max="2024" value="1975">
+            <div class="error-message" id="annee-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="salaire">Salaire :</label>
+            <input type="number" name="salaire" id="salaire" step="0.5" value="1600">
+            <div class="error-message" id="salaire-error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="prime">Prime :</label>
+            <input type="number" name="prime" id="prime" step="0.5" value="200">
+            <div class="error-message" id="prime-error"></div>
+        </div>
+
+        <div class="form-group form-buttons">
+            <button type="submit">Ajouter</button>
+            <a href="/"><button type="button" class="cancel-button">Annuler</button></a>
+        </div>
+
+    </form>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Logo" class="logo">
+            <p>&copy; 2024 DevDirectory. Tous droits réservés.</p>
+        </div>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+            <a href="/politique-confidentialite">Politique de confidentialité</a>
+            <a href="/contact">Contactez-nous</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="https://x.com" target="_blank"><img src="/images/x.png" alt="X"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Fonction pour afficher les messages d'erreur
+    function displayError(field, message) {
+        const errorElement = document.getElementById(`${field}-error`);
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+
+    // Fonction de validation des champs
+    function validateInput() {
+        let formIsValid = true;
+        document.querySelectorAll('.error-message').forEach(function(element) {
+            element.style.display = 'none';
+        });
+        document.getElementById('error-message').style.display = 'none';
+
+        // Validation des champs
+        const prenom = document.getElementById('prenom').value;
+        const nom = document.getElementById('nom').value;
+        const adresse = document.getElementById('adresse').value;
+        const pseudo = document.getElementById('pseudo').value;
+        const responsable = document.getElementById('responsable').value;
+        const hobby = document.getElementById('hobby').value;
+        const annee = document.getElementById('annee').value;
+        const salaire = document.getElementById('salaire').value;
+        const prime = document.getElementById('prime').value;
+
+        // Vérif du prénom (doit être une chaîne de caractères sans chiffres)
+        const nameRegex = /^[A-Za-zÀ-ÿ]+(-[A-Za-zÀ-ÿ]+)*$/;
+        if (!prenom || !nameRegex.test(prenom)) {
+            displayError('prenom', 'Le prénom doit contenir uniquement des lettres, des espaces ou des tirets.');
+            formIsValid = false;
+        }
+
+        // Vérif du nom (doit être une chaîne de caractères sans chiffres)
+        if (!nom || !nameRegex.test(nom)) {
+            displayError('nom', 'Le nom doit contenir uniquement des lettres, des espaces ou des tirets.');
+            formIsValid = false;
+        }
+
+        // Vérid du résponsable (doit être une chaîne de caractères sans chiffres)
+        if (!responsable || !nameRegex.test(responsable)) {
+            displayError('responsable', 'Le responsable doit contenir uniquement des lettres.');
+            formIsValid = false;
+        }
+
+        // Vérif de l'hobby (doit être une chaîne de caractères sans chiffres)
+        if (!hobby || !nameRegex.test(hobby)) {
+            displayError('hobby', 'Le hobby doit contenir uniquement des lettres.');
+            formIsValid = false;
+        }
+
+        // Vérif du pseudo (doit commencer par une lettre et peut avoir un chiffre à la fin)
+        const pseudoRegex = /^[A-Za-z][A-Za-z0-9]*$/;
+        if (!pseudo || !pseudoRegex.test(pseudo)) {
+            displayError('pseudo', 'Le pseudo doit commencer par une lettre et peut avoir un chiffre à la fin.');
+            formIsValid = false;
+        }
+
+        // Vérif de l'adresse (doit commencer par des chiffres pour le numéro de rue)
+        const adresseRegex = /^[0-9]+[A-Za-zÀ-ÿ\s]*$/;
+        if (!adresse || !adresseRegex.test(adresse)) {
+            displayError('adresse', 'L\'adresse doit commencer par un numéro de rue suivi de lettres.');
+            formIsValid = false;
+        }
+
+        if (annee < 1900 || annee > 2024) {
+            displayError('annee', 'L\'année de naissance doit être entre 1900 et 2024.');
+            formIsValid = false;
+        }
+
+        if (salaire < 0) {
+            displayError('salaire', 'Le salaire ne peut pas être négatif.');
+            formIsValid = false;
+        }
+
+        if (prime < 0) {
+            displayError('prime', 'La prime ne peut pas être négative.');
+            formIsValid = false;
+        }
+
+        return formIsValid;
+    }
+
+    window.onload = function() {
+        const errorMessage = document.getElementById('error-message');
+        const duplicateError = document.getElementById('duplicate-error');
+
+        // Vérifie si une erreur est présente dans le modèle
+        if ("${error}" !== "") {
+            duplicateError.style.display = 'block';
+        }
+    };
+
+    document.getElementById('ajouterForm').addEventListener('submit', function(event) {
+        if (!validateInput()) {
+            event.preventDefault();
+            document.getElementById('error-message').style.display = 'block';
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* delete.css */
+/* Section de suppression */
+.delete-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.delete-section h2 {
+    font-size: 20px;
+    color: #FF7F7F;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Détails du programmeur */
+.details-box {
+    margin-bottom: 30px;
+}
+
+.details-box p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.details-box strong {
+    font-weight: bold;
+}
+
+/* Boutons de confirmation */
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button.delete {
+    background-color: #FF7F7F;
+    color: white;
+}
+
+.button.delete:hover {
+    background-color: #FF4C4C;
+}
+
+.button.cancel {
+    background-color: #ADD8E6;
+    color: white;
+}
+
+.button.cancel:hover {
+    background-color: #87CEEB;
+}
+
+@media (max-width: 768px) {
+    .delete-section {
+        padding: 20px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

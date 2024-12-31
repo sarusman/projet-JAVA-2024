@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Admin</title>
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="icon" href="/images/logo.png" type="image/x-icon">
+</head>
+<body>
+
+<!-- En-tête de la page -->
+<header class="header">
+  <img src="/images/logo.png" alt="Logo" class="logo">
+  <h1>DevDirectory</h1>
+  <nav>
+    <a href="/" class="button">Accueil</a>
+    <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
+    <a href="/statistiques" class="button">Statistiques</a>
+    <a href="/contact" class="button">Contact</a>
+    <a href="/login" class="button active">Connexion Admin</a>
+  </nav>
+</header>
+
+<!-- Formulaire de connexion -->
+<section class="login-section">
+  <h2>Connexion Admin</h2>
+  <form action="/login" method="POST">
+    <div class="form-group">
+      <label for="username">Identifiant :</label>
+      <input type="text" id="username" name="username" placeholder="Ex : toto" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" placeholder="Ex : tutu" required>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="button">Se connecter</button>
+    </div>
+    <!-- Affichage du message d'erreur -->
+    <div th:if="${error}" class="error-message">
+      Identifiants incorrects. Veuillez réessayer.
+    </div>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="/images/logo.png" alt="Logo" class="logo">
+      <p>&copy; 2024 DevDirectory. Tous droits réservés.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contactez-nous</a>
+    </div>
+    <div class="footer-socials">
+      <a href="https://facebook.com" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+      <a href="https://x.com" target="_blank"><img src="/images/x.png" alt="X"></a>
+      <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevDirectory</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+</head>
+<body>
+
+<!-- En-tête de la page -->
+<header class="header">
+    <img src="/images/logo.png" alt="Logo" class="logo">
+    <h1>DevDirectory</h1>
+    <nav>
+        <a href="/" class="button active">Accueil</a>
+        <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
+        <a href="/statistiques" class="button">Statistiques</a>
+        <a href="/contact" class="button">Contact</a>
+        <a href="/login" class="button">Connexion Admin</a>
+    </nav>
+</header>
+
+<!-- Formulaire de recherche -->
+<section class="search-section">
+    <h2>Recherche un·e développeur·se</h2>
+    <form th:action="@{/searchProgrammeurs}" method="GET">
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex : CHEIKH ROUHOU">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Ex : Imen">
+        </div>
+        <div class="form-group">
+            <label for="salaireMin">Salaire minimum :</label>
+            <input type="number" id="salaireMin" name="salaireMin" step="0.01" min="0" placeholder="Ex : 1500">
+        </div>
+        <div class="form-group">
+            <label for="responsable">Formateur (Responsable) :</label>
+            <input type="text" id="responsable" name="responsable" placeholder="Ex : Didier Achvar">
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" placeholder="Ex : 7 Rue des Fleurs">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="button">Rechercher</button>
+        </div>
+    </form>
+</section>
+
+<!-- Section des programmeurs -->
+<section class="programmeurs-section">
+    <h2>Liste des développeurs·ses</h2>
+
+    <!-- Affichage d'un message si la liste est vide -->
+    <div th:if="${programmeurs.isEmpty()}" class="empty-message">
+        Aucun·e programmeurs·ses trouvés·es
+    </div>
+
+    <!-- Affichage des programmeurs -->
+    <div class="programmeurs-container">
+        <div th:each="programmeur : ${programmeurs}" th:if="${!programmeurs.isEmpty()}" class="programmeur-card">
+            <div class="programmeur-details">
+                <h3 th:text="${programmeur.prenom} + ' ' + ${programmeur.nom}"></h3>
+                <p><strong>ID :</strong> <span th:text="${programmeur.id}"></span></p>
+                <p><strong>Adresse :</strong> <span th:text="${programmeur.adresse}"></span></p>
+                <p><strong>Pseudo :</strong> <span th:text="${programmeur.pseudo}"></span></p>
+                <p><strong>Responsable :</strong> <span th:text="${programmeur.responsable}"></span></p>
+                <p><strong>Hobby :</strong> <span th:text="${programmeur.hobby}"></span></p>
+                <p><strong>Année de naissance :</strong> <span th:text="${programmeur.annee}"></span></p>
+                <p><strong>Salaire :</strong> <span th:text="${programmeur.salaire}"></span> €</p>
+                <p><strong>Prime :</strong> <span th:text="${programmeur.prime}"></span> €</p>
+            </div>
+            <div class="programmeur-actions">
+                <a th:href="@{/updateProgrammeur(id=${programmeur.id})}" class="button">Modifier</a>
+                <a th:href="@{/deleteProgrammeur(id=${programmeur.id})}" class="button delete">Supprimer</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Logo" class="logo">
+            <p>&copy; 2024 DevDirectory. Tous droits réservés.</p>
+        </div>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+            <a href="/politique-confidentialite">Politique de confidentialité</a>
+            <a href="/contact">Contactez-nous</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="https://x.com" target="_blank"><img src="/images/x.png" alt="X"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

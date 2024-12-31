@@ -1,0 +1,65 @@
+/* home.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 40px;
+    /*background-image: url('../images/fond_ecran.png');*/
+    /*background-size: cover; !* Couvre toute la page *!*/
+    /*background-position: center; !* Centrer l'image *!*/
+    /*background-attachment: fixed; !* Fixe l'image pendant le défilement *!*/
+}
+
+/* En-tête de la page */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #185580;
+}
+
+.header nav {
+    display: flex;
+    gap: 10px;
+}
+
+.header .logo {
+    width: 70px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.header nav a.button {
+    background-color: #5992a6;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.header nav a.button:hover {
+    background-color: #185580;
+}
+
+.header nav a.button.active {
+    background-color: #185580;
+    font-weight: bold;
+}

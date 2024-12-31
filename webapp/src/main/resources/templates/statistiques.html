@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques des programmeurs·ses</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/statistiques.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+    <img src="/images/logo.png" alt="Logo" class="logo">
+    <h1>Statistiques des programmeurs·ses</h1>
+    <nav>
+        <a href="/" class="button">Accueil</a>
+        <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
+        <a href="/statistiques" class="button active">Statistiques</a>
+        <a href="/contact" class="button">Contact</a>
+        <a href="/login" class="button">Connexion Admin</a>
+    </nav>
+</header>
+
+<section class="statistiques-section">
+    <div class="statistiques-summary">
+        <div class="stat-box">
+            <p><strong>Salaire moyen :</strong></p>
+            <p class="stat-value">
+                <span th:text="${statistiques.salaireMoyen}"></span> €
+            </p>
+        </div>
+        <div class="stat-box">
+            <p><strong>Salaire minimum :</strong></p>
+            <p class="stat-value">
+                <span th:text="${statistiques.salaireMin}"></span> €
+            </p>
+        </div>
+        <div class="stat-box">
+            <p><strong>Salaire maximum :</strong></p>
+            <p class="stat-value">
+                <span th:text="${statistiques.salaireMax}"></span> €
+            </p>
+        </div>
+    </div>
+
+    <h3>Répartition des programmeurs·ses par année de naissance</h3>
+    <div class="list-container">
+        <div class="list-card" th:each="entry : ${statistiques.repartitionAnnee}">
+            <div class="list-content">
+                <h4>
+                    Année :
+                    <span th:text="${entry.key}" onclick="fetchProgrammeursByYear(this.innerText)"></span>
+                </h4>
+                <p>Nombre de programmeurs·ses : <span th:text="${entry.value}"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="programmeurModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalYear"></h2>
+            <div id="programmeurList" class="programmeur-list"></div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Logo" class="logo">
+            <p>&copy; 2024 DevDirectory. Tous droits réservés.</p>
+        </div>
+        <div class="footer-links">
+            <a href="/mentions-legales">Mentions légales</a>
+            <a href="/politique-confidentialite">Politique de confidentialité</a>
+            <a href="/contact">Contactez-nous</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="https://x.com" target="_blank"><img src="/images/x.png" alt="X"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function fetchProgrammeursByYear(year) {
+        console.log("Année cliquée: " + year);
+        fetch(`/programmeursByYear?year=${year}`)
+            .then(response => response.json())
+            .then(data => {
+                // Affiche les informations dans le modal
+                const modal = document.getElementById('programmeurModal');
+                const modalYear = document.getElementById('modalYear');
+                const programmeurList = document.getElementById('programmeurList');
+
+                modalYear.innerText = `Programmeurs de l'année ${year}`;
+                programmeurList.innerHTML = '';
+
+                data.forEach(programmeur => {
+                    const programmeurCard = document.createElement('div');
+                    programmeurCard.classList.add('programmeur-card');
+
+                    const programmeurName = document.createElement('h3');
+                    programmeurName.innerText = `${programmeur.prenom} ${programmeur.nom}`;
+
+                    const programmeurSalary = document.createElement('p');
+                    programmeurSalary.innerText = `Salaire : ${programmeur.salaire}€`;
+
+                    programmeurCard.appendChild(programmeurName);
+                    programmeurCard.appendChild(programmeurSalary);
+
+                    programmeurList.appendChild(programmeurCard);
+                });
+
+                modal.style.display = 'block';
+            })
+            .catch(error => console.error('Erreur lors de la récupération des données :', error));
+    }
+
+    function closeModal() {
+        document.getElementById('programmeurModal').style.display = 'none';
+    }
+</script>
+
+
+</body>
+</html>
