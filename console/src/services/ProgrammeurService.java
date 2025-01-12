@@ -96,7 +96,7 @@ public class ProgrammeurService {
         }
 
         while (true) {
-            responsableComplet = InputValidator.getValidResponsable(sc, "models.Responsable du programmeur : ");
+            responsableComplet = InputValidator.getValidResponsable(sc, "Responsable du programmeur : ");
             String[] parts = responsableComplet.split(" ", 2);
 
             if (parts.length < 2) {
