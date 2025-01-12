@@ -48,23 +48,32 @@ DevDirectory/
 
 ### Étape 1 : Ouvrir le projet
 1. Décompressez le dossier `DevDirectory.zip` à l'emplacement de votre choix.
-    <img src="img/zip.png" style="max-width: 75%; height: auto;">
+
+<img src="img/zip.png" style="max-width: 75%; height: auto;">
+
 2. Lancez IntelliJ IDEA CE.
-   <img src="img/open.png" style="max-width: 75%; height: auto;">
+
+<img src="img/open.png" style="max-width: 75%; height: auto;">
+
 3. Ouvrez le dossier `DevDirectory` en cliquant sur open.
-   <img src="img/lien.png" style="max-width: 75%; height: auto;">
+
+<img src="img/lien.png" style="max-width: 75%; height: auto;">
+
 ---
 
 ### Étape 2 : Ajouter la bibliothèque PostgreSQL JDBC
 Si vous rencontrez une erreur liée à JDBC :
 1. Rendez-vous dans **File** → **Project Structure**.
+
 <img src="img/project.png" style="max-width: 75%; height: auto;">
 
 2. Cliquez sur **Libraries**.
+
 <img src="img/librairies.png" style="max-width: 75%; height: auto;">
 
 3. Cliquez sur le bouton **+** puis sélectionnez **Java**.
-<img src="img/java.png" style="max-width: 45%; height: auto;">
+
+<img src="img/java.png" style="max-width: 35%; height: auto;">
 
 4. Ajoutez le fichier `.jar` situé dans :
    ```
@@ -76,7 +85,7 @@ Si vous rencontrez une erreur liée à JDBC :
 
 ### Étape 3 : Configurer le répertoire source
 Si le fichier `Start.java` (situé dans `console/src/`) ou les fichiers du dossier `webapp` ne sont pas exécutables :
-1. Faites un clic droit sur les répertoires `console/src` et `webapp/src`.
+1. Faites un clic droit sur les répertoires `console/src` et `webapp/src/java`.
 2. Cliquez sur **Mark Directory as** → **Sources Root**.
 
 ---
@@ -84,21 +93,30 @@ Si le fichier `Start.java` (situé dans `console/src/`) ou les fichiers du dossi
 ### Étape 4 : Exécuter le projet
 - Pour la **console** :
   Exécutez le fichier `Start.java` qui se trouve dans `console/src/`.
-  <img src="img/console.png" style="max-width: 45%; height: auto;">
-  <img src="img/start.png" style="max-width: 45%; height: auto;">
+
+<img src="img/start.png" style="max-width: 45%; height: auto;">
+  
 - Changez la configuration pour choisir l'option Current File si ce n'est pas déjà fait. Lancer le programme en cliquant sur le bouton Run.
-  <img src="img/currentFile.png" style="max-width: 45%; height: auto;">
+  
+<img src="img/currentFile.png" style="max-width: 45%; height: auto;">
+
 - Le programme se lancera !
-  <img src="img/run.png" style="max-width: 45%; height: auto;">
+  
+<img src="img/run.png" style="max-width: 45%; height: auto;">
 
 - Pour la **webapp** :
   Lancer la configuration fait automatiquement par IntelliJ 'WebappApplication'.
-  <img src="img/webapp.png" style="max-width: 45%; height: auto;">
+  
+<img src="img/webapp.png" style="max-width: 45%; height: auto;">
+
 - Sinon naviguer vers le fichier WebappApplication.java situé dans le dossier /webapp/src/main/java/.
-  <img src="img/runInterface.png" style="max-width: 45%; height: auto;">
+  
+<img src="img/runInterface.png" style="max-width: 45%; height: auto;">
+
 - Le site web sera disponible à l'adresse suivante : http://localhost:8080/ 
 - Bonne navigation sur notre site !
-  <img src="img/interface.png" style="max-width: 45%; height: auto;">
+ 
+<img src="img/interface.png" style="max-width: 45%; height: auto;">
 --- 
 
 ## Choix de SGBD

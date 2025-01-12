@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="README.md">
-      <change afterPath="$PROJECT_DIR$/img/adresse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/console.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/currentFile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/interface.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/run.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/runInterface.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/start.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/webapp.png" afterDir="false" />
+    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="Images sur le readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/lien.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/lien.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/open.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/open.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/zip.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/zip.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +106,7 @@
       <workItem from="1736702683373" duration="1067000" />
       <workItem from="1736703764673" duration="1047000" />
       <workItem from="1736707735718" duration="1227000" />
-      <workItem from="1736711349473" duration="1961000" />
+      <workItem from="1736711349473" duration="2387000" />
     </task>
     <task id="LOCAL-00001" summary="postgresql_42_7_4.xml">
       <option name="closed" value="true" />
@@ -143,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736708842960</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Images sur le readme">
+      <option name="closed" value="true" />
+      <created>1736713459703</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1736713459703</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +161,7 @@
     <MESSAGE value="postgresql_42_7_4.xml" />
     <MESSAGE value="Responsable" />
     <MESSAGE value="README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
+    <MESSAGE value="Images sur le readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Images sur le readme" />
   </component>
 </project>
