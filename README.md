@@ -140,8 +140,9 @@ Nous avons créé une interface graphique qui reprend toutes les fonctionnalité
   - Une page pour afficher des statistiques sur les programmeurs.
   - Une fonctionnalité de recherche filtrée pour trouver des informations rapidement sur les programmeurs.
   - Une page de connexion pour les administrateurs afin de sécuriser l’accès.
-  - Une page de contact pour permettre aux utilisateurs de poser des questions si besoin.
-  -  Une option pour ajouter de nouveaux administrateurs directement depuis l’interface.
+  - Une page de contact pour permettre aux utilisateurs de poser des questions si besoin. 
+  - Une option pour ajouter de nouveaux administrateurs directement depuis l’interface.
+  - Ajout d'un easter egg sur la page d'accueil !
 
 ---
 
