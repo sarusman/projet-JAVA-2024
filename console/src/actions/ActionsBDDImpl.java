@@ -48,7 +48,7 @@ public class ActionsBDDImpl implements ActionBDD {
                 System.out.printf("Prénom       : %s%n", rs.getString("prenom"));
                 System.out.printf("Adresse      : %s%n", rs.getString("adresse"));
                 System.out.printf("Pseudo       : %s%n", rs.getString("pseudo"));
-                System.out.printf("models.Responsable  : %s%n", rs.getString("responsable"));
+                System.out.printf("Responsable  : %s%n", rs.getString("responsable"));
                 System.out.printf("Hobby        : %s%n", rs.getString("hobby"));
                 System.out.printf("Naissance    : %d%n", rs.getInt("annee"));
                 System.out.printf("Salaire      : %.1f%n", rs.getFloat("salaire"));
