@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * Interface définissant les actions de base pour la gestion des programmeurs dans une base de données.
  */
-public interface ActionBDD {
+public interface ActionsBDD {
 
     /**
      * Affiche la liste complète des programmeurs présents dans la base de données.

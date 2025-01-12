@@ -6,9 +6,9 @@ import models.Responsable;
 import java.sql.*;
 
 /**
- * Implémentation de l'interface actions.ActionBDD pour gérer les interactions avec la base de données.
+ * Implémentation de l'interface actions.ActionsBDD pour gérer les interactions avec la base de données.
  */
-public class ActionsBDDImpl implements ActionBDD {
+public class ActionsBDDImpl implements ActionsBDD {
 
     private static final String URL = "jdbc:postgresql://aws-0-eu-west-3.pooler.supabase.com:6543/postgres?user=postgres.fcckpwkbrkquitlmuxon&password=Prysasha2024!";
     private static final ActionsBDDImpl actionsBD = new ActionsBDDImpl();
