@@ -4,18 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="Responsable">
-      <change afterPath="$PROJECT_DIR$/img/java.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/librairies.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/lien.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/project.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/zip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="README.md">
+      <change afterPath="$PROJECT_DIR$/img/adresse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/console.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/currentFile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/interface.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/run.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/runInterface.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/start.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/webapp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/src/actions/ActionBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/console/src/actions/ActionsBDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/src/actions/ActionsBDDImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/console/src/actions/ActionsBDDImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lien.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/lien.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/open.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/open.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/zip.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/zip.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,7 @@
     "Spring Boot.WebappApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/shaka/Documents/Efrei L3/DevDirectory-main",
+    "last_opened_file_path": "C:/Users/shaka/Documents/DevDirectory/img",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,6 +74,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shaka\Documents\DevDirectory\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\shaka\Documents\DevDirectory\img" />
     </key>
@@ -111,7 +116,8 @@
       <workItem from="1736702349167" duration="106000" />
       <workItem from="1736702683373" duration="1067000" />
       <workItem from="1736703764673" duration="1047000" />
-      <workItem from="1736707735718" duration="1038000" />
+      <workItem from="1736707735718" duration="1227000" />
+      <workItem from="1736711349473" duration="1961000" />
     </task>
     <task id="LOCAL-00001" summary="postgresql_42_7_4.xml">
       <option name="closed" value="true" />
@@ -129,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736700558891</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="README.md">
+      <option name="closed" value="true" />
+      <created>1736708842960</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736708842960</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +163,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="postgresql_42_7_4.xml" />
     <MESSAGE value="Responsable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsable" />
+    <MESSAGE value="README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
   </component>
 </project>
