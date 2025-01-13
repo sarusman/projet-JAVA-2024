@@ -33,6 +33,7 @@ DevDirectory/
 │   │   ├── services/
 │   │   └── utils/
 ├── javaDoc/
+├── img/
 ├── readme.txt
 └── README.md
 ```
