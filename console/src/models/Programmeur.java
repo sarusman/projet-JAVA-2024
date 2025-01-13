@@ -20,32 +20,6 @@ public class Programmeur {
     private double prime;
 
     /** CONSTRUCTEURS */
-    /**
-     * Constructeur de la classe models.Programmeur avec tous les attributs y compris l'identifiant.
-     *
-     * @param id            identifiant unique du programmeur
-     * @param nom           nom du programmeur
-     * @param prenom        prénom du programmeur
-     * @param adresse       adresse du programmeur
-     * @param pseudo        pseudonyme du programmeur
-     * @param responsable   responsable hiérarchique du programmeur
-     * @param hobby         hobby ou loisir préféré du programmeur
-     * @param anneeNaissance année de naissance du programmeur
-     * @param salaire       salaire annuel du programmeur
-     * @param prime         prime annuelle du programmeur
-     */
-    public Programmeur(int id, String nom, String prenom, String adresse, String pseudo, Responsable responsable, String hobby, int anneeNaissance, double salaire, double prime) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.adresse = adresse;
-        this.pseudo = pseudo;
-        this.responsable = responsable;
-        this.hobby = hobby;
-        this.anneeNaissance = anneeNaissance;
-        this.salaire = salaire;
-        this.prime = prime;
-    }
 
     /**
      * Constructeur de la classe models.Programmeur sans identifiant
@@ -53,9 +27,9 @@ public class Programmeur {
      * @param nom           nom du programmeur
      * @param prenom        prénom du programmeur
      * @param adresse       adresse du programmeur
-     * @param pseudo        pseudonyme du programmeur
-     * @param responsable   responsable hiérarchique du programmeur
-     * @param hobby         hobby ou loisir préféré du programmeur
+     * @param pseudo        pseudo du programmeur
+     * @param responsable   responsable du programmeur
+     * @param hobby         hobby du programmeur
      * @param anneeNaissance année de naissance du programmeur
      * @param salaire       salaire annuel du programmeur
      * @param prime         prime annuelle du programmeur
@@ -75,7 +49,7 @@ public class Programmeur {
     /** GETTERS & SETTERS */
 
     /**
-     * Retourne l'identifiant unique du programmeur.
+     * Retourne l'identifiant du programmeur.
      * @return l'identifiant du programmeur
      */
     public int getId() {

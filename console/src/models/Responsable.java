@@ -1,7 +1,7 @@
 package models;
 
 /**
- * Représente un responsable avec un prénom et un nom.
+ * La classe models.Responsable représente un responsable avec un prénom et un nom.
  * Cette classe est utilisée pour stocker les informations d'un responsable
  * dans le cadre de la gestion des programmeurs.
  *

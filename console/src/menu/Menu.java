@@ -6,7 +6,7 @@ import services.ProgrammeurService;
 import java.util.Scanner;
 
 /**
- * Classe principale pour afficher et gérer le menu interactif de l'application.
+ * Classe principale pour afficher et gérer le menu interactif du programme.
  * @author Sarusman
  */
 public class Menu {

@@ -1,7 +1,7 @@
 import menu.Menu;
 
 /**
- * La classe principale du programme.
+ * La classe Start est la classe principale du programme.
  * Elle initialise et lance l'application en affichant le menu principal.
  */
 public class Start {

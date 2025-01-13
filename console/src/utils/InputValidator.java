@@ -3,13 +3,13 @@ package utils;
 import java.util.Scanner;
 
 /**
- * Classe utilitaire pour valider les entrées utilisateur.
+ * La classe utils.InputValidator permet de valider les entrées utilisateur.
  * @author Sahkana
  */
 public class InputValidator {
 
     /**
-     * Lit une entrée entière valide dans une plage spécifiée.
+     * Lit une entrée entière valide.
      *
      * @param sc      Scanner utilisé pour lire l'entrée.
      * @param prompt  Message affiché pour demander l'entrée.
@@ -35,7 +35,7 @@ public class InputValidator {
     }
 
     /**
-     * Lit une entrée décimale valide dans une plage spécifiée.
+     * Lit une entrée décimale valide.
      *
      * @param sc      Scanner utilisé pour lire l'entrée.
      * @param prompt  Message affiché pour demander l'entrée.
@@ -61,7 +61,7 @@ public class InputValidator {
     }
 
     /**
-     * Valide et lit un nom en utilisant une expression régulière.
+     * Valide et lit un nom en utilisant une expression.
      *
      * @param sc      Scanner utilisé pour lire l'entrée.
      * @param prompt  Message affiché pour demander l'entrée.
@@ -72,7 +72,7 @@ public class InputValidator {
     }
 
     /**
-     * Valide et lit un prénom en utilisant une expression régulière.
+     * Valide et lit un prénom en utilisant une expression.
      *
      * @param sc      Scanner utilisé pour lire l'entrée.
      * @param prompt  Message affiché pour demander l'entrée.
@@ -87,7 +87,7 @@ public class InputValidator {
      * commence par un numéro suivi de deux mots, qui peuvent contenir des espaces et des '+'.
      *
      * Cette méthode continue à demander une entrée tant que l'utilisateur n'entre pas
-     * une chaîne valide. Elle utilise une expression régulière pour vérifier que l'adresse
+     * une chaîne valide. Elle utilise une expression pour vérifier que l'adresse
      * commence par un numéro suivi de mots (qui peuvent contenir des espaces ou des caractères '+' entre les mots).
      *
      * @param sc     Le scanner utilisé pour lire l'entrée de l'utilisateur.
@@ -103,8 +103,6 @@ public class InputValidator {
      * commence par une lettre et peut contenir des lettres, des chiffres, des tirets,
      * des underscores et des '+'.
      *
-     * Cette méthode continue à demander une entrée tant que l'utilisateur n'entre pas
-     * une chaîne valide.
      *
      * @param sc     Le scanner utilisé pour lire l'entrée de l'utilisateur.
      * @param prompt Le message à afficher pour inviter l'utilisateur à entrer un pseudo.
@@ -118,9 +116,6 @@ public class InputValidator {
      * Demande à l'utilisateur d'entrer un prénom et un nom, puis valide que l'entrée
      * correspond à un format correct (prénom et nom séparés par un espace, uniquement des lettres).
      *
-     * Cette méthode continue à demander une entrée tant que l'utilisateur n'entre pas
-     * une chaîne valide. Elle utilise une expression régulière pour vérifier que l'entrée
-     * contient un prénom et un nom composés uniquement de lettres (y compris les caractères accentués).
      *
      * @param sc     Le scanner utilisé pour lire l'entrée de l'utilisateur.
      * @param prompt Le message à afficher pour inviter l'utilisateur à entrer un prénom et un nom.
@@ -140,7 +135,7 @@ public class InputValidator {
     }
 
     /**
-     * Valide et lit un hobby en utilisant une expression régulière.
+     * Valide et lit un hobby en utilisant une expression.
      *
      * @param sc      Scanner utilisé pour lire l'entrée.
      * @param prompt  Message affiché pour demander l'entrée.
@@ -151,11 +146,11 @@ public class InputValidator {
     }
 
     /**
-     * Valide une entrée utilisateur générique en utilisant une expression régulière.
+     * Valide une entrée utilisateur générique en utilisant une expression.
      *
      * @param sc            Scanner utilisé pour lire l'entrée.
      * @param prompt        Message affiché pour demander l'entrée.
-     * @param regex         Expression régulière pour valider l'entrée.
+     * @param regex         Expression pour valider l'entrée.
      * @param errorMessage  Message d'erreur affiché si la validation échoue.
      * @return Une entrée valide.
      */

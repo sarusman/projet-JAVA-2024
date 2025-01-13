@@ -32,6 +32,7 @@ DevDirectory/
 │   │   ├── models/
 │   │   ├── services/
 │   │   └── utils/
+├── javaDoc/
 ├── readme.txt
 └── README.md
 ```

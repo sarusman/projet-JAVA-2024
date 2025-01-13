@@ -5,7 +5,7 @@ import models.Programmeur;
 import java.sql.SQLException;
 
 /**
- * Interface définissant les actions de base pour la gestion des programmeurs dans une base de données.
+ * Interface pour les actions de base concernant la gestion des programmeurs dans la base de données.
  */
 public interface ActionsBDD {
 
@@ -17,7 +17,7 @@ public interface ActionsBDD {
     void afficherProgrammeurs() throws SQLException;
 
     /**
-     * Affiche les informations d'un programmeur spécifique.
+     * Affiche les informations d'un programmeur en particulier.
      *
      * @param id L'identifiant unique du programmeur.
      * @return {@code true} si le programmeur existe, sinon {@code false}.
@@ -25,9 +25,9 @@ public interface ActionsBDD {
     boolean afficherProgrammeur(int id);
 
     /**
-     * Supprime un programmeur de la base de données en fonction de son identifiant.
+     * Supprime un programmeur de la base de données à l'aide de son identifiant.
      *
-     * @param id L'identifiant unique du programmeur à supprimer.
+     * @param id L'identifiant du programmeur à supprimer.
      * @return {@code true} si la suppression a réussi, sinon {@code false}.
      */
     boolean supprimerProgrammeur(int id);
@@ -48,7 +48,7 @@ public interface ActionsBDD {
     void modifierSalaire(int id, double salaire);
 
     /**
-     * Vérifie si un programmeur est un doublon dans la base de données en fonction de son prénom, nom ou pseudo.
+     * Vérifie si un programmeur est un doublon dans la base de données avec son prénom, nom ou pseudo.
      *
      * @param prenom Le prénom du programmeur.
      * @param nom    Le nom du programmeur.

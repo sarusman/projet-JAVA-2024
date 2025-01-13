@@ -22,6 +22,7 @@ public class ActionsBDDImpl implements ActionsBDD {
     private static final String GET_RESPONSABLE_ID = "SELECT id FROM responsables WHERE LOWER(nom) = LOWER(?) AND LOWER(prenom) = LOWER(?)";
     private static final String CHECK_RESPONSABLE_EXISTS = "SELECT id FROM Responsables WHERE LOWER(prenom) = LOWER(?) AND LOWER(nom) = LOWER(?)";
     private static final String INSERT_RESPONSABLE = "INSERT INTO Responsables (prenom, nom) VALUES (?, ?) RETURNING id";
+
     /**
      * Ouvre une connexion à la base de données.
      *
@@ -62,7 +63,7 @@ public class ActionsBDDImpl implements ActionsBDD {
     }
 
     /**
-     * Affiche les informations d'un programmeur spécifique.
+     * Affiche les informations d'un programmeur en particulier.
      *
      * @param id L'identifiant du programmeur.
      * @return {@code true} si le programmeur existe, sinon {@code false}.
@@ -236,7 +237,7 @@ public class ActionsBDDImpl implements ActionsBDD {
      *
      * @param nom    le nom du responsable
      * @param prenom le prénom du responsable
-     * @return l'ID du responsable s'il existe, -1 sinon
+     * @return l'id du responsable s'il existe, -1 sinon
      * @author Sarusman
      */
     public int getResponsableId(String nom, String prenom) {
@@ -254,7 +255,7 @@ public class ActionsBDDImpl implements ActionsBDD {
     }
 
     /**
-     * Ajoute un responsable si nécessaire et retourne son ID.
+     * Ajoute un responsable si nécessaire et retourne son id.
      *
      * @param responsable L'objet Responsable.
      * @return L'ID du responsable.
@@ -264,7 +265,7 @@ public class ActionsBDDImpl implements ActionsBDD {
         Connection co = null;
         try {
             co = actionsBD.ouvrirConnexion();
-            co.setAutoCommit(false); // AU cas ou il y une erreur lors de l'ajout d'un responsable, on doit annuler l'ajout et revenir a la bdd de départ
+            co.setAutoCommit(false); // Au cas où il y a une erreur lors de l'ajout d'un responsable, on doit annuler l'ajout et revenir à la bdd de départ
             try (PreparedStatement checkStmt = co.prepareStatement(CHECK_RESPONSABLE_EXISTS)) {
                 checkStmt.setString(1, responsable.getPrenom());
                 checkStmt.setString(2, responsable.getNom());

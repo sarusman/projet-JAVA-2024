@@ -8,7 +8,7 @@ import utils.InputValidator;
 import java.util.Scanner;
 
 /**
- * Service pour gérer les opérations liées aux programmeurs dans la base de données.
+ * La classe services.ProgrammeurService permet de gérer les opérations liées aux programmeurs dans la base de données.
  * @author Priyank
  */
 public class ProgrammeurService {
@@ -27,7 +27,7 @@ public class ProgrammeurService {
     }
 
     /**
-     * Affiche les détails d'un programmeur spécifique en fonction de son ID.
+     * Affiche les détails d'un programmeur en fonction de son id.
      *
      * @param actionsBDD l'instance d'actions.ActionsBDDImpl pour interagir avec la base de données
      * @param sc         le scanner utilisé pour lire l'entrée utilisateur
@@ -45,7 +45,7 @@ public class ProgrammeurService {
     }
 
     /**
-     * Supprime un programmeur de la base de données en fonction de son ID.
+     * Supprime un programmeur de la base de données en fonction de son id.
      *
      * @param actionsBDD l'instance d'actions.ActionsBDDImpl pour interagir avec la base de données
      * @param sc         le scanner utilisé pour lire l'entrée utilisateur
