@@ -2,23 +2,17 @@
 <project version="4">
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="8" />
-    <option name="CUSTOM_SCOPE_NAME" value="Module 'DevDirectory'" />
+    <option name="CUSTOM_SCOPE_NAME" value="Selected directory" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="Modification README.md et readme.txt">
+    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="JavaDoc WebappApplication">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/WebappApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/WebappApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ProgrammeurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ProgrammeurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ResponsableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ResponsableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/model/Programmeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/model/Programmeur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/model/Responsable.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/model/Responsable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/ProgrammeurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/ProgrammeurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/ResponsableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/ResponsableRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/ProgrammeurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/ProgrammeurService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/ResponsableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/ResponsableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +196,7 @@
       <workItem from="1736716511315" duration="1258000" />
       <workItem from="1736801603017" duration="2268000" />
       <workItem from="1736803901910" duration="49000" />
-      <workItem from="1736876558906" duration="582000" />
+      <workItem from="1736876558906" duration="940000" />
     </task>
     <task id="LOCAL-00001" summary="postgresql_42_7_4.xml">
       <option name="closed" value="true" />
@@ -276,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736803877834</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="JavaDoc WebappApplication">
+      <option name="closed" value="true" />
+      <created>1736877303923</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736877303923</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +305,7 @@
     <MESSAGE value="Commentaires Javadoc" />
     <MESSAGE value="Génération Javadoc" />
     <MESSAGE value="Modification README.md et readme.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification README.md et readme.txt" />
+    <MESSAGE value="JavaDoc WebappApplication" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc WebappApplication" />
   </component>
 </project>
