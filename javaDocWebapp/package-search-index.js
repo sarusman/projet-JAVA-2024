@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.javaprojet.webapp"},{"l":"com.javaprojet.webapp.controller"},{"l":"com.javaprojet.webapp.model"},{"l":"com.javaprojet.webapp.repository"},{"l":"com.javaprojet.webapp.service"}];updateSearchResults();

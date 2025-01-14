@@ -1,0 +1,5 @@
+com.javaprojet.webapp
+com.javaprojet.webapp.controller
+com.javaprojet.webapp.model
+com.javaprojet.webapp.repository
+com.javaprojet.webapp.service
