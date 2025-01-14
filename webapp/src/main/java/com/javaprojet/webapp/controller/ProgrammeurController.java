@@ -264,6 +264,26 @@ public class ProgrammeurController {
     }
 
     /**
+     * Affiche la page des mentions légales.
+     *
+     * @return Le nom de la vue à afficher (mentionsLegales).
+     */
+    @GetMapping("/mentions-legales")
+    public String afficherMentionsLegales() {
+        return "legal";
+    }
+
+    /**
+     * Affiche la page de la politique de confidentialité.
+     *
+     * @return Le nom de la vue à afficher (politiqueConfidentialite).
+     */
+    @GetMapping("/politique-confidentialite")
+    public String afficherPolitiqueConfidentialite() {
+        return "confidentiality";
+    }
+
+    /**
      * Récupère les programmeurs par année.
      *
      * Cette méthode est appelée via une requête GET pour récupérer les programmeurs d'une année spécifique.

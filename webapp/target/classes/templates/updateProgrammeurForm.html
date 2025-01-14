@@ -1,96 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un·e programmeur·se</title>
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/update.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="icon" href="/images/logo.png" type="image/x-icon">
-</head>
-<body>
-
-<!-- En-tête de la page -->
-<header class="header">
-    <img src="/images/logo.png" alt="Logo" class="logo">
-    <h1>Modification d'un·e programmeur·se</h1>
-    <nav>
-        <a href="/" class="button">Accueil</a>
-        <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
-        <a href="/statistiques" class="button">Statistiques</a>
-        <a href="/contact" class="button">Contact</a>
-        <a href="/login" class="button">Connexion Admin</a>
-    </nav>
-</header>
-
-<!-- Formulaire de modification -->
-<section class="edit-section">
-    <h2>Modifier les informations</h2>
-    <form action="/modifier" method="post" id="modifierForm" class="form-box">
-        <input type="hidden" name="id" th:value="${programmeur.id}">
-
-        <div class="form-group">
-            <label for="prenom">Prénom :</label>
-            <input type="text" name="prenom" id="prenom" th:value="${programmeur.prenom}" required placeholder="Entrez le prénom">
-            <div class="error-message" id="prenom-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" id="nom" th:value="${programmeur.nom}" required placeholder="Entrez le nom">
-            <div class="error-message" id="nom-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="adresse">Adresse :</label>
-            <input type="text" name="adresse" id="adresse" th:value="${programmeur.adresse}" required placeholder="Entrez l'adresse">
-            <div class="error-message" id="adresse-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="pseudo">Pseudo :</label>
-            <input type="text" name="pseudo" id="pseudo" th:value="${programmeur.pseudo}" required placeholder="Entrez le pseudo">
-            <div class="error-message" id="pseudo-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="responsable">Responsable :</label>
-            <input type="text" name="responsable" id="responsable" th:value="${programmeur.responsable}" required placeholder="Entrez le responsable">
-            <div class="error-message" id="responsable-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="hobby">Hobby :</label>
-            <input type="text" name="hobby" id="hobby" th:value="${programmeur.hobby}" required placeholder="Entrez le hobby">
-            <div class="error-message" id="hobby-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="annee">Année de naissance :</label>
-            <input type="number" name="annee" id="annee" th:value="${programmeur.annee}" min="1900" max="2024" placeholder="Entrez l'année de naissance">
-            <div class="error-message" id="annee-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="salaire">Salaire (€) :</label>
-            <input type="number" name="salaire" id="salaire" th:value="${programmeur.salaire}" step="0.5" placeholder="Entrez le salaire">
-            <div class="error-message" id="salaire-error"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="prime">Prime (€) :</label>
-            <input type="number" name="prime" id="prime" th:value="${programmeur.prime}" step="0.5" placeholder="Entrez la prime">
-            <div class="error-message" id="prime-error"></div>
-        </div>
-
-        <div class="form-group form-buttons">
-            <button type="submit" class="button submit">Modifier</button>
-            <a href="/" class="button cancel">Annuler</a>
-        </div>
-    </form>
-</section>
-
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-logo">
@@ -108,6 +15,7 @@
             <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
         </div>
     </div>
+    <button id="easterEggButton" style="position: absolute; bottom: 10px; right: 10px; opacity: 0; cursor: pointer;">🎉</button>
 </footer>
 
 <script>
@@ -189,8 +97,19 @@
             event.preventDefault();
         }
     });
-</script>
 
+    const easterEggButton = document.getElementById('easterEggButton');
+    easterEggButton.addEventListener('click', () => {
+        alert("🎉 Bravo ! Vous avez trouvé l'easter egg ! 🚀");
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.ctrlKey && event.key === 'e') { // Ctrl + E pour activer
+            easterEggButton.style.opacity = 1;
+            easterEggButton.style.transition = 'opacity 0.5s';
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -75,9 +75,22 @@
             <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
         </div>
     </div>
+    <button id="easterEggButton" style="position: absolute; bottom: 10px; right: 10px; opacity: 0; cursor: pointer;">🎉</button>
 </footer>
 
 <script>
+    const easterEggButton = document.getElementById('easterEggButton');
+    easterEggButton.addEventListener('click', () => {
+        alert("🎉 Bravo ! Vous avez trouvé l'easter egg ! 🚀");
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.ctrlKey && event.key === 'e') { // Ctrl + E pour activer
+            easterEggButton.style.opacity = 1;
+            easterEggButton.style.transition = 'opacity 0.5s';
+        }
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
         // 14 Rue de l'Église, 75015 Paris
         const lat = 48.84107;

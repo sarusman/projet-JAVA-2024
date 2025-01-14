@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Liste des responsables</title>
+    <title>Politique de confidentialité - DevDirectory</title>
+    <link rel="stylesheet" href="/css/confidentiality.css">
     <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/responsable.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
 </head>
@@ -13,10 +13,9 @@
 
 <header class="header">
     <img src="/images/logo.png" alt="Logo" class="logo">
-    <h1>Admin - Liste des responsables</h1>
+    <h1>Politique de confidentialité</h1>
     <nav>
-        <a href="/logout" class="button">Se déconnecter</a>
-        <a href="/" class="button">Accueil</a>
+        <a href="/" class="button active">Accueil</a>
         <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
         <a href="/statistiques" class="button">Statistiques</a>
         <a href="/contact" class="button">Contact</a>
@@ -24,47 +23,45 @@
     </nav>
 </header>
 
-<section class="add-responsable-section">
-    <button class="add-responsable-button" onclick="openForm()">+</button>
-</section>
+<section class="privacy-content">
+    <h2>Collecte des données personnelles</h2>
+    <p>
+        DevDirectory s'engage à ce que la collecte et le traitement de vos données, effectués à partir du site <strong>DevDirectory</strong>, soient conformes au règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés.
+    </p>
 
-<div id="error-message" style="color: red; display: none;">
-    <!-- message d'erreur -->
-</div>
+    <h2>Utilisation des données collectées</h2>
+    <p>
+        Les données personnelles collectées sont utilisées pour les finalités suivantes :
+    </p>
+    <ul>
+        <li>Gestion des utilisateurs et des développeurs listés sur le site.</li>
+        <li>Envoi d'informations ou de newsletters (si vous y avez consenti).</li>
+        <li>Amélioration de l'expérience utilisateur sur le site.</li>
+    </ul>
 
-<!-- Modal Formulaire d'ajout -->
-<div id="addFormPopup" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeForm()">×</span>
-        <h2>Ajouter un responsable</h2>
-        <form action="/addResponsable" method="POST">
+    <h2>Partage des données</h2>
+    <p>
+        Vos données ne seront jamais vendues à des tiers. Elles peuvent être partagées avec des partenaires techniques dans le cadre du fonctionnement du site, mais uniquement dans les limites nécessaires.
+    </p>
 
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required>
+    <h2>Vos droits</h2>
+    <p>
+        Vous disposez des droits suivants sur vos données personnelles :
+    </p>
+    <ul>
+        <li>Droit d'accès, de rectification et d'effacement de vos données.</li>
+        <li>Droit à la limitation du traitement.</li>
+        <li>Droit à la portabilité des données.</li>
+        <li>Droit d'opposition au traitement de vos données.</li>
+    </ul>
+    <p>
+        Pour exercer ces droits, contactez-nous à l'adresse suivante : <a href="mailto:privacy@devdirectory.com">privacy@devdirectory.com</a>.
+    </p>
 
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
-
-            <button type="submit" class="button add">Ajouter</button>
-        </form>
-    </div>
-</div>
-
-<section class="responsables-section">
-    <h2>Liste des responsables</h2>
-
-    <div class="responsables-container">
-        <div th:each="responsable : ${responsables}" class="responsable-card">
-            <div class="responsable-details">
-                <h3 th:text="${responsable.prenom} + ' ' + ${responsable.nom}"></h3>
-            </div>
-            <form action="/deleteResponsable" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce responsable ?');">
-                <input type="hidden" name="id" th:value="${responsable.id}">
-                <button type="submit" class="button delete-button">Supprimer</button>
-            </form>
-        </div>
-    </div>
-
+    <h2>Durée de conservation</h2>
+    <p>
+        Vos données personnelles sont conservées uniquement pour la durée nécessaire aux finalités décrites, sauf obligation légale de conservation plus longue.
+    </p>
 </section>
 
 <footer class="footer">
@@ -99,14 +96,6 @@
             easterEggButton.style.transition = 'opacity 0.5s';
         }
     });
-
-    function openForm() {
-        document.getElementById("addFormPopup").style.display = "block";
-    }
-
-    function closeForm() {
-        document.getElementById("addFormPopup").style.display = "none";
-    }
 </script>
 
 </body>

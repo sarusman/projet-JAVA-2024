@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Liste des responsables</title>
+    <title>Mentions légales - DevDirectory</title>
+    <link rel="stylesheet" href="/css/legal.css">
     <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/responsable.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
 </head>
@@ -13,10 +13,9 @@
 
 <header class="header">
     <img src="/images/logo.png" alt="Logo" class="logo">
-    <h1>Admin - Liste des responsables</h1>
+    <h1>Mentions légales</h1>
     <nav>
-        <a href="/logout" class="button">Se déconnecter</a>
-        <a href="/" class="button">Accueil</a>
+        <a href="/" class="button active">Accueil</a>
         <a href="/addProgrammeur" class="button">Ajouter un·e développeur·se</a>
         <a href="/statistiques" class="button">Statistiques</a>
         <a href="/contact" class="button">Contact</a>
@@ -24,47 +23,27 @@
     </nav>
 </header>
 
-<section class="add-responsable-section">
-    <button class="add-responsable-button" onclick="openForm()">+</button>
-</section>
+<section class="legal-content">
+    <h2>Informations générales</h2>
+    <p>
+        Conformément à l'article 6 de la loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <strong>DevDirectory</strong> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :
+    </p>
+    <ul>
+        <li><strong>Propriétaire :</strong> DevDirectory - SARL au capital de 10 000€</li>
+        <li><strong>Responsable publication :</strong> Imen CHEIKH ROUHOU</li>
+        <li><strong>Hébergeur :</strong> OVH - 2 rue Kellermann, 59100 Roubaix, France</li>
+        <li><strong>Contact :</strong> <a href="mailto:contact@devdirectory.com">contact@devdirectory.com</a></li>
+    </ul>
 
-<div id="error-message" style="color: red; display: none;">
-    <!-- message d'erreur -->
-</div>
+    <h2>Propriété intellectuelle</h2>
+    <p>
+        Tous les éléments graphiques, la structure et, plus généralement, le contenu du site <strong>DevDirectory</strong> sont protégés par le droit d'auteur, le droit des marques et le droit des bases de données. Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable.
+    </p>
 
-<!-- Modal Formulaire d'ajout -->
-<div id="addFormPopup" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeForm()">×</span>
-        <h2>Ajouter un responsable</h2>
-        <form action="/addResponsable" method="POST">
-
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required>
-
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
-
-            <button type="submit" class="button add">Ajouter</button>
-        </form>
-    </div>
-</div>
-
-<section class="responsables-section">
-    <h2>Liste des responsables</h2>
-
-    <div class="responsables-container">
-        <div th:each="responsable : ${responsables}" class="responsable-card">
-            <div class="responsable-details">
-                <h3 th:text="${responsable.prenom} + ' ' + ${responsable.nom}"></h3>
-            </div>
-            <form action="/deleteResponsable" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce responsable ?');">
-                <input type="hidden" name="id" th:value="${responsable.id}">
-                <button type="submit" class="button delete-button">Supprimer</button>
-            </form>
-        </div>
-    </div>
-
+    <h2>Responsabilité</h2>
+    <p>
+        DevDirectory ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site. Le site est régulièrement mis à jour pour garantir une meilleure expérience utilisateur, mais des erreurs ou omissions peuvent subsister.
+    </p>
 </section>
 
 <footer class="footer">
@@ -99,14 +78,6 @@
             easterEggButton.style.transition = 'opacity 0.5s';
         }
     });
-
-    function openForm() {
-        document.getElementById("addFormPopup").style.display = "block";
-    }
-
-    function closeForm() {
-        document.getElementById("addFormPopup").style.display = "none";
-    }
 </script>
 
 </body>
