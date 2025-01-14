@@ -7,10 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Repository pour gérer les opérations CRUD sur les programmeurs.
+ * Repository pour gérer les opérations basiques sur les programmeurs.
  *
  * Cette interface étend {@link JpaRepository} et fournit des méthodes pour accéder et manipuler les données des programmeurs.
- * Elle inclut une méthode personnalisée pour rechercher un programmeur par son prénom et son nom.
+ * Elle inclut une méthode findByPrenomAndNom pour rechercher un programmeur par son prénom et son nom.
  *
  * @author Priyank
  */

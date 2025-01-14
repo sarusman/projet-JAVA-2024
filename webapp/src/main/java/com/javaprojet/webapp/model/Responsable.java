@@ -3,7 +3,7 @@ package com.javaprojet.webapp.model;
 import jakarta.persistence.*;
 
 /**
- * Représente un responsable dans le système.
+ * Représente un responsable.
  *
  * Cette classe est une entité JPA mappée à la table "responsables" dans la base de données. Elle contient des informations
  * sur un responsable, telles que son prénom et son nom. Les annotations JPA sont utilisées pour la persistance des données.

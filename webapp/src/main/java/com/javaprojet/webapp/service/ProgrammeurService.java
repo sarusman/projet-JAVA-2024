@@ -16,9 +16,9 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
- * Service pour gérer les opérations liées aux programmeurs.
+ * La classe ProgrammeurService permet de gérer les opérations liées aux programmeurs.
  *
- * Cette classe contient des méthodes permettant de réaliser des actions (créer, afficher, mettre à jour et supprimer)
+ * Cette classe contient des méthodes permettant de réaliser les actions créer, afficher, mettre à jour et supprimer
  * sur les programmeurs ainsi que des statistiques sur les programmeurs. Elle est annotée avec {@link Service} pour
  * indiquer qu'il s'agit d'un service Spring géré par le conteneur Spring.
  *
@@ -95,10 +95,10 @@ public class ProgrammeurService {
      * Calcule les statistiques sur les programmeurs.
      *
      * Cette méthode calcule des statistiques telles que le nombre total de programmeurs, le salaire moyen, minimum
-     * et maximum, ainsi que la répartition des programmeurs par année d'embauche.
+     * et maximum ainsi que la répartition des programmeurs par année de naissance.
      *
      * @return Une Map contenant les statistiques : total des programmeurs, salaire moyen, salaire minimum,
-     *         salaire maximum et répartition par année d'embauche.
+     *         salaire maximum et répartition par année de naissance.
      */
     public Map<String, Object> getStatistiques() {
         List<Programmeur> programmeurs = programmeurRepository.findAll();
@@ -117,7 +117,7 @@ public class ProgrammeurService {
         String salaireMinStr = df.format(salaireMin);
         String salaireMaxStr = df.format(salaireMax);
 
-        // répartition des programmeurs par année d'embauche
+        // répartition des programmeurs
         Map<Integer, Long> repartitionAnnee = new TreeMap<>(
                 programmeurs.stream()
                         .collect(Collectors.groupingBy(Programmeur::getAnnee, Collectors.counting()))
@@ -199,17 +199,5 @@ public class ProgrammeurService {
         }
 
         return programmeurs;
-    }
-
-    /**
-     * Récupère tous les formateurs (responsables).
-     *
-     * Cette méthode appelle {@link ResponsableRepository#findAll()} pour récupérer tous les formateurs (responsables)
-     * enregistrés dans la base de données.
-     *
-     * @return Une liste de formateurs (responsables).
-     */
-    public List<Responsable> getFormateurs() {
-        return responsableRepository.findAll();
     }
 }

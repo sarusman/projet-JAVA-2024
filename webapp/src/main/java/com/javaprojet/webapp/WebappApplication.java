@@ -5,9 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * Classe principale de l'application Webapp.
  *
- * Cette classe est utilisée pour démarrer l'application Spring Boot. Elle est annotée avec
+ * La Webapp classe permet de démarrer l'application Spring Boot. Elle est annotée avec
  * {@link SpringBootApplication} pour indiquer qu'il s'agit d'une application Spring Boot
  * et {@link EnableTransactionManagement} pour activer la gestion des transactions.
  *
@@ -24,7 +23,7 @@ public class WebappApplication {
 	 * Cette méthode est le point d'entrée de l'application. Elle utilise {@link SpringApplication#run(Class, String[])}
 	 * pour démarrer l'application.
 	 *
-	 * @param args Les arguments de ligne de commande, s'il y en a.
+	 * @param args Les arguments de ligne de commande.
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(WebappApplication.class, args);

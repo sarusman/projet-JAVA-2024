@@ -4,10 +4,10 @@ import com.javaprojet.webapp.model.Responsable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * Repository pour gérer les opérations CRUD sur les responsables.
+ * Repository pour gérer les opérations basiques sur les responsables.
  *
  * Cette interface étend {@link JpaRepository} et fournit des méthodes pour accéder et manipuler les données des responsables.
- * Elle inclut une méthode personnalisée pour rechercher un responsable par son prénom et son nom.
+ * Elle inclut une méthode findByPrenomAndNom pour rechercher un responsable par son prénom et son nom.
  *
  * @author Sahkana
  */

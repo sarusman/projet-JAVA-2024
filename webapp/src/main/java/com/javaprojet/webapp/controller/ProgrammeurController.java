@@ -23,7 +23,7 @@ public class ProgrammeurController {
     /**
      * Le service pour gérer les programmeurs.
      *
-     * Ce service est utilisé pour interagir avec la base de données et effectuer des opérations CRUD sur les programmeurs.
+     * Ce service est utilisé pour interagir avec la base de données et effectuer des opérations de base sur les programmeurs.
      */
     private final ProgrammeurService programmeurService;
 

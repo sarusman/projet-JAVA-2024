@@ -23,7 +23,7 @@ public class ResponsableController {
     /**
      * Le service pour gérer les responsables.
      *
-     * Ce service est utilisé pour interagir avec la base de données et effectuer des opérations CRUD sur les responsables.
+     * Ce service est utilisé pour interagir avec la base de données et effectuer des opérations sur les responsables.
      */
     private final ResponsableService responsableService;
 

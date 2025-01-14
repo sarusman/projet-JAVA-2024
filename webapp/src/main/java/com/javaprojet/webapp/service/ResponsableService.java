@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Service pour gérer les opérations liées aux responsables.
+ * La classe RespopnsableService permet de gérer les opérations liées aux responsables.
  *
- * Cette classe contient les méthodes permettant d'effectuer actions (créer, afficher, mettre à jour et supprimer)
+ * Cette classe contient les méthodes permettant d'effectuer les actions créer, afficher, mettre à jour et supprimer
  * sur les responsables via le {@link ResponsableRepository}. Elle est annotée avec {@link Service} pour indiquer
  * qu'il s'agit d'un service Spring géré par le conteneur Spring.
  *

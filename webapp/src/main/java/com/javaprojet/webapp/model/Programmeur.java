@@ -3,11 +3,11 @@ package com.javaprojet.webapp.model;
 import jakarta.persistence.*;
 
 /**
- * Représente un programmeur dans le système.
+ * Représente un programmeur.
  *
  * Cette classe est une entité JPA mappée à la table "Programmeurs" dans la base de données. Elle contient des informations
- * détaillées sur un programmeur, telles que son nom, prénom, adresse, pseudo, responsable, hobby, année d'entrée, salaire,
- * et prime. Elle est utilisée pour stocker et récupérer les données relatives aux programmeurs dans la base de données.
+ * détaillées sur un programmeur, telles que son nom, prénom, adresse, pseudo, responsable, hobby, année de naissance, salaire,
+ * et prime. Elle est utilisée pour stocker et récupérer les données des programmeurs dans la base de données.
  *
  * @author Sarusman
  */
@@ -56,7 +56,7 @@ public class Programmeur {
     public String hobby;
 
     /**
-     * L'année d'entrée du programmeur dans l'entreprise.
+     * L'année de naissance du programmeur
      */
     public int annee;
 
@@ -204,18 +204,18 @@ public class Programmeur {
     }
 
     /**
-     * Retourne l'année d'entrée du programmeur dans l'entreprise.
+     * Retourne l'année de naissance du programmeur
      *
-     * @return L'année d'entrée du programmeur.
+     * @return L'année de naissance du programmeur.
      */
     public int getAnnee() {
         return annee;
     }
 
     /**
-     * Définit l'année d'entrée du programmeur dans l'entreprise.
+     * Définit l'année de naissance du programmeur dans l'entreprise.
      *
-     * @param annee L'année d'entrée à définir.
+     * @param annee L'année de naissance à définir.
      */
     public void setAnnee(int annee) {
         this.annee = annee;
