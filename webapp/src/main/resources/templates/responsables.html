@@ -64,7 +64,12 @@
             </form>
         </div>
     </div>
+</section>
 
+<section class="tasks-section">
+    <button class="show-tasks-button" onclick="showTasks()">Afficher les tâches</button>
+    <div id="tasksContainer" class="tasks-container" style="display: none;">
+    </div>
 </section>
 
 <footer class="footer">
@@ -88,6 +93,31 @@
 </footer>
 
 <script>
+    function showTasks() {
+        const tasksContainer = document.getElementById("tasksContainer");
+
+        const tasks = [
+            { programmeur: "Alice Dupont", responsable: "Jean Martin", tache: "Développer la page d'accueil" },
+            { programmeur: "Bob Lefevre", responsable: "Sophie Durant", tache: "Corriger les bugs" },
+            { programmeur: "Clara Moreau", responsable: "Paul Girard", tache: "Mettre à jour la base de données" },
+        ];
+
+        tasksContainer.innerHTML = "";
+
+        tasks.forEach(task => {
+            const taskElement = document.createElement("div");
+            taskElement.classList.add("task-card");
+            taskElement.innerHTML = `
+                <h4>Programmeur : ${task.programmeur}</h4>
+                <p>Responsable : ${task.responsable}</p>
+                <p>Tâche : ${task.tache}</p>
+            `;
+            tasksContainer.appendChild(taskElement);
+        });
+
+        tasksContainer.style.display = tasksContainer.style.display === "none" ? "block" : "none";
+    }
+
     const easterEggButton = document.getElementById('easterEggButton');
     easterEggButton.addEventListener('click', () => {
         alert("🎉 Bravo ! Vous avez trouvé l'easter egg ! 🚀");

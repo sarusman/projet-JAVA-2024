@@ -11,7 +11,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Sahkana
  */
-public interface ResponsableRepository extends JpaRepository<Responsable, Long> {
+public interface
+ResponsableRepository extends JpaRepository<Responsable, Integer> {
 
     /**
      * Recherche un responsable par son prénom et son nom.

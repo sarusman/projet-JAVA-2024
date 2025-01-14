@@ -1,5 +1,6 @@
 package com.javaprojet.webapp.service;
 
+import com.javaprojet.webapp.model.Programmeur;
 import com.javaprojet.webapp.model.Responsable;
 import com.javaprojet.webapp.repository.ResponsableRepository;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,19 @@ public class ResponsableService {
      */
     public ResponsableService(ResponsableRepository responsableRepository) {
         this.responsableRepository = responsableRepository;
+    }
+
+    /**
+     * Trouve un responsable par son identifiant.
+     *
+     * Cette méthode appelle la méthode ResponsableRepository.findById(int) pour trouver un reponsable
+     * correspondant à l'identifiant fourni.
+     *
+     * @param id L'identifiant du reponsable à rechercher.
+     * @return Le reponsable correspondant à l'identifiant, ou null si aucun reponsable n'est trouvé.
+     */
+    public Responsable findResponsableById(int id) {
+        return responsableRepository.findById(id).orElse(null);
     }
 
     /**
@@ -60,7 +74,7 @@ public class ResponsableService {
      *
      * @param id L'identifiant du responsable à supprimer.
      */
-    public void deleteById(Long id) {
+    public void deleteById(int id) {
         responsableRepository.deleteById(id);
     }
 

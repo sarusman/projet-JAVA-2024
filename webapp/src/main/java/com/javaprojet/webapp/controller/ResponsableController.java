@@ -90,7 +90,7 @@ public class ResponsableController {
      * @return La redirection vers la page des responsables.
      */
     @PostMapping("/deleteResponsable")
-    public String deleteResponsable(@RequestParam Long id) {
+    public String deleteResponsable(@RequestParam int id) {
         responsableService.deleteById(id);
         return "redirect:/responsables";
     }

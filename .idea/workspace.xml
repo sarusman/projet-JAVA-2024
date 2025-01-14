@@ -8,38 +8,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="JavaDoc Webapp">
-      <change afterPath="$PROJECT_DIR$/webapp/src/main/resources/static/css/confidentiality.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/main/resources/static/css/legal.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/confidentiality.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/legal.html" afterDir="false" />
+    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="Mentions légales + politique de confidentialité">
+      <change afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/model/Tache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/TacheRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/TacheService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ProgrammeurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ProgrammeurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/static/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/static/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/addProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/addProgrammeurForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/deleteProgrammeurPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/deleteProgrammeurPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ResponsableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/controller/ResponsableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/ResponsableRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/ResponsableRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/ResponsableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/ResponsableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/static/css/responsable.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/static/css/responsable.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/responsables.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/responsables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/statistiques.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/statistiques.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/updateProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/updateProgrammeurForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/WebappApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/WebappApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/controller/ProgrammeurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/controller/ProgrammeurController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/controller/ResponsableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/controller/ResponsableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/model/Programmeur.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/model/Programmeur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/model/Responsable.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/model/Responsable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/service/ProgrammeurService.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/service/ProgrammeurService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/static/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/static/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/addProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/addProgrammeurForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/deleteProgrammeurPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/deleteProgrammeurPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/repository/ResponsableRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/repository/ResponsableRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/service/ResponsableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/com/javaprojet/webapp/service/ResponsableService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/target/classes/static/css/responsable.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/static/css/responsable.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/responsables.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/responsables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/statistiques.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/statistiques.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/updateProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/updateProgrammeurForm.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +34,7 @@
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -73,7 +57,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2rX1BL1s0vSyZlTbbM6sBVu7Vbd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -234,7 +220,7 @@
       <workItem from="1736716511315" duration="1258000" />
       <workItem from="1736801603017" duration="2268000" />
       <workItem from="1736803901910" duration="49000" />
-      <workItem from="1736876558906" duration="3081000" />
+      <workItem from="1736876558906" duration="8977000" />
     </task>
     <task id="LOCAL-00001" summary="postgresql_42_7_4.xml">
       <option name="closed" value="true" />
@@ -324,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736877520336</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Mentions légales + politique de confidentialité">
+      <option name="closed" value="true" />
+      <created>1736879689518</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1736879689518</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +347,7 @@
     <MESSAGE value="Modification README.md et readme.txt" />
     <MESSAGE value="JavaDoc WebappApplication" />
     <MESSAGE value="JavaDoc Webapp" />
-    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc Webapp" />
+    <MESSAGE value="Mentions légales + politique de confidentialité" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mentions légales + politique de confidentialité" />
   </component>
 </project>
