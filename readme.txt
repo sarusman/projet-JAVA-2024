@@ -31,11 +31,38 @@ DevDirectory/
 │       └── postgresql-42.7.4.jar
 ├── webapp/
 │   ├── src/
-│   │   ├── actions/
-│   │   ├── menu/
-│   │   ├── models/
-│   │   ├── services/
-│   │   └── utils/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com.javaprojet.webapp/
+│   │   │   │       ├── controller/
+│   │   │   │       │   ├── AdminController.java
+│   │   │   │       │   ├── ProgrammeurController.java
+│   │   │   │       │   └── ResponsableController.java
+│   │   │   │       ├── model/
+│   │   │   │       │   ├── Programmeur.java
+│   │   │   │       │   └── Responsable.java
+│   │   │   │       ├── repository/
+│   │   │   │       │   ├── ProgrammeurRepository.java
+│   │   │   │       │   └── ResponsableRepository.java
+│   │   │   │       ├── service/
+│   │   │   │       │   ├── ProgrammeurService.java
+│   │   │   │       │   ├── ResponsableService.java
+│   │   │   │       ├── WebappApplication.java
+│   │   └── resources/
+│   │       ├── static/
+│   │       │   ├── css/
+│   │       │   └── images/
+│   │       └── templates/
+│   │           ├── addProgrammeurForm.html
+│   │           ├── confidentiality.html
+│   │           ├── contact.html
+│   │           ├── deleteProgrammeurPage.html
+│   │           ├── home.html
+│   │           ├── legal.html
+│   │           ├── login.html
+│   │           ├── responsables.html
+│   │           ├── statistiques.html
+│   │           └── updateProgrammeurForm.html
 ├── javaDoc/
 ├── javaDocWebapp/
 ├── img/
@@ -83,6 +110,13 @@ car il offre des outils prêts à l’emploi, comme une interface facile pour g�
 pour les utilisateurs, et même une API automatique pour accéder à la base de données.
 Cela nous a permis de gagner du temps et de nous concentrer sur le reste du projet.
 PostgreSQL et Supabase nous donnent une solution simple, fiable et efficace pour gérer nos données et les rendre accessibles en ligne. C’est une bonne option pour notre petit projet avec une petite base de données.
+
+============================================================
+Fonctionnalités non mises en œuvre
+-------------
+Nous avions prévu d'ajouter un système de gestion des tâches intégré à la base de données. On aurait pu donc créer, modifier et supprimer des tâches en les attribuant à des programmeurs et des responsables.
+Ceux-ci seraient affichées et auraient pu être sélectionné depuis une liste. On aurait également pu ajouté des étiquettes (en cours, terminée, en attente etc).
+On a cependant pas pu le faire à cause du temps limité. On a cependant une petite base qui permet d'en ajouter sans conservation des données.
 
 
 ============================================================

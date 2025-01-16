@@ -48,7 +48,6 @@
     margin-bottom: 15px;
 }
 
-/* Boutons génériques */
 .button {
     padding: 10px 20px;
     font-size: 14px;
@@ -69,13 +68,11 @@
 }
 
 .button.delete {
-
-        font-size: 12px;
-        padding: 8px 12px;
-    
+    font-size: 12px;
+    padding: 8px 12px;
 }
 
-/* Bouton "+" pour ajouter */
+/* Bouton pour ajouter */
 .add-responsable-button {
     background-color: #185580;
     color: white;
@@ -99,7 +96,6 @@
     margin-bottom: 30px;
 }
 
-/* Modals */
 .modal {
     display: none;
     position: fixed;
