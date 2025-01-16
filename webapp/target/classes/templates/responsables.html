@@ -10,7 +10,6 @@
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
 </head>
 <body>
-
 <header class="header">
     <img src="/images/logo.png" alt="Logo" class="logo">
     <h1>Admin - Liste des responsables</h1>
@@ -32,13 +31,12 @@
     <!-- message d'erreur -->
 </div>
 
-<!-- Modal Formulaire d'ajout -->
+<!-- Formulaire d'ajout de responsable -->
 <div id="addFormPopup" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeForm()">×</span>
+        <span class="close" onclick="closeForm()">&times;</span>
         <h2>Ajouter un responsable</h2>
         <form action="/addResponsable" method="POST">
-
             <label for="prenom">Prénom :</label>
             <input type="text" id="prenom" name="prenom" required>
 
@@ -52,7 +50,6 @@
 
 <section class="responsables-section">
     <h2>Liste des responsables</h2>
-
     <div class="responsables-container">
         <div th:each="responsable : ${responsables}" class="responsable-card">
             <div class="responsable-details">
@@ -66,69 +63,36 @@
     </div>
 </section>
 
-<section class="tasks-section">
-    <button class="show-tasks-button" onclick="showTasks()">Afficher les tâches</button>
-    <div id="tasksContainer" class="tasks-container" style="display: none;">
+<!-- Tâches -->
+<div class="tasks-menu">
+    <h2>Liste des tâches</h2>
+    <button class="button add-task-button" onclick="openTaskForm()">Ajouter une tâche</button>
+    <div id="tasksList">
     </div>
-</section>
+</div>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <img src="/images/logo.png" alt="Logo" class="logo">
-            <p>&copy; 2024 DevDirectory. Tous droits réservés.</p>
-        </div>
-        <div class="footer-links">
-            <a href="/mentions-legales">Mentions légales</a>
-            <a href="/politique-confidentialite">Politique de confidentialité</a>
-            <a href="/contact">Contactez-nous</a>
-        </div>
-        <div class="footer-socials">
-            <a href="https://facebook.com" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
-            <a href="https://x.com" target="_blank"><img src="/images/x.png" alt="X"></a>
-            <a href="https://linkedin.com" target="_blank"><img src="/images/linkedin.png" alt="LinkedIn"></a>
-        </div>
+<!-- Formulaire d'ajout de tâche -->
+<div id="addTaskPopup" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeTaskForm()">&times;</span>
+        <h2>Ajouter une tâche</h2>
+        <form id="addTaskForm">
+            <label for="programmeur">Programmeur :</label>
+            <input type="text" id="programmeur" name="programmeur" required>
+
+            <label for="responsable">Responsable :</label>
+            <input type="text" id="responsable" name="responsable" required>
+
+            <label for="tache">Tâche :</label>
+            <input type="text" id="tache" name="tache" required>
+
+            <button type="submit" class="button add">Ajouter</button>
+        </form>
     </div>
-    <button id="easterEggButton" style="position: absolute; bottom: 10px; right: 10px; opacity: 0; cursor: pointer;">🎉</button>
-</footer>
+</div>
 
 <script>
-    function showTasks() {
-        const tasksContainer = document.getElementById("tasksContainer");
-
-        const tasks = [
-            { programmeur: "Alice Dupont", responsable: "Jean Martin", tache: "Développer la page d'accueil" },
-            { programmeur: "Bob Lefevre", responsable: "Sophie Durant", tache: "Corriger les bugs" },
-            { programmeur: "Clara Moreau", responsable: "Paul Girard", tache: "Mettre à jour la base de données" },
-        ];
-
-        tasksContainer.innerHTML = "";
-
-        tasks.forEach(task => {
-            const taskElement = document.createElement("div");
-            taskElement.classList.add("task-card");
-            taskElement.innerHTML = `
-                <h4>Programmeur : ${task.programmeur}</h4>
-                <p>Responsable : ${task.responsable}</p>
-                <p>Tâche : ${task.tache}</p>
-            `;
-            tasksContainer.appendChild(taskElement);
-        });
-
-        tasksContainer.style.display = tasksContainer.style.display === "none" ? "block" : "none";
-    }
-
-    const easterEggButton = document.getElementById('easterEggButton');
-    easterEggButton.addEventListener('click', () => {
-        alert("🎉 Bravo ! Vous avez trouvé l'easter egg ! 🚀");
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.ctrlKey && event.key === 'e') { // Ctrl + E pour activer
-            easterEggButton.style.opacity = 1;
-            easterEggButton.style.transition = 'opacity 0.5s';
-        }
-    });
+    const tasks = [];
 
     function openForm() {
         document.getElementById("addFormPopup").style.display = "block";
@@ -137,6 +101,49 @@
     function closeForm() {
         document.getElementById("addFormPopup").style.display = "none";
     }
+
+    function openTaskForm() {
+        document.getElementById("addTaskPopup").style.display = "block";
+    }
+
+    function closeTaskForm() {
+        document.getElementById("addTaskPopup").style.display = "none";
+    }
+
+    document.getElementById('addTaskForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const programmeur = document.getElementById('programmeur').value;
+        const responsable = document.getElementById('responsable').value;
+        const tache = document.getElementById('tache').value;
+
+        tasks.push({ programmeur, responsable, tache });
+        this.reset();
+        closeTaskForm();
+        renderTasks();
+    });
+
+    function renderTasks() {
+        const tasksList = document.getElementById('tasksList');
+        tasksList.innerHTML = '';
+
+        tasks.forEach((task, index) => {
+            const taskCard = document.createElement('div');
+            taskCard.className = 'task-card';
+            taskCard.innerHTML = `
+            <h4>${task.programmeur} - ${task.responsable}</h4>
+            <p>${task.tache}</p>
+            <button class="button delete" onclick="deleteTask(${index})">Supprimer</button>
+        `;
+            tasksList.appendChild(taskCard);
+        });
+    }
+
+    function deleteTask(index) {
+        tasks.splice(index, 1);
+        renderTasks();
+    }
+
 </script>
 
 </body>

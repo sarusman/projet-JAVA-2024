@@ -48,71 +48,34 @@
     margin-bottom: 15px;
 }
 
-/* Actions sur le responsable */
-.responsable-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-
-.responsable-actions a.button {
-    padding: 8px 16px;
-    border-radius: 6px;
-    text-decoration: none;
+/* Boutons génériques */
+.button {
+    padding: 10px 20px;
     font-size: 14px;
-    transition: background-color 0.3s;
-    display: inline-block;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
 }
 
-.responsable-actions a.button.add {
+.button.add {
     background-color: #185580;
     color: white;
 }
 
-.responsable-actions a.button.add:hover {
+.button.add:hover {
     background-color: #123e5a;
 }
 
-.responsable-actions a.button.delete {
-    background-color: #FF7F7F;
-    color: white;
+.button.delete {
+
+        font-size: 12px;
+        padding: 8px 12px;
+    
 }
 
-.responsable-actions a.button.delete:hover {
-    background-color: #FF4C4C;
-}
-
-/* Message si la liste des responsables est vide */
-.empty-message {
-    text-align: center;
-    font-size: 18px;
-    color: #999;
-    padding: 20px;
-}
-
-/* Style des boutons de suppression */
-.delete-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #b62c39;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.delete-button:hover {
-    background-color: #830d18;
-}
-
-/* Formulaire d'ajout (popup) */
-.add-responsable-section {
-    margin: 40px auto;
-    text-align: center;
-}
-
+/* Bouton "+" pour ajouter */
 .add-responsable-button {
     background-color: #185580;
     color: white;
@@ -124,13 +87,19 @@
     cursor: pointer;
     display: inline-block;
     transition: background-color 0.3s ease;
+    margin: 0 auto;
 }
 
 .add-responsable-button:hover {
     background-color: #123e5a;
 }
 
-/* Style du modal */
+.add-responsable-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Modals */
 .modal {
     display: none;
     position: fixed;
@@ -142,6 +111,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
     padding-top: 60px;
+    animation: fadeIn 0.3s;
 }
 
 .modal-content {
@@ -149,7 +119,7 @@
     margin: 5% auto;
     padding: 20px;
     border-radius: 12px;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -170,6 +140,7 @@
     color: black;
 }
 
+/* Formulaires */
 input[type="text"] {
     width: 100%;
     padding: 12px;
@@ -185,104 +156,93 @@ input[type="text"]:focus {
     outline: none;
 }
 
-/* Bouton "Ajouter" */
 button[type="submit"].add {
-    padding: 10px 20px;
     background-color: #185580;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 14px;
 }
 
 button[type="submit"].add:hover {
     background-color: #123e5a;
 }
 
-/* Bouton "Supprimer" */
-button[type="submit"].delete {
-    padding: 10px 20px;
-    background-color: #b62c39;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 14px;
+/* Tâches */
+.tasks-menu {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-button[type="submit"].delete:hover {
-    background-color: #830d18;
-}
-
-.modal-content {
-    animation: fadeIn 0.3s;
-}
-
-.tasks-section {
-    margin: 20px;
+.tasks-menu h2 {
+    font-size: 22px;
+    color: #185580;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.show-tasks-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #27507c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
 .tasks-container {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .task-card {
-    margin: 10px 0;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-template-columns: 1fr;
 }
 
 .task-card h4 {
-    margin: 0;
-    font-size: 18px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .task-card p {
-    margin: 5px 0;
     font-size: 14px;
+    color: #666;
+    margin: 0;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.tasks-menu .add-task-button {
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.task-card .button.delete {
+    display: inline-block;
+    width: auto;
 }
 
 @media (max-width: 768px) {
-    .responsables-section {
+    .responsables-section,
+    .tasks-menu {
         padding: 20px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    .responsables-container {
+        grid-template-columns: 1fr;
     }
 
     .responsable-card {
         padding: 15px;
     }
 
-    .responsable-actions a.button {
+    .button {
         font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    .modal-content {
-        width: 90%;
-        align-items: center;
+        padding: 8px 12px;
     }
 }
