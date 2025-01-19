@@ -8,16 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="Ajout gestion des tâches">
+    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="JavaDocInterfaceGraphique">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/model/Tache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/repository/TacheRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/javaprojet/webapp/service/TacheService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/responsables.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/responsables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/static/css/responsable.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/static/css/responsable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/responsables.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/responsables.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console/src/actions/ActionsBDDImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/console/src/actions/ActionsBDDImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/updateProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/updateProgrammeurForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/updateProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/updateProgrammeurForm.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,34 +54,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Start.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.addProgrammeurForm.html.executor&quot;: &quot;Debug&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.WebappApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shaka/Documents/DevDirectory/console/Libraries/postgresql-42.7.4.jar&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Start.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.addProgrammeurForm.html.executor": "Debug",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.WebappApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/shaka/Documents/DevDirectory/console/Libraries/postgresql-42.7.4.jar",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shaka\Documents\DevDirectory\img" />
@@ -216,7 +211,9 @@
       <workItem from="1736801603017" duration="2268000" />
       <workItem from="1736803901910" duration="49000" />
       <workItem from="1736876558906" duration="9251000" />
-      <workItem from="1737053632742" duration="4067000" />
+      <workItem from="1737053632742" duration="4213000" />
+      <workItem from="1737287350458" duration="622000" />
+      <workItem from="1737288008250" duration="1258000" />
     </task>
     <task id="LOCAL-00001" summary="postgresql_42_7_4.xml">
       <option name="closed" value="true" />
@@ -338,7 +335,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737058165915</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="README.md">
+      <option name="closed" value="true" />
+      <created>1737059061260</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1737059061260</updated>
+    </task>
+    <task id="LOCAL-00017" summary="JavaDocInterfaceGraphique">
+      <option name="closed" value="true" />
+      <created>1737059149231</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1737059149231</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +371,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="postgresql_42_7_4.xml" />
     <MESSAGE value="Responsable" />
-    <MESSAGE value="README.md" />
     <MESSAGE value="Images sur le readme" />
     <MESSAGE value="Modif de README.md" />
     <MESSAGE value="Compilation projet Java" />
@@ -371,6 +383,11 @@
     <MESSAGE value="Tâches" />
     <MESSAGE value="javaDoc interface" />
     <MESSAGE value="Ajout gestion des tâches" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout gestion des tâches" />
+    <MESSAGE value="README.md" />
+    <MESSAGE value="JavaDocInterfaceGraphique" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDocInterfaceGraphique" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DevDirectory$WebappApplication.ic" NAME="WebappApplication Coverage Results" MODIFIED="1737059093427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

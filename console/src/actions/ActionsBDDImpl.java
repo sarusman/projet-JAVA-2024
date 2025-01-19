@@ -286,7 +286,7 @@ public class ActionsBDDImpl implements ActionsBDD {
                     return newId;
                 }
             }
-
+            //co.rollback();
         } catch (SQLException e) {
             if (co != null) {
                 try {
