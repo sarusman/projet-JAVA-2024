@@ -8,9 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="JavaDocInterfaceGraphique">
+    <list default="true" id="14c784ad-1bc4-4a12-ab02-a3a2616ac67b" name="Changes" comment="Bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console/src/actions/ActionsBDDImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/console/src/actions/ActionsBDDImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/updateProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/updateProgrammeurForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/target/classes/templates/updateProgrammeurForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/target/classes/templates/updateProgrammeurForm.html" afterDir="false" />
     </list>
@@ -213,7 +212,7 @@
       <workItem from="1736876558906" duration="9251000" />
       <workItem from="1737053632742" duration="4213000" />
       <workItem from="1737287350458" duration="622000" />
-      <workItem from="1737288008250" duration="1258000" />
+      <workItem from="1737288008250" duration="2750000" />
     </task>
     <task id="LOCAL-00001" summary="postgresql_42_7_4.xml">
       <option name="closed" value="true" />
@@ -351,7 +350,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737059149231</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Bugs">
+      <option name="closed" value="true" />
+      <created>1737289386042</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1737289386042</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +392,8 @@
     <MESSAGE value="Ajout gestion des tâches" />
     <MESSAGE value="README.md" />
     <MESSAGE value="JavaDocInterfaceGraphique" />
-    <option name="LAST_COMMIT_MESSAGE" value="JavaDocInterfaceGraphique" />
+    <MESSAGE value="Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugs" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DevDirectory$WebappApplication.ic" NAME="WebappApplication Coverage Results" MODIFIED="1737059093427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

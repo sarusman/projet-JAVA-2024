@@ -151,8 +151,10 @@
             formIsValid = false;
         }
 
-        if (!hobby || !nameRegex.test(hobby)) {
-            displayError('hobby', 'Le hobby doit contenir uniquement des lettres.');
+        const hobbyRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)*$/;
+
+        if (!hobby || !hobbyRegex.test(hobby)) {
+            displayError('hobby', 'Le hobby doit contenir uniquement des lettres et des espaces.');
             formIsValid = false;
         }
 
